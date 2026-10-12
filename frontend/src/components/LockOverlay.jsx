@@ -30,22 +30,24 @@ export function LockOverlay({ teamName, reason, onUnlocked }) {
   };
 
   return (
-    <div className="ov" style={{ zIndex: 1000, background: 'rgba(4, 7, 16, 0.94)' }}>
+    <div className="ov" style={{ zIndex: 1000, background: 'rgba(15, 23, 42, 0.6)', backdropFilter: 'blur(8px)' }}>
       <div className="box" style={{
         maxWidth: '420px',
         textAlign: 'center',
         padding: '32px 28px',
-        border: '1px solid rgba(248, 81, 73, 0.3)',
-        boxShadow: '0 24px 64px rgba(0, 0, 0, 0.8), 0 0 30px rgba(248, 81, 73, 0.08)'
+        background: '#ffffff',
+        border: '1px solid #fecdd3',
+        borderRadius: '16px',
+        boxShadow: '0 24px 48px -12px rgba(225, 29, 72, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.04)'
       }}>
         {/* Subtle Shield Icon */}
         <div style={{
           width: '52px',
           height: '52px',
-          borderRadius: '12px',
-          background: 'rgba(248, 81, 73, 0.12)',
-          border: '1px solid rgba(248, 81, 73, 0.3)',
-          color: '#ff7b72',
+          borderRadius: '14px',
+          background: '#ffe4e6',
+          border: '1px solid #fecdd3',
+          color: '#e11d48',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -54,32 +56,32 @@ export function LockOverlay({ teamName, reason, onUnlocked }) {
           <ShieldAlert size={26} />
         </div>
 
-        <h2 style={{ color: '#ffffff', margin: '0 0 6px', fontSize: '22px', fontWeight: 700, letterSpacing: '0.2px' }}>
+        <h2 style={{ color: '#0f172a', margin: '0 0 6px', fontSize: '22px', fontWeight: 800, letterSpacing: '0.2px' }}>
           Session Locked
         </h2>
 
-        <div style={{ color: 'var(--txt-muted)', fontSize: '14px', marginBottom: '14px' }}>
+        <div style={{ color: '#64748b', fontSize: '14px', marginBottom: '14px', fontWeight: 500 }}>
           Security verification required
         </div>
 
         {violationCount ? (
           <div style={{
             display: 'inline-block',
-            padding: '3px 12px',
+            padding: '4px 14px',
             borderRadius: '12px',
-            background: 'rgba(248, 81, 73, 0.1)',
-            border: '1px solid rgba(248, 81, 73, 0.25)',
-            color: '#ff7b72',
+            background: '#fee2e2',
+            border: '1px solid #fca5a5',
+            color: '#b91c1c',
             fontSize: '12px',
-            fontWeight: 600,
+            fontWeight: 700,
             marginBottom: '20px'
           }}>
             {violationCount} violations detected
           </div>
         ) : (
           <div style={{
-            color: 'var(--txt-dim)',
-            fontSize: '12px',
+            color: '#64748b',
+            fontSize: '13px',
             marginBottom: '20px',
             lineHeight: 1.5,
             maxWidth: '340px',
@@ -100,16 +102,19 @@ export function LockOverlay({ teamName, reason, onUnlocked }) {
             style={{
               textAlign: 'center',
               letterSpacing: '4px',
-              fontSize: '15px',
-              padding: '10px 14px',
+              fontSize: '16px',
+              padding: '12px 14px',
               width: '100%',
               borderRadius: '8px',
-              background: 'rgba(255, 255, 255, 0.04)',
-              border: '1px solid rgba(255, 255, 255, 0.12)'
+              background: '#f8fafc',
+              border: '1px solid #cbd5e1',
+              color: '#0f172a',
+              outline: 'none',
+              fontWeight: 700
             }}
           />
           {error && (
-            <div style={{ color: '#ff7b72', fontSize: '12px', marginTop: '8px', fontWeight: 500 }}>
+            <div style={{ color: '#dc2626', fontSize: '12px', marginTop: '8px', fontWeight: 600 }}>
               {error}
             </div>
           )}
@@ -121,16 +126,19 @@ export function LockOverlay({ teamName, reason, onUnlocked }) {
           disabled={loading || !pin.trim()}
           style={{
             width: '100%',
-            padding: '10px',
+            padding: '12px',
             borderRadius: '8px',
-            fontSize: '13px'
+            fontSize: '14px',
+            fontWeight: 700,
+            background: 'linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%)',
+            boxShadow: '0 4px 12px rgba(124, 58, 237, 0.25)'
           }}
         >
           {loading ? <Loader2 size={16} className="spin" /> : 'Unlock Session'}
         </button>
 
-        <div style={{ color: 'var(--txt-dim)', fontSize: '11px', marginTop: '16px' }}>
-          Organizers may also unlock remotely from the Proctor Dashboard
+        <div style={{ color: '#94a3b8', fontSize: '11px', marginTop: '16px' }}>
+          Organizers may also unlock remotely from the Admin Dashboard
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@
     "start": "node backend/server.js",
     "build": "cd frontend && npm run build",
     "dev:backend": "node --watch backend/server.js",
-    "dev:frontend": "cd frontend && npm run dev"
+    "dev:frontend": "cd frontend && npm run dev",
+    "seed:supabase": "node backend/seed_supabase.js"
   }
 }

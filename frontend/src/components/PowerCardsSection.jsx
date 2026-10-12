@@ -125,25 +125,26 @@ export function PowerCardsSection({
             margin: 0,
             fontSize: '18px',
             fontWeight: 700,
-            color: '#ffffff',
+            color: '#0f172a',
             letterSpacing: '0.2px'
           }}>
             Power Cards
           </h2>
           <span style={{
             fontSize: '11px',
-            color: 'var(--txt-dim)',
-            background: 'rgba(255, 255, 255, 0.05)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+            color: '#64748b',
+            background: '#f1f5f9',
+            border: '1px solid #e2e8f0',
             padding: '1px 8px',
-            borderRadius: '12px'
+            borderRadius: '12px',
+            fontWeight: 500
           }}>
             Shared Inventory
           </span>
         </div>
 
-        <div style={{ fontSize: '13px', color: 'var(--txt-muted)' }}>
-          Shared Balance: <b style={{ color: '#ffffff', fontFamily: 'var(--font-mono)' }}>{teamBalance} ByteCoins</b>
+        <div style={{ fontSize: '13px', color: '#64748b' }}>
+          Shared Balance: <b style={{ color: '#0f172a', fontFamily: 'var(--font-mono)' }}>{teamBalance} ByteCoins</b>
         </div>
       </div>
 
@@ -152,9 +153,9 @@ export function PowerCardsSection({
         <div style={{
           padding: '10px 14px',
           borderRadius: '8px',
-          background: notification.type === 'success' ? 'rgba(63, 185, 80, 0.1)' : 'rgba(248, 81, 73, 0.1)',
-          border: `1px solid ${notification.type === 'success' ? 'rgba(63, 185, 80, 0.3)' : 'rgba(248, 81, 73, 0.3)'}`,
-          color: notification.type === 'success' ? '#3fb950' : '#f85149',
+          background: notification.type === 'success' ? '#ecfdf5' : '#fef2f2',
+          border: `1px solid ${notification.type === 'success' ? '#a7f3d0' : '#fecaca'}`,
+          color: notification.type === 'success' ? '#047857' : '#b91c1c',
           fontSize: '13px',
           fontWeight: 500,
           marginBottom: '16px',
@@ -184,8 +185,8 @@ export function PowerCardsSection({
         <div
           className={recentUnlockedCard === 'HINT' ? 'card-unlocked-reveal' : ''}
           style={{
-            background: 'linear-gradient(180deg, rgba(30, 80, 180, 0.12) 0%, rgba(13, 17, 28, 0.85) 100%)',
-            border: `1px solid ${isHintUnlocked ? 'rgba(56, 139, 253, 0.3)' : 'rgba(56, 139, 253, 0.2)'}`,
+            background: isHintUnlocked ? '#ffffff' : '#f8fafc',
+            border: `1px solid ${isHintUnlocked ? '#bfdbfe' : '#e2e8f0'}`,
             borderRadius: '14px',
             padding: '24px 22px',
             position: 'relative',
@@ -193,15 +194,15 @@ export function PowerCardsSection({
             flexDirection: 'column',
             justifyContent: isHintUnlocked ? 'space-between' : 'center',
             minHeight: '210px',
-            boxShadow: isHintUnlocked ? '0 8px 32px rgba(0, 0, 0, 0.35)' : '0 8px 24px rgba(0, 0, 0, 0.4)',
+            boxShadow: isHintUnlocked ? '0 4px 14px rgba(37, 99, 235, 0.08)' : '0 1px 3px rgba(0, 0, 0, 0.05)',
             transition: 'border-color 0.2s ease, transform 0.2s ease'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = 'rgba(56, 139, 253, 0.5)';
+            e.currentTarget.style.borderColor = '#93c5fd';
             e.currentTarget.style.transform = 'translateY(-2px)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = isHintUnlocked ? 'rgba(56, 139, 253, 0.3)' : 'rgba(56, 139, 253, 0.2)';
+            e.currentTarget.style.borderColor = isHintUnlocked ? '#bfdbfe' : '#e2e8f0';
             e.currentTarget.style.transform = 'translateY(0)';
           }}
         >
@@ -219,13 +220,13 @@ export function PowerCardsSection({
                 width: '50px',
                 height: '50px',
                 borderRadius: '12px',
-                background: 'rgba(56, 139, 253, 0.12)',
-                border: '1px solid rgba(56, 139, 253, 0.3)',
+                background: '#eff6ff',
+                border: '1px solid #bfdbfe',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#58a6ff',
-                boxShadow: '0 4px 18px rgba(56, 139, 253, 0.15)'
+                color: '#2563eb',
+                boxShadow: '0 2px 8px rgba(37, 99, 235, 0.12)'
               }}>
                 <Lock size={24} />
               </div>
@@ -234,7 +235,7 @@ export function PowerCardsSection({
                 margin: 0,
                 fontSize: '18px',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: '#0f172a',
                 letterSpacing: '0.2px'
               }}>
                 Hint Pass
@@ -246,9 +247,9 @@ export function PowerCardsSection({
                 gap: '6px',
                 fontSize: '13px',
                 fontWeight: 600,
-                color: '#58a6ff',
-                background: 'rgba(56, 139, 253, 0.1)',
-                border: '1px solid rgba(56, 139, 253, 0.25)',
+                color: '#64748b',
+                background: '#f1f5f9',
+                border: '1px solid #e2e8f0',
                 padding: '5px 14px',
                 borderRadius: '20px'
               }}>
@@ -265,12 +266,12 @@ export function PowerCardsSection({
                     width: '42px',
                     height: '42px',
                     borderRadius: '10px',
-                    background: 'rgba(56, 139, 253, 0.15)',
-                    border: '1px solid rgba(56, 139, 253, 0.35)',
+                    background: '#eff6ff',
+                    border: '1px solid #bfdbfe',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#58a6ff'
+                    color: '#2563eb'
                   }}>
                     <Lightbulb size={22} />
                   </div>
@@ -278,9 +279,9 @@ export function PowerCardsSection({
                   <span style={{
                     fontSize: '11px',
                     fontWeight: 600,
-                    color: hintPassesCount > 0 ? '#58a6ff' : 'var(--txt-dim)',
-                    background: hintPassesCount > 0 ? 'rgba(56, 139, 253, 0.12)' : 'rgba(255, 255, 255, 0.04)',
-                    border: `1px solid ${hintPassesCount > 0 ? 'rgba(56, 139, 253, 0.3)' : 'rgba(255, 255, 255, 0.08)'}`,
+                    color: hintPassesCount > 0 ? '#2563eb' : '#94a3b8',
+                    background: hintPassesCount > 0 ? '#eff6ff' : '#f1f5f9',
+                    border: `1px solid ${hintPassesCount > 0 ? '#bfdbfe' : '#e2e8f0'}`,
                     padding: '3px 10px',
                     borderRadius: '12px'
                   }}>
@@ -293,14 +294,14 @@ export function PowerCardsSection({
                   margin: '0 0 4px',
                   fontSize: '18px',
                   fontWeight: 700,
-                  color: '#ffffff',
+                  color: '#0f172a',
                   letterSpacing: '0.2px'
                 }}>
                   Hint Pass
                 </h3>
                 <div style={{
                   fontSize: '13px',
-                  color: 'var(--txt-muted)',
+                  color: '#64748b',
                   marginBottom: '16px'
                 }}>
                   Strategic assistance
@@ -319,7 +320,11 @@ export function PowerCardsSection({
                         flex: 1,
                         padding: '9px 14px',
                         fontSize: '13px',
-                        borderRadius: '8px'
+                        borderRadius: '8px',
+                        background: '#2563eb',
+                        color: '#ffffff',
+                        border: 'none',
+                        fontWeight: 600
                       }}
                     >
                       <Check size={14} /> Use Hint
@@ -332,7 +337,10 @@ export function PowerCardsSection({
                       style={{
                         padding: '9px 14px',
                         fontSize: '13px',
-                        borderRadius: '8px'
+                        borderRadius: '8px',
+                        background: '#f8fafc',
+                        border: '1px solid #cbd5e1',
+                        color: '#334155'
                       }}
                       title="Purchase additional Hint Pass"
                     >
@@ -349,7 +357,11 @@ export function PowerCardsSection({
                       width: '100%',
                       padding: '10px 14px',
                       fontSize: '13px',
-                      borderRadius: '8px'
+                      borderRadius: '8px',
+                      background: canAfford ? '#2563eb' : '#f1f5f9',
+                      color: canAfford ? '#ffffff' : '#94a3b8',
+                      border: canAfford ? 'none' : '1px solid #e2e8f0',
+                      fontWeight: 600
                     }}
                   >
                     {loadingHint ? 'Purchasing...' : canAfford ? 'Purchase' : 'Unavailable'}
@@ -366,8 +378,8 @@ export function PowerCardsSection({
         <div
           className={recentUnlockedCard === 'SABOTAGE' ? 'card-unlocked-reveal' : ''}
           style={{
-            background: 'linear-gradient(180deg, rgba(180, 25, 60, 0.12) 0%, rgba(20, 10, 16, 0.85) 100%)',
-            border: `1px solid ${isSabotageUnlocked ? 'rgba(248, 81, 73, 0.3)' : 'rgba(248, 81, 73, 0.2)'}`,
+            background: isSabotageUnlocked ? '#ffffff' : '#f8fafc',
+            border: `1px solid ${isSabotageUnlocked ? '#fecdd3' : '#e2e8f0'}`,
             borderRadius: '14px',
             padding: '24px 22px',
             position: 'relative',
@@ -375,15 +387,15 @@ export function PowerCardsSection({
             flexDirection: 'column',
             justifyContent: isSabotageUnlocked ? 'space-between' : 'center',
             minHeight: '210px',
-            boxShadow: isSabotageUnlocked ? '0 8px 32px rgba(0, 0, 0, 0.35)' : '0 8px 24px rgba(0, 0, 0, 0.4)',
+            boxShadow: isSabotageUnlocked ? '0 4px 14px rgba(225, 29, 72, 0.08)' : '0 1px 3px rgba(0, 0, 0, 0.05)',
             transition: 'border-color 0.2s ease, transform 0.2s ease'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = 'rgba(248, 81, 73, 0.5)';
+            e.currentTarget.style.borderColor = '#fda4af';
             e.currentTarget.style.transform = 'translateY(-2px)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = isSabotageUnlocked ? 'rgba(248, 81, 73, 0.3)' : 'rgba(248, 81, 73, 0.2)';
+            e.currentTarget.style.borderColor = isSabotageUnlocked ? '#fecdd3' : '#e2e8f0';
             e.currentTarget.style.transform = 'translateY(0)';
           }}
         >
@@ -401,13 +413,13 @@ export function PowerCardsSection({
                 width: '50px',
                 height: '50px',
                 borderRadius: '12px',
-                background: 'rgba(248, 81, 73, 0.12)',
-                border: '1px solid rgba(248, 81, 73, 0.3)',
+                background: '#fff1f2',
+                border: '1px solid #fecdd3',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#ff7b72',
-                boxShadow: '0 4px 18px rgba(248, 81, 73, 0.15)'
+                color: '#e11d48',
+                boxShadow: '0 2px 8px rgba(225, 29, 72, 0.12)'
               }}>
                 <Lock size={24} />
               </div>
@@ -416,7 +428,7 @@ export function PowerCardsSection({
                 margin: 0,
                 fontSize: '18px',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: '#0f172a',
                 letterSpacing: '0.2px'
               }}>
                 Sabotage Card
@@ -428,9 +440,9 @@ export function PowerCardsSection({
                 gap: '6px',
                 fontSize: '13px',
                 fontWeight: 600,
-                color: '#ff7b72',
-                background: 'rgba(248, 81, 73, 0.1)',
-                border: '1px solid rgba(248, 81, 73, 0.25)',
+                color: '#64748b',
+                background: '#f1f5f9',
+                border: '1px solid #e2e8f0',
                 padding: '5px 14px',
                 borderRadius: '20px'
               }}>
@@ -447,12 +459,12 @@ export function PowerCardsSection({
                     width: '42px',
                     height: '42px',
                     borderRadius: '10px',
-                    background: 'rgba(248, 81, 73, 0.15)',
-                    border: '1px solid rgba(248, 81, 73, 0.35)',
+                    background: '#fff1f2',
+                    border: '1px solid #fecdd3',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#ff7b72'
+                    color: '#e11d48'
                   }}>
                     <Zap size={22} />
                   </div>
@@ -460,9 +472,9 @@ export function PowerCardsSection({
                   <span style={{
                     fontSize: '11px',
                     fontWeight: 600,
-                    color: sabotageCardsCount > 0 ? '#ff7b72' : 'var(--txt-dim)',
-                    background: sabotageCardsCount > 0 ? 'rgba(248, 81, 73, 0.12)' : 'rgba(255, 255, 255, 0.04)',
-                    border: `1px solid ${sabotageCardsCount > 0 ? 'rgba(248, 81, 73, 0.3)' : 'rgba(255, 255, 255, 0.08)'}`,
+                    color: sabotageCardsCount > 0 ? '#e11d48' : '#94a3b8',
+                    background: sabotageCardsCount > 0 ? '#fff1f2' : '#f1f5f9',
+                    border: `1px solid ${sabotageCardsCount > 0 ? '#fecdd3' : '#e2e8f0'}`,
                     padding: '3px 10px',
                     borderRadius: '12px'
                   }}>
@@ -475,14 +487,14 @@ export function PowerCardsSection({
                   margin: '0 0 4px',
                   fontSize: '18px',
                   fontWeight: 700,
-                  color: '#ffffff',
+                  color: '#0f172a',
                   letterSpacing: '0.2px'
                 }}>
                   Sabotage Card
                 </h3>
                 <div style={{
                   fontSize: '13px',
-                  color: 'var(--txt-muted)',
+                  color: '#64748b',
                   marginBottom: '16px'
                 }}>
                   Freeze rival workspace
@@ -501,7 +513,11 @@ export function PowerCardsSection({
                         flex: 1,
                         padding: '9px 14px',
                         fontSize: '13px',
-                        borderRadius: '8px'
+                        borderRadius: '8px',
+                        background: '#ef4444',
+                        color: '#ffffff',
+                        border: 'none',
+                        fontWeight: 600
                       }}
                     >
                       <Zap size={14} /> Use Sabotage
@@ -514,7 +530,10 @@ export function PowerCardsSection({
                       style={{
                         padding: '9px 14px',
                         fontSize: '13px',
-                        borderRadius: '8px'
+                        borderRadius: '8px',
+                        background: '#f8fafc',
+                        border: '1px solid #cbd5e1',
+                        color: '#334155'
                       }}
                       title="Purchase additional Sabotage Card"
                     >
@@ -532,9 +551,10 @@ export function PowerCardsSection({
                       padding: '10px 14px',
                       fontSize: '13px',
                       borderRadius: '8px',
-                      background: canAfford ? 'rgba(248, 81, 73, 0.18)' : 'rgba(255, 255, 255, 0.04)',
-                      color: canAfford ? '#ff7b72' : 'var(--txt-dim)',
-                      border: `1px solid ${canAfford ? 'rgba(248, 81, 73, 0.4)' : 'rgba(255, 255, 255, 0.08)'}`
+                      background: canAfford ? '#ef4444' : '#f1f5f9',
+                      color: canAfford ? '#ffffff' : '#94a3b8',
+                      border: canAfford ? 'none' : '1px solid #e2e8f0',
+                      fontWeight: 600
                     }}
                   >
                     {loadingSabotage ? 'Purchasing...' : canAfford ? 'Purchase' : 'Unavailable'}
@@ -563,11 +583,11 @@ export function PowerCardsSection({
       {/* Pick Problem for Hint Modal */}
       {showHintModal && (
         <div className="ov" style={{ zIndex: 1000 }}>
-          <div className="box" style={{ maxWidth: '480px', width: '92%' }}>
+          <div className="box" style={{ maxWidth: '480px', width: '92%', background: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04)' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Lightbulb size={20} color="#58a6ff" />
-                <h3 style={{ margin: 0, color: '#ffffff', fontSize: '17px', fontWeight: 700 }}>
+                <Lightbulb size={20} color="#2563eb" />
+                <h3 style={{ margin: 0, color: '#0f172a', fontSize: '17px', fontWeight: 700 }}>
                   Select Problem for Hint
                 </h3>
               </div>
@@ -576,7 +596,7 @@ export function PowerCardsSection({
               </button>
             </div>
 
-            <p style={{ fontSize: '13px', color: 'var(--txt-muted)', marginBottom: '16px', lineHeight: 1.5 }}>
+            <p style={{ fontSize: '13px', color: '#64748b', marginBottom: '16px', lineHeight: 1.5 }}>
               Choose which unlocked problem to reveal the official algorithmic hint for. The hint is shared instantly with all team members.
             </p>
 
@@ -584,10 +604,10 @@ export function PowerCardsSection({
               <div style={{
                 padding: '20px',
                 textAlign: 'center',
-                color: 'var(--txt-dim)',
-                background: 'rgba(255, 255, 255, 0.02)',
+                color: '#64748b',
+                background: '#f8fafc',
                 borderRadius: '8px',
-                border: '1px dashed rgba(255, 255, 255, 0.1)',
+                border: '1px dashed #cbd5e1',
                 fontSize: '13px',
                 marginBottom: '16px'
               }}>
@@ -597,13 +617,21 @@ export function PowerCardsSection({
               </div>
             ) : (
               <div style={{ marginBottom: '20px' }}>
-                <label style={{ display: 'block', fontSize: '12px', color: 'var(--txt-muted)', fontWeight: 600, marginBottom: '6px' }}>
+                <label style={{ display: 'block', fontSize: '12px', color: '#64748b', fontWeight: 600, marginBottom: '6px' }}>
                   Target Problem
                 </label>
                 <select
                   value={selectedHintProblemId}
                   onChange={(e) => setSelectedHintProblemId(e.target.value)}
-                  style={{ fontSize: '13px', padding: '10px 12px', width: '100%' }}
+                  style={{
+                    fontSize: '13px',
+                    padding: '10px 12px',
+                    width: '100%',
+                    background: '#ffffff',
+                    border: '1px solid #cbd5e1',
+                    color: '#0f172a',
+                    borderRadius: '8px'
+                  }}
                 >
                   <option value="">-- Choose an unlocked problem --</option>
                   {unlockedWithoutHints.map((p) => (
@@ -624,7 +652,7 @@ export function PowerCardsSection({
                 className="btn-blue"
                 onClick={() => handleUseHintPassOnProblem(selectedHintProblemId)}
                 disabled={loadingHint || !selectedHintProblemId}
-                style={{ padding: '8px 16px', borderRadius: '6px' }}
+                style={{ padding: '8px 16px', borderRadius: '6px', background: '#2563eb', color: '#ffffff', border: 'none', fontWeight: 600 }}
               >
                 {loadingHint ? 'Revealing...' : 'Reveal Hint'}
               </button>

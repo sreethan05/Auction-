@@ -1396,8 +1396,479 @@
       "origId": "LC4"
     }
   ],
-  "problemPrices": {},
+  "problemPrices": {
+    "E1": 100,
+    "E2": 100,
+    "E3": 100,
+    "E4": 100,
+    "E5": 100,
+    "E6": 100,
+    "E7": 100,
+    "E8": 100,
+    "E9": 100,
+    "E10": 100,
+    "E11": 100,
+    "E12": 100,
+    "E13": 100,
+    "E14": 100,
+    "E15": 100,
+    "E16": 100,
+    "E17": 100,
+    "E18": 100,
+    "E19": 100,
+    "E20": 100,
+    "E21": 100,
+    "E22": 100,
+    "E23": 100,
+    "E24": 100,
+    "E25": 100,
+    "E26": 100,
+    "E27": 100,
+    "E28": 100,
+    "E29": 100,
+    "E30": 100,
+    "E31": 100,
+    "E32": 100,
+    "E33": 100,
+    "E34": 100,
+    "E35": 100,
+    "E36": 100,
+    "E37": 100,
+    "E38": 100,
+    "E39": 100,
+    "E40": 100,
+    "E41": 100,
+    "E42": 100,
+    "E43": 100,
+    "E44": 100,
+    "E45": 100,
+    "E46": 100,
+    "E47": 100,
+    "E48": 100,
+    "E49": 100,
+    "E50": 100,
+    "E51": 100,
+    "E52": 100,
+    "E53": 100,
+    "E54": 100,
+    "E55": 100,
+    "E56": 100,
+    "E57": 100,
+    "E58": 100,
+    "E59": 100,
+    "E60": 100,
+    "E61": 100,
+    "E62": 100,
+    "E63": 100,
+    "E64": 100,
+    "E65": 100,
+    "E66": 100,
+    "E67": 100,
+    "E68": 100,
+    "E69": 100,
+    "E70": 100,
+    "E71": 100,
+    "M1": 150,
+    "M2": 150,
+    "M3": 150,
+    "M4": 150,
+    "M5": 150,
+    "M6": 150,
+    "M7": 150,
+    "M8": 150,
+    "M9": 150,
+    "M10": 150,
+    "M11": 150,
+    "M12": 150,
+    "M13": 150,
+    "M14": 150,
+    "M15": 150,
+    "M16": 150,
+    "M17": 150,
+    "M18": 150,
+    "M19": 150,
+    "M20": 150,
+    "M21": 150,
+    "H1": 200
+  },
   "teams": {
+    "ALPHA": {
+      "id": "ALPHA",
+      "name": "ALPHA",
+      "size": 2,
+      "captainId": "ALPHA-M01",
+      "captainName": "Aarav",
+      "members": [
+        {
+          "memberId": "ALPHA-M01",
+          "name": "Aarav",
+          "isCaptain": true,
+          "rollNo": "",
+          "phone": "",
+          "email": "",
+          "college": ""
+        },
+        {
+          "memberId": "ALPHA-M02",
+          "name": "Meera",
+          "isCaptain": false,
+          "rollNo": "",
+          "phone": "",
+          "email": "",
+          "college": ""
+        }
+      ],
+      "balance": 900,
+      "unlocked": [
+        "E1"
+      ],
+      "solved": [
+        "E1"
+      ],
+      "problemStatuses": {
+        "E1": {
+          "status": "SOLVED",
+          "solvedBy": "UNKNOWN",
+          "solvedByName": "restored",
+          "solvedAt": "2026-10-11T17:39:34.538Z",
+          "difficultyPoints": 200,
+          "awardedPoints": 200,
+          "wrongSubmissions": 2,
+          "penaltyDeduction": 20,
+          "finalProblemScore": 180
+        }
+      },
+      "revealedHints": {},
+      "hintPassesCount": 0,
+      "sabotageCardsCount": 0,
+      "transactions": [
+        {
+          "id": "TXN-ADM-1791739757071-79vw",
+          "type": "ADMIN_UNLOCK",
+          "teamName": "ALPHA",
+          "problemId": "E1",
+          "problemTitle": "Two Sum",
+          "bidPrice": 100,
+          "bidAmount": 100,
+          "price": 100,
+          "previousBalance": 1000,
+          "remainingBalance": 900,
+          "status": "UNLOCKED",
+          "timestamp": "2026-10-11T17:29:17.071Z",
+          "displayTime": "10:59 PM"
+        }
+      ],
+      "score": 180,
+      "wrong": 2,
+      "violations": [
+        {
+          "id": "1791739722211-wcpmuu",
+          "teamName": "ALPHA",
+          "memberId": "ALPHA-M01",
+          "event": "FOCUS_LOST",
+          "details": "Window lost focus (switched to external application).",
+          "timestamp": 1791739722211,
+          "isoTime": "2026-10-11T17:28:42.211Z"
+        },
+        {
+          "id": "1791739741232-d2cgvm",
+          "teamName": "ALPHA",
+          "memberId": "ALPHA-M01",
+          "event": "FOCUS_LOST",
+          "details": "Window lost focus (switched to external application).",
+          "timestamp": 1791739741232,
+          "isoTime": "2026-10-11T17:29:01.232Z"
+        },
+        {
+          "id": "1791739802950-4f7ptd",
+          "teamName": "ALPHA",
+          "memberId": "ALPHA-M01",
+          "event": "FULLSCREEN_EXIT",
+          "details": "Exited fullscreen examination mode.",
+          "timestamp": 1791739802950,
+          "isoTime": "2026-10-11T17:30:02.950Z"
+        },
+        {
+          "id": "1791740112739-fzytl1",
+          "teamName": "ALPHA",
+          "memberId": "ALPHA-M01",
+          "event": "FULLSCREEN_EXIT",
+          "details": "Exited fullscreen examination mode.",
+          "timestamp": 1791740112739,
+          "isoTime": "2026-10-11T17:35:12.739Z"
+        },
+        {
+          "id": "1791740119270-eef09e",
+          "teamName": "ALPHA",
+          "memberId": "ALPHA-M01",
+          "event": "FOCUS_LOST",
+          "details": "Window lost focus (switched to external application).",
+          "timestamp": 1791740119270,
+          "isoTime": "2026-10-11T17:35:19.270Z"
+        },
+        {
+          "id": "1791740351533-r4hryj",
+          "teamName": "ALPHA",
+          "memberId": "ALPHA-M01",
+          "event": "FOCUS_LOST",
+          "details": "Window lost focus (switched to external application).",
+          "timestamp": 1791740351534,
+          "isoTime": "2026-10-11T17:39:11.534Z"
+        },
+        {
+          "id": "1791740384285-gzrrza",
+          "teamName": "ALPHA",
+          "memberId": "ALPHA-M01",
+          "event": "FOCUS_LOST",
+          "details": "Window lost focus (switched to external application).",
+          "timestamp": 1791740384285,
+          "isoTime": "2026-10-11T17:39:44.285Z"
+        },
+        {
+          "id": "1791766963508-mu3g72",
+          "teamName": "ALPHA",
+          "memberId": "ALPHA-M01",
+          "event": "FOCUS_LOST",
+          "details": "Window lost focus (switched to external application).",
+          "timestamp": 1791766963508,
+          "isoTime": "2026-10-12T01:02:43.508Z"
+        }
+      ],
+      "isLocked": false,
+      "lockReason": "",
+      "attempts": [
+        {
+          "id": "SUB-1791740374538-A9Y2",
+          "teamId": "ALPHA",
+          "teamName": "ALPHA",
+          "memberId": "ALPHA-M01",
+          "memberName": "Aarav",
+          "problemId": "E1",
+          "problemTitle": "Two Sum",
+          "difficulty": "Easy",
+          "difficultyPoints": 200,
+          "result": "ACCEPTED",
+          "verdict": "ACCEPTED",
+          "passed": true,
+          "penalty": 0,
+          "insuranceUsed": false,
+          "awardedPoints": 200,
+          "lang": "python",
+          "code": "import sys\n\ndef main():\n    d = sys.stdin.read().split()\n    if not d:\n        return\n    n, t = int(d[0]), int(d[1])\n    nums = [int(x) for x in d[2:n+2]]\n    seen = {}\n    for i, x in enumerate(nums):\n        if (t - x) in seen:\n            print(f\"{seen[t - x]} {i}\")\n            return\n        seen[x] = i\n\nif __name__ == \"__main__\":\n    main()\n",
+          "testResults": {
+            "passed": 2,
+            "total": 2
+          },
+          "wrongCountOnProblem": 2,
+          "totalTeamWrong": 2,
+          "currentTeamScore": 180,
+          "details": "All 2 hidden tests passed!",
+          "timestamp": 1791740374538,
+          "isoTime": "2026-10-11T17:39:34.538Z"
+        },
+        {
+          "id": "SUB-1791740351940-MGPI",
+          "teamId": "ALPHA",
+          "teamName": "ALPHA",
+          "memberId": "ALPHA-M01",
+          "memberName": "Aarav",
+          "problemId": "E1",
+          "problemTitle": "Two Sum",
+          "difficulty": "Easy",
+          "difficultyPoints": 200,
+          "result": "WRONG_ANSWER",
+          "verdict": "WRONG_ANSWER",
+          "passed": false,
+          "penalty": -10,
+          "insuranceUsed": false,
+          "awardedPoints": 0,
+          "lang": "python",
+          "code": "import sys\n\ndef main():\n    data = sys.stdin.read().split()\n    # TODO: parse input, solve, print output\n    print()\n\nif __name__ == \"__main__\":\n    main()\n",
+          "testResults": {
+            "passed": 0,
+            "total": 0
+          },
+          "wrongCountOnProblem": 2,
+          "totalTeamWrong": 2,
+          "currentTeamScore": -20,
+          "details": "Sample Output Mismatch. Expected:\n0 1\nGot:\n",
+          "timestamp": 1791740351940,
+          "isoTime": "2026-10-11T17:39:11.940Z"
+        },
+        {
+          "id": "SUB-1791740113135-GN3V",
+          "teamId": "ALPHA",
+          "teamName": "ALPHA",
+          "memberId": "ALPHA-M01",
+          "memberName": "Aarav",
+          "problemId": "E1",
+          "problemTitle": "Two Sum",
+          "difficulty": "Easy",
+          "difficultyPoints": 200,
+          "result": "WRONG_ANSWER",
+          "verdict": "WRONG_ANSWER",
+          "passed": false,
+          "penalty": -10,
+          "insuranceUsed": false,
+          "awardedPoints": 0,
+          "lang": "python",
+          "code": "import sys\n\ndef main():\n    data = sys.stdin.read().split()\n    # TODO: parse input, solve, print output\n    print()\n\nif __name__ == \"__main__\":\n    main()\n",
+          "testResults": {
+            "passed": 0,
+            "total": 0
+          },
+          "wrongCountOnProblem": 1,
+          "totalTeamWrong": 1,
+          "currentTeamScore": -10,
+          "details": "Sample Output Mismatch. Expected:\n0 1\nGot:\n",
+          "timestamp": 1791740113135,
+          "isoTime": "2026-10-11T17:35:13.135Z"
+        }
+      ],
+      "createdAt": "2026-10-11T17:26:35.524Z",
+      "problemWrong": {
+        "E1": 2
+      },
+      "lastSolveAt": 1791740374538,
+      "password": "Q9WY5Y",
+      "activeSession": null
+    },
+    "BETA": {
+      "id": "BETA",
+      "name": "BETA",
+      "size": 1,
+      "captainId": "BETA-M01",
+      "captainName": "Zoya",
+      "members": [
+        {
+          "memberId": "BETA-M01",
+          "name": "Zoya",
+          "isCaptain": true,
+          "rollNo": "",
+          "phone": "",
+          "email": "",
+          "college": ""
+        }
+      ],
+      "balance": 880,
+      "unlocked": [
+        "E2"
+      ],
+      "solved": [
+        "E2"
+      ],
+      "problemStatuses": {
+        "E2": {
+          "status": "SOLVED",
+          "solvedBy": "UNKNOWN",
+          "solvedByName": "restored",
+          "solvedAt": "2026-10-11T17:36:27.981Z",
+          "difficultyPoints": 200,
+          "awardedPoints": 200,
+          "wrongSubmissions": 0,
+          "penaltyDeduction": 0,
+          "finalProblemScore": 200
+        }
+      },
+      "revealedHints": {},
+      "hintPassesCount": 0,
+      "sabotageCardsCount": 0,
+      "transactions": [
+        {
+          "id": "TXN-ADM-1791740151519-98qh",
+          "type": "ADMIN_UNLOCK",
+          "teamName": "BETA",
+          "problemId": "E2",
+          "problemTitle": "Palindrome Number",
+          "bidPrice": 120,
+          "bidAmount": 120,
+          "price": 120,
+          "previousBalance": 1000,
+          "remainingBalance": 880,
+          "status": "UNLOCKED",
+          "timestamp": "2026-10-11T17:35:51.519Z",
+          "displayTime": "11:05 PM"
+        }
+      ],
+      "score": 200,
+      "wrong": 0,
+      "violations": [
+        {
+          "id": "1791740083229-77cw6h",
+          "teamName": "BETA",
+          "memberId": "BETA-M01",
+          "event": "FOCUS_LOST",
+          "details": "Window lost focus (switched to external application).",
+          "timestamp": 1791740083229,
+          "isoTime": "2026-10-11T17:34:43.229Z"
+        },
+        {
+          "id": "1791740166333-eieza4",
+          "teamName": "BETA",
+          "memberId": "BETA-M01",
+          "event": "FULLSCREEN_EXIT",
+          "details": "Exited fullscreen examination mode.",
+          "timestamp": 1791740166333,
+          "isoTime": "2026-10-11T17:36:06.333Z"
+        },
+        {
+          "id": "1791740187283-7snxo4",
+          "teamName": "BETA",
+          "memberId": "BETA-M01",
+          "event": "FOCUS_LOST",
+          "details": "Window lost focus (switched to external application).",
+          "timestamp": 1791740187283,
+          "isoTime": "2026-10-11T17:36:27.283Z"
+        },
+        {
+          "id": "1791740307234-r6h6gy",
+          "teamName": "BETA",
+          "memberId": "BETA-M01",
+          "event": "FOCUS_LOST",
+          "details": "Window lost focus (switched to external application).",
+          "timestamp": 1791740307234,
+          "isoTime": "2026-10-11T17:38:27.234Z"
+        }
+      ],
+      "isLocked": false,
+      "lockReason": "",
+      "attempts": [
+        {
+          "id": "SUB-1791740187981-YK16",
+          "teamId": "BETA",
+          "teamName": "BETA",
+          "memberId": "BETA-M01",
+          "memberName": "Zoya",
+          "problemId": "E2",
+          "problemTitle": "Palindrome Number",
+          "difficulty": "Easy",
+          "difficultyPoints": 200,
+          "result": "ACCEPTED",
+          "verdict": "ACCEPTED",
+          "passed": true,
+          "penalty": 0,
+          "insuranceUsed": false,
+          "awardedPoints": 200,
+          "lang": "python",
+          "code": "s = input().strip()\nprint(\"true\" if s == s[::-1] else \"false\")",
+          "testResults": {
+            "passed": 3,
+            "total": 3
+          },
+          "wrongCountOnProblem": 0,
+          "totalTeamWrong": 0,
+          "currentTeamScore": 200,
+          "details": "All 3 hidden tests passed!",
+          "timestamp": 1791740187981,
+          "isoTime": "2026-10-11T17:36:27.981Z"
+        }
+      ],
+      "createdAt": "2026-10-11T17:26:35.645Z",
+      "problemWrong": {},
+      "lastSolveAt": 1791740187981,
+      "password": "T32EPN",
+      "activeSession": null
+    },
     "Synora": {
       "id": "Synora",
       "name": "Synora",
@@ -1424,928 +1895,25 @@
           "college": ""
         }
       ],
-      "balance": 290,
-      "unlocked": [
-        "E1",
-        "E2",
-        "E4",
-        "E3"
-      ],
-      "solved": [
-        "E1",
-        "E2"
-      ],
-      "problemStatuses": {
-        "E1": {
-          "status": "SOLVED",
-          "unlockedBy": "SYNORA-001-M01",
-          "unlockedByName": "Salman",
-          "bidAmount": 50,
-          "unlockedAt": "2026-10-07T19:48:13.656Z",
-          "workingBy": "SYNORA-001-M02",
-          "workingByName": "Sreethan",
-          "updatedAt": "2026-10-07T19:48:30.116Z",
-          "difficultyPoints": 200,
-          "wrongSubmissions": 2,
-          "penaltyDeduction": 20,
-          "solvedBy": "SYNORA-001-M01",
-          "solvedByName": "Salman",
-          "solvedAt": "2026-10-07T19:48:39.626Z",
-          "finalProblemScore": 180
-        },
-        "E2": {
-          "status": "SOLVED",
-          "workingBy": "SYNORA-001-M01",
-          "workingByName": "Salman",
-          "updatedAt": "2026-10-07T19:50:54.292Z",
-          "difficultyPoints": 200,
-          "wrongSubmissions": 1,
-          "penaltyDeduction": 10,
-          "solvedBy": "SYNORA-001-M01",
-          "solvedByName": "Salman",
-          "solvedAt": "2026-10-07T19:51:59.773Z",
-          "finalProblemScore": 190
-        },
-        "E4": {
-          "status": "UNLOCKED",
-          "unlockedBy": "SYNORA-001-M02",
-          "unlockedByName": "Sreethan",
-          "bidAmount": 100,
-          "unlockedAt": "2026-10-08T07:20:13.854Z"
-        },
-        "E3": {
-          "status": "UNLOCKED",
-          "unlockedBy": "ADMIN",
-          "unlockedByName": "Administrator",
-          "unlockedAt": "2026-10-08T10:09:42.963Z",
-          "bidPrice": 100
-        }
-      },
+      "balance": 1000,
+      "unlocked": [],
+      "solved": [],
+      "problemStatuses": {},
       "revealedHints": {},
-      "hintPassesCount": 6,
-      "sabotageCardsCount": 1,
-      "transactions": [
-        {
-          "id": "TXN-ADM-1791454182963-weuw",
-          "type": "ADMIN_UNLOCK",
-          "teamName": "Synora",
-          "problemId": "E3",
-          "problemTitle": "Valid Parentheses",
-          "bidPrice": 100,
-          "bidAmount": 100,
-          "price": 100,
-          "previousBalance": 390,
-          "remainingBalance": 290,
-          "status": "UNLOCKED",
-          "timestamp": "2026-10-08T10:09:42.963Z",
-          "displayTime": "03:39 PM"
-        },
-        {
-          "id": "TXN-1791444013854-5HMD7",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "problemId": "E4",
-          "problemTitle": "Merge Two Sorted Lists",
-          "bidAmount": 100,
-          "price": 100,
-          "purchasedBy": "SYNORA-001-M02",
-          "purchasedByName": "Sreethan",
-          "remainingBalance": 390,
-          "purchaseTime": "2026-10-08T07:20:13.854Z",
-          "displayTime": "12:50 PM"
-        },
-        {
-          "id": "TXN-SABOTAGE-1791438437401-C3KH",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "type": "SABOTAGE_CARD",
-          "cardType": "SABOTAGE_CARD",
-          "cost": 40,
-          "price": 40,
-          "purchasedBy": "SYNORA-001-M01",
-          "purchasedByName": "Salman",
-          "remainingBalance": 490,
-          "timestamp": 1791438437401,
-          "isoTime": "2026-10-08T05:47:17.401Z"
-        },
-        {
-          "id": "TXN-HINT-1791436964476-5QFW",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "type": "HINT_PASS",
-          "cardType": "HINT_PASS",
-          "cost": 40,
-          "price": 40,
-          "problemId": null,
-          "purchasedBy": "SYNORA-001-M01",
-          "purchasedByName": "Salman",
-          "remainingBalance": 530,
-          "timestamp": 1791436964476,
-          "isoTime": "2026-10-08T05:22:44.476Z"
-        },
-        {
-          "id": "TXN-HINT-1791436743093-EYZL",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "type": "HINT_PASS",
-          "cardType": "HINT_PASS",
-          "cost": 40,
-          "price": 40,
-          "problemId": null,
-          "purchasedBy": "SYNORA-001-M01",
-          "purchasedByName": "Salman",
-          "remainingBalance": 570,
-          "timestamp": 1791436743093,
-          "isoTime": "2026-10-08T05:19:03.093Z"
-        },
-        {
-          "id": "TXN-HINT-1791430613754-REQ0",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "type": "HINT_PASS",
-          "cardType": "HINT_PASS",
-          "cost": 40,
-          "price": 40,
-          "problemId": null,
-          "purchasedBy": "SYNORA-001-M02",
-          "purchasedByName": "Sreethan",
-          "remainingBalance": 610,
-          "timestamp": 1791430613754,
-          "isoTime": "2026-10-08T03:36:53.754Z"
-        },
-        {
-          "id": "TXN-HINT-1791430604742-WISH",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "type": "HINT_PASS",
-          "cardType": "HINT_PASS",
-          "cost": 40,
-          "price": 40,
-          "problemId": null,
-          "purchasedBy": "SYNORA-001-M02",
-          "purchasedByName": "Sreethan",
-          "remainingBalance": 650,
-          "timestamp": 1791430604742,
-          "isoTime": "2026-10-08T03:36:44.742Z"
-        },
-        {
-          "id": "TXN-SABOTAGE-ACT-1791430593855-PWGM",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "type": "SABOTAGE",
-          "cardType": "SABOTAGE",
-          "cost": 40,
-          "price": 40,
-          "targetTeam": "VisionX",
-          "purchasedBy": "SYNORA-001-M02",
-          "purchasedByName": "Sreethan",
-          "remainingBalance": 690,
-          "timestamp": 1791430593855,
-          "isoTime": "2026-10-08T03:36:33.855Z"
-        },
-        {
-          "id": "TXN-SABOTAGE-1791430582456-9RJQ",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "type": "SABOTAGE_CARD",
-          "cardType": "SABOTAGE_CARD",
-          "cost": 40,
-          "price": 40,
-          "purchasedBy": "SYNORA-001-M02",
-          "purchasedByName": "Sreethan",
-          "remainingBalance": 690,
-          "timestamp": 1791430582456,
-          "isoTime": "2026-10-08T03:36:22.456Z"
-        },
-        {
-          "id": "TXN-1791402644842-NJUSP",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "problemId": "E2",
-          "problemTitle": "Palindrome Number",
-          "bidAmount": 100,
-          "price": 100,
-          "purchasedBy": "SYNORA-001-M01",
-          "purchasedByName": "Salman",
-          "remainingBalance": 730,
-          "purchaseTime": "2026-10-07T19:50:44.842Z",
-          "displayTime": "01:20 AM"
-        },
-        {
-          "id": "TXN-1791402493656-77H35",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "problemId": "E1",
-          "problemTitle": "Two Sum",
-          "bidAmount": 50,
-          "price": 50,
-          "purchasedBy": "SYNORA-001-M01",
-          "purchasedByName": "Salman",
-          "remainingBalance": 830,
-          "purchaseTime": "2026-10-07T19:48:13.656Z",
-          "displayTime": "01:18 AM"
-        },
-        {
-          "id": "TXN-SABOTAGE-ACT-1791401740367-69FU",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "type": "SABOTAGE",
-          "cardType": "SABOTAGE",
-          "cost": 40,
-          "price": 40,
-          "targetTeam": "VisionX",
-          "purchasedBy": "SYNORA-001-M01",
-          "purchasedByName": "Salman",
-          "remainingBalance": 880,
-          "timestamp": 1791401740367,
-          "isoTime": "2026-10-07T19:35:40.367Z"
-        },
-        {
-          "id": "TXN-SABOTAGE-1791401733734-OQO2",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "type": "SABOTAGE_CARD",
-          "cardType": "SABOTAGE_CARD",
-          "cost": 40,
-          "price": 40,
-          "purchasedBy": "SYNORA-001-M01",
-          "purchasedByName": "Salman",
-          "remainingBalance": 880,
-          "timestamp": 1791401733734,
-          "isoTime": "2026-10-07T19:35:33.734Z"
-        },
-        {
-          "id": "TXN-HINT-1791401731298-HPKT",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "type": "HINT_PASS",
-          "cardType": "HINT_PASS",
-          "cost": 40,
-          "price": 40,
-          "problemId": null,
-          "purchasedBy": "SYNORA-001-M01",
-          "purchasedByName": "Salman",
-          "remainingBalance": 920,
-          "timestamp": 1791401731298,
-          "isoTime": "2026-10-07T19:35:31.298Z"
-        },
-        {
-          "id": "TXN-HINT-1791401710498-3VWM",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "type": "HINT_PASS",
-          "cardType": "HINT_PASS",
-          "cost": 40,
-          "price": 40,
-          "problemId": null,
-          "purchasedBy": "SYNORA-001-M01",
-          "purchasedByName": "Salman",
-          "remainingBalance": 960,
-          "timestamp": 1791401710499,
-          "isoTime": "2026-10-07T19:35:10.499Z"
-        }
-      ],
-      "score": 370,
-      "wrong": 3,
-      "violations": [
-        {
-          "id": "1791401694565-52p4ha",
-          "teamName": "Synora",
-          "memberId": "Synora-001-M01",
-          "event": "FULLSCREEN_EXIT",
-          "details": "Exited fullscreen examination mode.",
-          "timestamp": 1791401694565,
-          "isoTime": "2026-10-07T19:34:54.565Z"
-        },
-        {
-          "id": "1791401755369-at1yur",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791401755369,
-          "isoTime": "2026-10-07T19:35:55.369Z"
-        },
-        {
-          "id": "1791401756888-e13vj6",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "TAB_SWITCH",
-          "details": "Switched away from browser tab or minimized window.",
-          "timestamp": 1791401756888,
-          "isoTime": "2026-10-07T19:35:56.888Z"
-        },
-        {
-          "id": "1791402681070-egvyvk",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791402681070,
-          "isoTime": "2026-10-07T19:51:21.070Z"
-        },
-        {
-          "id": "1791402777786-vdn5ul",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FULLSCREEN_EXIT",
-          "details": "Exited fullscreen examination mode.",
-          "timestamp": 1791402777786,
-          "isoTime": "2026-10-07T19:52:57.786Z"
-        },
-        {
-          "id": "1791403699217-7dkafn",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791403699217,
-          "isoTime": "2026-10-07T20:08:19.217Z"
-        },
-        {
-          "id": "1791403768451-o57fle",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791403768451,
-          "isoTime": "2026-10-07T20:09:28.451Z"
-        },
-        {
-          "id": "1791403774288-lyqr96",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FULLSCREEN_EXIT",
-          "details": "Exited fullscreen examination mode.",
-          "timestamp": 1791403774288,
-          "isoTime": "2026-10-07T20:09:34.288Z"
-        },
-        {
-          "id": "1791403813547-452kxo",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FULLSCREEN_EXIT",
-          "details": "Exited fullscreen examination mode.",
-          "timestamp": 1791403813547,
-          "isoTime": "2026-10-07T20:10:13.547Z"
-        },
-        {
-          "id": "1791404282411-sbg009",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791404282411,
-          "isoTime": "2026-10-07T20:18:02.411Z"
-        },
-        {
-          "id": "1791404384358-igacoc",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791404384358,
-          "isoTime": "2026-10-07T20:19:44.358Z"
-        },
-        {
-          "id": "1791404391899-kn1qax",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FULLSCREEN_EXIT",
-          "details": "Exited fullscreen examination mode.",
-          "timestamp": 1791404391899,
-          "isoTime": "2026-10-07T20:19:51.899Z"
-        },
-        {
-          "id": "1791404434516-wg0f3x",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791404434516,
-          "isoTime": "2026-10-07T20:20:34.516Z"
-        },
-        {
-          "id": "1791404544878-jhk739",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791404544878,
-          "isoTime": "2026-10-07T20:22:24.878Z"
-        },
-        {
-          "id": "1791404595683-rd1cld",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791404595683,
-          "isoTime": "2026-10-07T20:23:15.683Z"
-        },
-        {
-          "id": "1791405063628-f4noda",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791405063628,
-          "isoTime": "2026-10-07T20:31:03.628Z"
-        },
-        {
-          "id": "1791405149175-v9fxdu",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791405149175,
-          "isoTime": "2026-10-07T20:32:29.175Z"
-        },
-        {
-          "id": "1791405244285-5oiva5",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791405244285,
-          "isoTime": "2026-10-07T20:34:04.285Z"
-        },
-        {
-          "id": "1791405256816-crsx1j",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FULLSCREEN_EXIT",
-          "details": "Exited fullscreen examination mode.",
-          "timestamp": 1791405256816,
-          "isoTime": "2026-10-07T20:34:16.816Z"
-        },
-        {
-          "id": "1791405336098-s88ymi",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791405336098,
-          "isoTime": "2026-10-07T20:35:36.098Z"
-        },
-        {
-          "id": "1791405418269-rpokt5",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791405418269,
-          "isoTime": "2026-10-07T20:36:58.269Z"
-        },
-        {
-          "id": "1791405498808-fsvx20",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791405498808,
-          "isoTime": "2026-10-07T20:38:18.808Z"
-        },
-        {
-          "id": "1791405555239-gdbps8",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791405555239,
-          "isoTime": "2026-10-07T20:39:15.239Z"
-        },
-        {
-          "id": "1791405624829-85m9fs",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791405624829,
-          "isoTime": "2026-10-07T20:40:24.829Z"
-        },
-        {
-          "id": "1791405648186-rj5vx8",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FULLSCREEN_EXIT",
-          "details": "Exited fullscreen examination mode.",
-          "timestamp": 1791405648186,
-          "isoTime": "2026-10-07T20:40:48.186Z"
-        },
-        {
-          "id": "1791405707556-5vxvd5",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791405707556,
-          "isoTime": "2026-10-07T20:41:47.556Z"
-        },
-        {
-          "id": "1791405788032-sfy2cu",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791405788032,
-          "isoTime": "2026-10-07T20:43:08.032Z"
-        },
-        {
-          "id": "1791405841435-n1fx9p",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791405841435,
-          "isoTime": "2026-10-07T20:44:01.435Z"
-        },
-        {
-          "id": "1791405865335-0tyk2t",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791405865335,
-          "isoTime": "2026-10-07T20:44:25.335Z"
-        },
-        {
-          "id": "1791430478295-yxtyy0",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FULLSCREEN_EXIT",
-          "details": "Exited fullscreen examination mode.",
-          "timestamp": 1791430478295,
-          "isoTime": "2026-10-08T03:34:38.295Z"
-        },
-        {
-          "id": "1791430739455-rhpjo0",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M02",
-          "event": "FULLSCREEN_EXIT",
-          "details": "Exited fullscreen examination mode.",
-          "timestamp": 1791430739455,
-          "isoTime": "2026-10-08T03:38:59.455Z"
-        },
-        {
-          "id": "1791432761588-hoonr9",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791432761588,
-          "isoTime": "2026-10-08T04:12:41.588Z"
-        },
-        {
-          "id": "1791432812836-oazeb6",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791432812836,
-          "isoTime": "2026-10-08T04:13:32.836Z"
-        },
-        {
-          "id": "1791433142059-pisman",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791433142060,
-          "isoTime": "2026-10-08T04:19:02.060Z"
-        },
-        {
-          "id": "1791436764535-aty9bf",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791436764535,
-          "isoTime": "2026-10-08T05:19:24.535Z"
-        },
-        {
-          "id": "1791436972212-idheaf",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791436972212,
-          "isoTime": "2026-10-08T05:22:52.212Z"
-        },
-        {
-          "id": "1791437003292-6j547t",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791437003292,
-          "isoTime": "2026-10-08T05:23:23.292Z"
-        },
-        {
-          "id": "1791437248386-cdx6t3",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791437248386,
-          "isoTime": "2026-10-08T05:27:28.386Z"
-        },
-        {
-          "id": "1791437529255-099efi",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791437529256,
-          "isoTime": "2026-10-08T05:32:09.256Z"
-        },
-        {
-          "id": "1791437543100-c4zbcy",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791437543100,
-          "isoTime": "2026-10-08T05:32:23.100Z"
-        },
-        {
-          "id": "1791437737440-4ukj2e",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "TAB_SWITCH",
-          "details": "Switched away from browser tab or minimized window.",
-          "timestamp": 1791437737440,
-          "isoTime": "2026-10-08T05:35:37.440Z"
-        },
-        {
-          "id": "1791438441955-vvqst3",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791438441955,
-          "isoTime": "2026-10-08T05:47:21.955Z"
-        },
-        {
-          "id": "1791443471614-oom558",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791443471614,
-          "isoTime": "2026-10-08T07:11:11.614Z"
-        },
-        {
-          "id": "1791443628151-opgcpd",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791443628151,
-          "isoTime": "2026-10-08T07:13:48.151Z"
-        },
-        {
-          "id": "1791443648168-s0lq25",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791443648168,
-          "isoTime": "2026-10-08T07:14:08.168Z"
-        },
-        {
-          "id": "1791443653418-pf08v3",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791443653418,
-          "isoTime": "2026-10-08T07:14:13.418Z"
-        },
-        {
-          "id": "1791443691084-sjomxu",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791443691084,
-          "isoTime": "2026-10-08T07:14:51.084Z"
-        },
-        {
-          "id": "1791443703251-egl0dc",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791443703251,
-          "isoTime": "2026-10-08T07:15:03.251Z"
-        },
-        {
-          "id": "1791443784239-g0c6tn",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "BULK_TEXT_INSERTION",
-          "details": "Blocked abnormal bulk text insertion of 412 characters.",
-          "timestamp": 1791443784239,
-          "isoTime": "2026-10-08T07:16:24.239Z"
-        },
-        {
-          "id": "1791443790451-77qub0",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "BULK_TEXT_INSERTION",
-          "details": "Blocked abnormal bulk text insertion of 413 characters.",
-          "timestamp": 1791443790451,
-          "isoTime": "2026-10-08T07:16:30.451Z"
-        },
-        {
-          "id": "1791443797298-fy4e1u",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "BULK_TEXT_INSERTION",
-          "details": "Blocked abnormal bulk text insertion of 413 characters.",
-          "timestamp": 1791443797298,
-          "isoTime": "2026-10-08T07:16:37.298Z"
-        },
-        {
-          "id": "1791443825998-uk0hfx",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791443825998,
-          "isoTime": "2026-10-08T07:17:05.998Z"
-        },
-        {
-          "id": "1791443852062-hshn6u",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791443852062,
-          "isoTime": "2026-10-08T07:17:32.062Z"
-        },
-        {
-          "id": "1791443961021-zyt1xa",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M02",
-          "event": "TAB_SWITCH",
-          "details": "Switched away from browser tab or minimized window.",
-          "timestamp": 1791443961021,
-          "isoTime": "2026-10-08T07:19:21.021Z"
-        },
-        {
-          "id": "1791444137450-630zjr",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M02",
-          "event": "FOCUS_LOST",
-          "details": "Window lost focus (switched to external application).",
-          "timestamp": 1791444137450,
-          "isoTime": "2026-10-08T07:22:17.450Z"
-        }
-      ],
-      "isLocked": true,
-      "lockReason": "Flag threshold exceeded (55 violations detected; latest by SYNORA-001-M02). Organiser review required.",
-      "attempts": [
-        {
-          "id": "SUB-1791432775616-APGP",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "memberName": "Salman",
-          "problemId": "E2",
-          "problemTitle": "Palindrome Number",
-          "difficulty": "Easy",
-          "difficultyPoints": 200,
-          "result": "WRONG_ANSWER",
-          "verdict": "WRONG_ANSWER",
-          "passed": false,
-          "penalty": 0,
-          "awardedPoints": 0,
-          "wrongCountOnProblem": 1,
-          "totalTeamWrong": 3,
-          "currentTeamScore": 370,
-          "details": "Sample Output Mismatch. Expected:\ntrue\nGot:\n",
-          "timestamp": 1791432775616,
-          "isoTime": "2026-10-08T04:12:55.616Z"
-        },
-        {
-          "id": "SUB-1791402719773-OO6R",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "memberName": "Salman",
-          "problemId": "E2",
-          "problemTitle": "Palindrome Number",
-          "difficulty": "Easy",
-          "difficultyPoints": 200,
-          "result": "ACCEPTED",
-          "verdict": "ACCEPTED",
-          "passed": true,
-          "penalty": 0,
-          "awardedPoints": 200,
-          "wrongCountOnProblem": 1,
-          "totalTeamWrong": 3,
-          "currentTeamScore": 370,
-          "details": "All 3 hidden tests passed!",
-          "timestamp": 1791402719773,
-          "isoTime": "2026-10-07T19:51:59.773Z"
-        },
-        {
-          "id": "SUB-1791402654292-NLY3",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "memberName": "Salman",
-          "problemId": "E2",
-          "problemTitle": "Palindrome Number",
-          "difficulty": "Easy",
-          "difficultyPoints": 200,
-          "result": "WRONG_ANSWER",
-          "verdict": "WRONG_ANSWER",
-          "passed": false,
-          "penalty": -10,
-          "awardedPoints": 0,
-          "wrongCountOnProblem": 1,
-          "totalTeamWrong": 3,
-          "currentTeamScore": 170,
-          "details": "Sample Output Mismatch. Expected:\ntrue\nGot:\n",
-          "timestamp": 1791402654292,
-          "isoTime": "2026-10-07T19:50:54.292Z"
-        },
-        {
-          "id": "SUB-1791402519626-UD9L",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "memberName": "Salman",
-          "problemId": "E1",
-          "problemTitle": "Two Sum",
-          "difficulty": "Easy",
-          "difficultyPoints": 200,
-          "result": "ACCEPTED",
-          "verdict": "ACCEPTED",
-          "passed": true,
-          "penalty": 0,
-          "awardedPoints": 200,
-          "wrongCountOnProblem": 2,
-          "totalTeamWrong": 2,
-          "currentTeamScore": 180,
-          "details": "All 2 hidden tests passed!",
-          "timestamp": 1791402519626,
-          "isoTime": "2026-10-07T19:48:39.626Z"
-        },
-        {
-          "id": "SUB-1791402510116-MUJN",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M02",
-          "memberName": "Sreethan",
-          "problemId": "E1",
-          "problemTitle": "Two Sum",
-          "difficulty": "Easy",
-          "difficultyPoints": 200,
-          "result": "WRONG_ANSWER",
-          "verdict": "WRONG_ANSWER",
-          "passed": false,
-          "penalty": -10,
-          "awardedPoints": 0,
-          "wrongCountOnProblem": 2,
-          "totalTeamWrong": 2,
-          "currentTeamScore": -20,
-          "details": "Sample Output Mismatch. Expected:\n0 1\nGot:\n12345",
-          "timestamp": 1791402510116,
-          "isoTime": "2026-10-07T19:48:30.116Z"
-        },
-        {
-          "id": "SUB-1791402501753-MBFG",
-          "teamId": "Synora",
-          "teamName": "Synora",
-          "memberId": "SYNORA-001-M01",
-          "memberName": "Salman",
-          "problemId": "E1",
-          "problemTitle": "Two Sum",
-          "difficulty": "Easy",
-          "difficultyPoints": 200,
-          "result": "WRONG_ANSWER",
-          "verdict": "WRONG_ANSWER",
-          "passed": false,
-          "penalty": -10,
-          "awardedPoints": 0,
-          "wrongCountOnProblem": 1,
-          "totalTeamWrong": 1,
-          "currentTeamScore": -10,
-          "details": "Sample Output Mismatch. Expected:\n0 1\nGot:\n999",
-          "timestamp": 1791402501753,
-          "isoTime": "2026-10-07T19:48:21.753Z"
-        }
-      ],
-      "createdAt": "2026-10-07T19:33:54.805Z",
-      "problemWrong": {
-        "E1": 2,
-        "E2": 1
-      },
-      "unlockedCards": []
+      "hintPassesCount": 0,
+      "sabotageCardsCount": 0,
+      "transactions": [],
+      "score": 0,
+      "wrong": 0,
+      "violations": [],
+      "isLocked": false,
+      "lockReason": "",
+      "attempts": [],
+      "createdAt": "2026-10-11T17:33:39.254Z",
+      "password": "PDNY5W",
+      "activeSession": null,
+      "problemWrong": {},
+      "lastSolveAt": null
     },
     "VisionX": {
       "id": "VisionX",
@@ -2378,885 +1946,1768 @@
       "isLocked": false,
       "lockReason": "",
       "attempts": [],
-      "createdAt": "2026-10-07T19:33:54.806Z",
-      "frozenUntil": 1791430893855,
-      "frozenBy": "Synora",
-      "frozenAt": 1791430593855
+      "createdAt": "2026-10-11T17:33:39.257Z",
+      "password": "H3CHHU",
+      "activeSession": null,
+      "problemWrong": {},
+      "lastSolveAt": null
+    },
+    "NOVA": {
+      "id": "NOVA",
+      "name": "NOVA",
+      "size": 3,
+      "captainId": "NOVA-M01",
+      "captainName": "Riya",
+      "members": [
+        {
+          "memberId": "NOVA-M01",
+          "name": "Riya",
+          "isCaptain": true,
+          "rollNo": "",
+          "phone": "",
+          "email": "",
+          "college": ""
+        },
+        {
+          "memberId": "NOVA-M02",
+          "name": "Kabir",
+          "isCaptain": false,
+          "rollNo": "",
+          "phone": "",
+          "email": "",
+          "college": ""
+        },
+        {
+          "memberId": "NOVA-M03",
+          "name": "Ishan",
+          "isCaptain": false,
+          "rollNo": "",
+          "phone": "",
+          "email": "",
+          "college": ""
+        }
+      ],
+      "balance": 1000,
+      "unlocked": [],
+      "solved": [],
+      "problemStatuses": {},
+      "revealedHints": {},
+      "hintPassesCount": 0,
+      "sabotageCardsCount": 0,
+      "transactions": [],
+      "score": 0,
+      "wrong": 0,
+      "violations": [],
+      "isLocked": false,
+      "lockReason": "",
+      "attempts": [],
+      "createdAt": "2026-10-11T17:33:42.298Z",
+      "password": "4TQC4Y",
+      "activeSession": null,
+      "problemWrong": {},
+      "lastSolveAt": null
+    },
+    "TITAN": {
+      "id": "TITAN",
+      "name": "TITAN",
+      "size": 2,
+      "captainId": "TITAN-M01",
+      "captainName": "Dev",
+      "members": [
+        {
+          "memberId": "TITAN-M01",
+          "name": "Dev",
+          "isCaptain": true,
+          "rollNo": "",
+          "phone": "",
+          "email": "",
+          "college": ""
+        },
+        {
+          "memberId": "TITAN-M02",
+          "name": "Anaya",
+          "isCaptain": false,
+          "rollNo": "",
+          "phone": "",
+          "email": "",
+          "college": ""
+        }
+      ],
+      "balance": 1000,
+      "unlocked": [],
+      "solved": [],
+      "problemStatuses": {},
+      "revealedHints": {},
+      "hintPassesCount": 0,
+      "sabotageCardsCount": 0,
+      "transactions": [],
+      "score": 0,
+      "wrong": 0,
+      "violations": [],
+      "isLocked": false,
+      "lockReason": "",
+      "attempts": [],
+      "createdAt": "2026-10-11T17:33:42.752Z",
+      "password": "3CSSPL",
+      "activeSession": null,
+      "problemWrong": {},
+      "lastSolveAt": null
+    },
+    "ECHO": {
+      "id": "ECHO",
+      "name": "ECHO",
+      "size": 1,
+      "captainId": "ECHO-M01",
+      "captainName": "Farhan",
+      "members": [
+        {
+          "memberId": "ECHO-M01",
+          "name": "Farhan",
+          "isCaptain": true,
+          "rollNo": "",
+          "phone": "",
+          "email": "",
+          "college": ""
+        }
+      ],
+      "balance": 1000,
+      "unlocked": [],
+      "solved": [],
+      "problemStatuses": {},
+      "revealedHints": {},
+      "hintPassesCount": 0,
+      "sabotageCardsCount": 0,
+      "transactions": [],
+      "score": 0,
+      "wrong": 0,
+      "violations": [],
+      "isLocked": false,
+      "lockReason": "",
+      "attempts": [],
+      "createdAt": "2026-10-11T17:33:42.964Z",
+      "password": "3698TY",
+      "activeSession": null,
+      "problemWrong": {},
+      "lastSolveAt": null
+    },
+    "ZEN": {
+      "id": "ZEN",
+      "name": "ZEN",
+      "size": 2,
+      "captainId": "ZEN-M01",
+      "captainName": "Tara",
+      "members": [
+        {
+          "memberId": "ZEN-M01",
+          "name": "Tara",
+          "isCaptain": true,
+          "rollNo": "",
+          "phone": "",
+          "email": "",
+          "college": ""
+        },
+        {
+          "memberId": "ZEN-M02",
+          "name": "Vivaan",
+          "isCaptain": false,
+          "rollNo": "",
+          "phone": "",
+          "email": "",
+          "college": ""
+        }
+      ],
+      "balance": 1000,
+      "unlocked": [],
+      "solved": [],
+      "problemStatuses": {},
+      "revealedHints": {},
+      "hintPassesCount": 0,
+      "sabotageCardsCount": 0,
+      "transactions": [],
+      "score": 0,
+      "wrong": 0,
+      "violations": [],
+      "isLocked": false,
+      "lockReason": "",
+      "attempts": [],
+      "createdAt": "2026-10-11T17:33:43.226Z",
+      "password": "M9FYAY",
+      "activeSession": null,
+      "problemWrong": {},
+      "lastSolveAt": null
     }
   },
   "transactions": [
     {
-      "id": "TXN-ADM-1791454182963-weuw",
+      "id": "TXN-ADM-1791740151519-98qh",
       "type": "ADMIN_UNLOCK",
-      "teamName": "Synora",
-      "problemId": "E3",
-      "problemTitle": "Valid Parentheses",
+      "teamName": "BETA",
+      "problemId": "E2",
+      "problemTitle": "Palindrome Number",
+      "bidPrice": 120,
+      "bidAmount": 120,
+      "price": 120,
+      "previousBalance": 1000,
+      "remainingBalance": 880,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-11T17:35:51.519Z",
+      "displayTime": "11:05 PM"
+    },
+    {
+      "id": "TXN-ADM-1791739757071-79vw",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "ALPHA",
+      "problemId": "E1",
+      "problemTitle": "Two Sum",
       "bidPrice": 100,
       "bidAmount": 100,
       "price": 100,
-      "previousBalance": 390,
-      "remainingBalance": 290,
+      "previousBalance": 1000,
+      "remainingBalance": 900,
       "status": "UNLOCKED",
-      "timestamp": "2026-10-08T10:09:42.963Z",
-      "displayTime": "03:39 PM"
-    },
-    {
-      "id": "TXN-1791444013854-5HMD7",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "problemId": "E4",
-      "problemTitle": "Merge Two Sorted Lists",
-      "bidAmount": 100,
-      "price": 100,
-      "purchasedBy": "SYNORA-001-M02",
-      "purchasedByName": "Sreethan",
-      "remainingBalance": 390,
-      "purchaseTime": "2026-10-08T07:20:13.854Z",
-      "displayTime": "12:50 PM"
-    },
-    {
-      "id": "TXN-SABOTAGE-1791438437401-C3KH",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "type": "SABOTAGE_CARD",
-      "cardType": "SABOTAGE_CARD",
-      "cost": 40,
-      "price": 40,
-      "purchasedBy": "SYNORA-001-M01",
-      "purchasedByName": "Salman",
-      "remainingBalance": 490,
-      "timestamp": 1791438437401,
-      "isoTime": "2026-10-08T05:47:17.401Z"
-    },
-    {
-      "id": "TXN-HINT-1791436964476-5QFW",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "type": "HINT_PASS",
-      "cardType": "HINT_PASS",
-      "cost": 40,
-      "price": 40,
-      "problemId": null,
-      "purchasedBy": "SYNORA-001-M01",
-      "purchasedByName": "Salman",
-      "remainingBalance": 530,
-      "timestamp": 1791436964476,
-      "isoTime": "2026-10-08T05:22:44.476Z"
-    },
-    {
-      "id": "TXN-HINT-1791436743093-EYZL",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "type": "HINT_PASS",
-      "cardType": "HINT_PASS",
-      "cost": 40,
-      "price": 40,
-      "problemId": null,
-      "purchasedBy": "SYNORA-001-M01",
-      "purchasedByName": "Salman",
-      "remainingBalance": 570,
-      "timestamp": 1791436743093,
-      "isoTime": "2026-10-08T05:19:03.093Z"
-    },
-    {
-      "id": "TXN-HINT-1791430613754-REQ0",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "type": "HINT_PASS",
-      "cardType": "HINT_PASS",
-      "cost": 40,
-      "price": 40,
-      "problemId": null,
-      "purchasedBy": "SYNORA-001-M02",
-      "purchasedByName": "Sreethan",
-      "remainingBalance": 610,
-      "timestamp": 1791430613754,
-      "isoTime": "2026-10-08T03:36:53.754Z"
-    },
-    {
-      "id": "TXN-HINT-1791430604742-WISH",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "type": "HINT_PASS",
-      "cardType": "HINT_PASS",
-      "cost": 40,
-      "price": 40,
-      "problemId": null,
-      "purchasedBy": "SYNORA-001-M02",
-      "purchasedByName": "Sreethan",
-      "remainingBalance": 650,
-      "timestamp": 1791430604742,
-      "isoTime": "2026-10-08T03:36:44.742Z"
-    },
-    {
-      "id": "TXN-SABOTAGE-ACT-1791430593855-PWGM",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "type": "SABOTAGE",
-      "cardType": "SABOTAGE",
-      "cost": 40,
-      "price": 40,
-      "targetTeam": "VisionX",
-      "purchasedBy": "SYNORA-001-M02",
-      "purchasedByName": "Sreethan",
-      "remainingBalance": 690,
-      "timestamp": 1791430593855,
-      "isoTime": "2026-10-08T03:36:33.855Z"
-    },
-    {
-      "id": "TXN-SABOTAGE-1791430582456-9RJQ",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "type": "SABOTAGE_CARD",
-      "cardType": "SABOTAGE_CARD",
-      "cost": 40,
-      "price": 40,
-      "purchasedBy": "SYNORA-001-M02",
-      "purchasedByName": "Sreethan",
-      "remainingBalance": 690,
-      "timestamp": 1791430582456,
-      "isoTime": "2026-10-08T03:36:22.456Z"
-    },
-    {
-      "id": "TXN-1791402644842-NJUSP",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "problemId": "E2",
-      "problemTitle": "Palindrome Number",
-      "bidAmount": 100,
-      "price": 100,
-      "purchasedBy": "SYNORA-001-M01",
-      "purchasedByName": "Salman",
-      "remainingBalance": 730,
-      "purchaseTime": "2026-10-07T19:50:44.842Z",
-      "displayTime": "01:20 AM"
-    },
-    {
-      "id": "TXN-1791402493656-77H35",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "problemId": "E1",
-      "problemTitle": "Two Sum",
-      "bidAmount": 50,
-      "price": 50,
-      "purchasedBy": "SYNORA-001-M01",
-      "purchasedByName": "Salman",
-      "remainingBalance": 830,
-      "purchaseTime": "2026-10-07T19:48:13.656Z",
-      "displayTime": "01:18 AM"
-    },
-    {
-      "id": "TXN-SABOTAGE-ACT-1791401740367-69FU",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "type": "SABOTAGE",
-      "cardType": "SABOTAGE",
-      "cost": 40,
-      "price": 40,
-      "targetTeam": "VisionX",
-      "purchasedBy": "SYNORA-001-M01",
-      "purchasedByName": "Salman",
-      "remainingBalance": 880,
-      "timestamp": 1791401740367,
-      "isoTime": "2026-10-07T19:35:40.367Z"
-    },
-    {
-      "id": "TXN-SABOTAGE-1791401733734-OQO2",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "type": "SABOTAGE_CARD",
-      "cardType": "SABOTAGE_CARD",
-      "cost": 40,
-      "price": 40,
-      "purchasedBy": "SYNORA-001-M01",
-      "purchasedByName": "Salman",
-      "remainingBalance": 880,
-      "timestamp": 1791401733734,
-      "isoTime": "2026-10-07T19:35:33.734Z"
-    },
-    {
-      "id": "TXN-HINT-1791401731298-HPKT",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "type": "HINT_PASS",
-      "cardType": "HINT_PASS",
-      "cost": 40,
-      "price": 40,
-      "problemId": null,
-      "purchasedBy": "SYNORA-001-M01",
-      "purchasedByName": "Salman",
-      "remainingBalance": 920,
-      "timestamp": 1791401731298,
-      "isoTime": "2026-10-07T19:35:31.298Z"
-    },
-    {
-      "id": "TXN-HINT-1791401710498-3VWM",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "type": "HINT_PASS",
-      "cardType": "HINT_PASS",
-      "cost": 40,
-      "price": 40,
-      "problemId": null,
-      "purchasedBy": "SYNORA-001-M01",
-      "purchasedByName": "Salman",
-      "remainingBalance": 960,
-      "timestamp": 1791401710499,
-      "isoTime": "2026-10-07T19:35:10.499Z"
+      "timestamp": "2026-10-11T17:29:17.071Z",
+      "displayTime": "10:59 PM"
     }
   ],
   "unlockHistory": [
     {
-      "id": "TXN-ADM-1791454182963-weuw",
+      "id": "TXN-ADM-1791769525041-0qw6",
       "type": "ADMIN_UNLOCK",
-      "teamName": "Synora",
-      "problemId": "E3",
-      "problemTitle": "Valid Parentheses",
+      "teamName": "LJ864",
+      "problemId": "E1",
+      "problemTitle": "Two Sum",
+      "bidPrice": 10,
+      "bidAmount": 10,
+      "price": 10,
+      "previousBalance": 1000,
+      "remainingBalance": 990,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-12T01:45:25.041Z",
+      "displayTime": "07:15 AM"
+    },
+    {
+      "id": "TXN-ADM-1791769516205-324d",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "CE624",
+      "problemId": "E1",
+      "problemTitle": "Two Sum",
+      "bidPrice": 10,
+      "bidAmount": 10,
+      "price": 10,
+      "previousBalance": 1000,
+      "remainingBalance": 990,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-12T01:45:16.205Z",
+      "displayTime": "07:15 AM"
+    },
+    {
+      "id": "TXN-ADM-1791769459528-weo5",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "LCP123",
+      "problemId": "E1",
+      "problemTitle": "Two Sum",
+      "bidPrice": 10,
+      "bidAmount": 10,
+      "price": 10,
+      "previousBalance": 1000,
+      "remainingBalance": 990,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-12T01:44:19.528Z",
+      "displayTime": "07:14 AM"
+    },
+    {
+      "id": "TXN-ADM-1791769459493-sdg7",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "LC123",
+      "problemId": "E1",
+      "problemTitle": "Two Sum",
+      "bidPrice": 10,
+      "bidAmount": 10,
+      "price": 10,
+      "previousBalance": 1000,
+      "remainingBalance": 990,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-12T01:44:19.493Z",
+      "displayTime": "07:14 AM"
+    },
+    {
+      "id": "TXN-ADM-1791769444092-83mm",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "LPY409",
+      "problemId": "E1",
+      "problemTitle": "Two Sum",
+      "bidPrice": 10,
+      "bidAmount": 10,
+      "price": 10,
+      "previousBalance": 1000,
+      "remainingBalance": 990,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-12T01:44:04.092Z",
+      "displayTime": "07:14 AM"
+    },
+    {
+      "id": "TXN-ADM-1791769434515-kna6",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "RG261",
+      "problemId": "E1",
+      "problemTitle": "Two Sum",
+      "bidPrice": 10,
+      "bidAmount": 10,
+      "price": 10,
+      "previousBalance": 1000,
+      "remainingBalance": 990,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-12T01:43:54.515Z",
+      "displayTime": "07:13 AM"
+    },
+    {
+      "id": "TXN-ADM-1791769107706-njsi",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "UT1922",
+      "problemId": "E1",
+      "problemTitle": "Two Sum",
+      "bidPrice": 10,
+      "bidAmount": 10,
+      "price": 10,
+      "previousBalance": 970,
+      "remainingBalance": 960,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-12T01:38:27.706Z",
+      "displayTime": "07:08 AM"
+    },
+    {
+      "id": "TXN-ADM-1791768916570-zxpk",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "INS257",
+      "problemId": "E1",
+      "problemTitle": "Two Sum",
+      "bidPrice": 10,
+      "bidAmount": 10,
+      "price": 10,
+      "previousBalance": 1000,
+      "remainingBalance": 990,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-12T01:35:16.570Z",
+      "displayTime": "07:05 AM"
+    },
+    {
+      "id": "TXN-ADM-1791768905227-eavd",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "SCORE544",
+      "problemId": "E2",
+      "problemTitle": "Palindrome Number",
+      "bidPrice": 10,
+      "bidAmount": 10,
+      "price": 10,
+      "previousBalance": 990,
+      "remainingBalance": 980,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-12T01:35:05.227Z",
+      "displayTime": "07:05 AM"
+    },
+    {
+      "id": "TXN-ADM-1791768905217-5bac",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "SCORE544",
+      "problemId": "E1",
+      "problemTitle": "Two Sum",
+      "bidPrice": 10,
+      "bidAmount": 10,
+      "price": 10,
+      "previousBalance": 1000,
+      "remainingBalance": 990,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-12T01:35:05.217Z",
+      "displayTime": "07:05 AM"
+    },
+    {
+      "id": "TXN-ADM-1791768891822-x6ks",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "SCORE441",
+      "problemId": "E2",
+      "problemTitle": "Palindrome Number",
+      "bidPrice": 10,
+      "bidAmount": 10,
+      "price": 10,
+      "previousBalance": 990,
+      "remainingBalance": 980,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-12T01:34:51.822Z",
+      "displayTime": "07:04 AM"
+    },
+    {
+      "id": "TXN-ADM-1791768891808-9taw",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "SCORE441",
+      "problemId": "E1",
+      "problemTitle": "Two Sum",
+      "bidPrice": 10,
+      "bidAmount": 10,
+      "price": 10,
+      "previousBalance": 1000,
+      "remainingBalance": 990,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-12T01:34:51.808Z",
+      "displayTime": "07:04 AM"
+    },
+    {
+      "id": "TXN-ADM-1791767918970-5r43",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "TESTGAP539",
+      "problemId": "TST997",
+      "problemTitle": "Gap Test Problem v2",
       "bidPrice": 100,
       "bidAmount": 100,
       "price": 100,
-      "previousBalance": 390,
-      "remainingBalance": 290,
+      "previousBalance": 1000,
+      "remainingBalance": 900,
       "status": "UNLOCKED",
-      "timestamp": "2026-10-08T10:09:42.963Z",
-      "displayTime": "03:39 PM"
+      "timestamp": "2026-10-12T01:18:38.970Z",
+      "displayTime": "06:48 AM"
+    },
+    {
+      "id": "TXN-ADM-1791767895100-qge3",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "TESTGAP947",
+      "problemId": "TST926",
+      "problemTitle": "TST926",
+      "bidPrice": 100,
+      "bidAmount": 100,
+      "price": 100,
+      "previousBalance": 1000,
+      "remainingBalance": 900,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-12T01:18:15.100Z",
+      "displayTime": "06:48 AM"
+    },
+    {
+      "id": "TXN-ADM-1791740151519-98qh",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "BETA",
+      "problemId": "E2",
+      "problemTitle": "Palindrome Number",
+      "bidPrice": 120,
+      "bidAmount": 120,
+      "price": 120,
+      "previousBalance": 1000,
+      "remainingBalance": 880,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-11T17:35:51.519Z",
+      "displayTime": "11:05 PM"
+    },
+    {
+      "id": "TXN-ADM-1791739757071-79vw",
+      "type": "ADMIN_UNLOCK",
+      "teamName": "ALPHA",
+      "problemId": "E1",
+      "problemTitle": "Two Sum",
+      "bidPrice": 100,
+      "bidAmount": 100,
+      "price": 100,
+      "previousBalance": 1000,
+      "remainingBalance": 900,
+      "status": "UNLOCKED",
+      "timestamp": "2026-10-11T17:29:17.071Z",
+      "displayTime": "10:59 PM"
     }
   ],
-  "submissions": [
-    {
-      "id": "SUB-1791432775616-APGP",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "memberName": "Salman",
-      "problemId": "E2",
-      "problemTitle": "Palindrome Number",
-      "difficulty": "Easy",
-      "difficultyPoints": 200,
-      "result": "WRONG_ANSWER",
-      "verdict": "WRONG_ANSWER",
-      "passed": false,
-      "penalty": 0,
-      "awardedPoints": 0,
-      "wrongCountOnProblem": 1,
-      "totalTeamWrong": 3,
-      "currentTeamScore": 370,
-      "details": "Sample Output Mismatch. Expected:\ntrue\nGot:\n",
-      "timestamp": 1791432775616,
-      "isoTime": "2026-10-08T04:12:55.616Z"
-    },
-    {
-      "id": "SUB-1791402719773-OO6R",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "memberName": "Salman",
-      "problemId": "E2",
-      "problemTitle": "Palindrome Number",
-      "difficulty": "Easy",
-      "difficultyPoints": 200,
-      "result": "ACCEPTED",
-      "verdict": "ACCEPTED",
-      "passed": true,
-      "penalty": 0,
-      "awardedPoints": 200,
-      "wrongCountOnProblem": 1,
-      "totalTeamWrong": 3,
-      "currentTeamScore": 370,
-      "details": "All 3 hidden tests passed!",
-      "timestamp": 1791402719773,
-      "isoTime": "2026-10-07T19:51:59.773Z"
-    },
-    {
-      "id": "SUB-1791402654292-NLY3",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "memberName": "Salman",
-      "problemId": "E2",
-      "problemTitle": "Palindrome Number",
-      "difficulty": "Easy",
-      "difficultyPoints": 200,
-      "result": "WRONG_ANSWER",
-      "verdict": "WRONG_ANSWER",
-      "passed": false,
-      "penalty": -10,
-      "awardedPoints": 0,
-      "wrongCountOnProblem": 1,
-      "totalTeamWrong": 3,
-      "currentTeamScore": 170,
-      "details": "Sample Output Mismatch. Expected:\ntrue\nGot:\n",
-      "timestamp": 1791402654292,
-      "isoTime": "2026-10-07T19:50:54.292Z"
-    },
-    {
-      "id": "SUB-1791402519626-UD9L",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "memberName": "Salman",
-      "problemId": "E1",
-      "problemTitle": "Two Sum",
-      "difficulty": "Easy",
-      "difficultyPoints": 200,
-      "result": "ACCEPTED",
-      "verdict": "ACCEPTED",
-      "passed": true,
-      "penalty": 0,
-      "awardedPoints": 200,
-      "wrongCountOnProblem": 2,
-      "totalTeamWrong": 2,
-      "currentTeamScore": 180,
-      "details": "All 2 hidden tests passed!",
-      "timestamp": 1791402519626,
-      "isoTime": "2026-10-07T19:48:39.626Z"
-    },
-    {
-      "id": "SUB-1791402510116-MUJN",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M02",
-      "memberName": "Sreethan",
-      "problemId": "E1",
-      "problemTitle": "Two Sum",
-      "difficulty": "Easy",
-      "difficultyPoints": 200,
-      "result": "WRONG_ANSWER",
-      "verdict": "WRONG_ANSWER",
-      "passed": false,
-      "penalty": -10,
-      "awardedPoints": 0,
-      "wrongCountOnProblem": 2,
-      "totalTeamWrong": 2,
-      "currentTeamScore": -20,
-      "details": "Sample Output Mismatch. Expected:\n0 1\nGot:\n12345",
-      "timestamp": 1791402510116,
-      "isoTime": "2026-10-07T19:48:30.116Z"
-    },
-    {
-      "id": "SUB-1791402501753-MBFG",
-      "teamId": "Synora",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "memberName": "Salman",
-      "problemId": "E1",
-      "problemTitle": "Two Sum",
-      "difficulty": "Easy",
-      "difficultyPoints": 200,
-      "result": "WRONG_ANSWER",
-      "verdict": "WRONG_ANSWER",
-      "passed": false,
-      "penalty": -10,
-      "awardedPoints": 0,
-      "wrongCountOnProblem": 1,
-      "totalTeamWrong": 1,
-      "currentTeamScore": -10,
-      "details": "Sample Output Mismatch. Expected:\n0 1\nGot:\n999",
-      "timestamp": 1791402501753,
-      "isoTime": "2026-10-07T19:48:21.753Z"
-    }
-  ],
+  "submissions": [],
   "telemetry": [
     {
-      "id": "1791444137450-630zjr",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M02",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791444137450,
-      "isoTime": "2026-10-08T07:22:17.450Z"
-    },
-    {
-      "id": "1791443961021-zyt1xa",
+      "id": "1791767109412-8ribnp",
       "teamName": "Synora",
       "memberId": "SYNORA-001-M02",
       "event": "TAB_SWITCH",
       "details": "Switched away from browser tab or minimized window.",
-      "timestamp": 1791443961021,
-      "isoTime": "2026-10-08T07:19:21.021Z"
+      "timestamp": 1791767109412,
+      "isoTime": "2026-10-12T01:05:09.412Z"
     },
     {
-      "id": "1791443852062-hshn6u",
+      "id": "1791767037563-rrw8ll",
       "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791443852062,
-      "isoTime": "2026-10-08T07:17:32.062Z"
-    },
-    {
-      "id": "1791443825998-uk0hfx",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791443825998,
-      "isoTime": "2026-10-08T07:17:05.998Z"
-    },
-    {
-      "id": "1791443797298-fy4e1u",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "BULK_TEXT_INSERTION",
-      "details": "Blocked abnormal bulk text insertion of 413 characters.",
-      "timestamp": 1791443797298,
-      "isoTime": "2026-10-08T07:16:37.298Z"
-    },
-    {
-      "id": "1791443790451-77qub0",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "BULK_TEXT_INSERTION",
-      "details": "Blocked abnormal bulk text insertion of 413 characters.",
-      "timestamp": 1791443790451,
-      "isoTime": "2026-10-08T07:16:30.451Z"
-    },
-    {
-      "id": "1791443784239-g0c6tn",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "BULK_TEXT_INSERTION",
-      "details": "Blocked abnormal bulk text insertion of 412 characters.",
-      "timestamp": 1791443784239,
-      "isoTime": "2026-10-08T07:16:24.239Z"
-    },
-    {
-      "id": "1791443703251-egl0dc",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791443703251,
-      "isoTime": "2026-10-08T07:15:03.251Z"
-    },
-    {
-      "id": "1791443691084-sjomxu",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791443691084,
-      "isoTime": "2026-10-08T07:14:51.084Z"
-    },
-    {
-      "id": "1791443653418-pf08v3",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791443653418,
-      "isoTime": "2026-10-08T07:14:13.418Z"
-    },
-    {
-      "id": "1791443648168-s0lq25",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791443648168,
-      "isoTime": "2026-10-08T07:14:08.168Z"
-    },
-    {
-      "id": "1791443628151-opgcpd",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791443628151,
-      "isoTime": "2026-10-08T07:13:48.151Z"
-    },
-    {
-      "id": "1791443471614-oom558",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791443471614,
-      "isoTime": "2026-10-08T07:11:11.614Z"
-    },
-    {
-      "id": "1791438441955-vvqst3",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791438441955,
-      "isoTime": "2026-10-08T05:47:21.955Z"
-    },
-    {
-      "id": "1791437737440-4ukj2e",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
+      "memberId": "SYNORA-001-M02",
       "event": "TAB_SWITCH",
       "details": "Switched away from browser tab or minimized window.",
-      "timestamp": 1791437737440,
-      "isoTime": "2026-10-08T05:35:37.440Z"
+      "timestamp": 1791767037563,
+      "isoTime": "2026-10-12T01:03:57.563Z"
     },
     {
-      "id": "1791437543100-c4zbcy",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
+      "id": "1791766963508-mu3g72",
+      "teamName": "ALPHA",
+      "memberId": "ALPHA-M01",
       "event": "FOCUS_LOST",
       "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791437543100,
-      "isoTime": "2026-10-08T05:32:23.100Z"
+      "timestamp": 1791766963508,
+      "isoTime": "2026-10-12T01:02:43.508Z"
     },
     {
-      "id": "1791437529255-099efi",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
+      "id": "1791740384285-gzrrza",
+      "teamName": "ALPHA",
+      "memberId": "ALPHA-M01",
       "event": "FOCUS_LOST",
       "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791437529256,
-      "isoTime": "2026-10-08T05:32:09.256Z"
+      "timestamp": 1791740384285,
+      "isoTime": "2026-10-11T17:39:44.285Z"
     },
     {
-      "id": "1791437248386-cdx6t3",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
+      "id": "1791740351533-r4hryj",
+      "teamName": "ALPHA",
+      "memberId": "ALPHA-M01",
       "event": "FOCUS_LOST",
       "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791437248386,
-      "isoTime": "2026-10-08T05:27:28.386Z"
+      "timestamp": 1791740351534,
+      "isoTime": "2026-10-11T17:39:11.534Z"
     },
     {
-      "id": "1791437003292-6j547t",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
+      "id": "1791740307234-r6h6gy",
+      "teamName": "BETA",
+      "memberId": "BETA-M01",
       "event": "FOCUS_LOST",
       "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791437003292,
-      "isoTime": "2026-10-08T05:23:23.292Z"
+      "timestamp": 1791740307234,
+      "isoTime": "2026-10-11T17:38:27.234Z"
     },
     {
-      "id": "1791436972212-idheaf",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
+      "id": "1791740187283-7snxo4",
+      "teamName": "BETA",
+      "memberId": "BETA-M01",
       "event": "FOCUS_LOST",
       "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791436972212,
-      "isoTime": "2026-10-08T05:22:52.212Z"
+      "timestamp": 1791740187283,
+      "isoTime": "2026-10-11T17:36:27.283Z"
     },
     {
-      "id": "1791436764535-aty9bf",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
+      "id": "1791740166333-eieza4",
+      "teamName": "BETA",
+      "memberId": "BETA-M01",
+      "event": "FULLSCREEN_EXIT",
+      "details": "Exited fullscreen examination mode.",
+      "timestamp": 1791740166333,
+      "isoTime": "2026-10-11T17:36:06.333Z"
+    },
+    {
+      "id": "1791740119270-eef09e",
+      "teamName": "ALPHA",
+      "memberId": "ALPHA-M01",
       "event": "FOCUS_LOST",
       "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791436764535,
-      "isoTime": "2026-10-08T05:19:24.535Z"
+      "timestamp": 1791740119270,
+      "isoTime": "2026-10-11T17:35:19.270Z"
     },
     {
-      "id": "1791433142059-pisman",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
+      "id": "1791740112739-fzytl1",
+      "teamName": "ALPHA",
+      "memberId": "ALPHA-M01",
+      "event": "FULLSCREEN_EXIT",
+      "details": "Exited fullscreen examination mode.",
+      "timestamp": 1791740112739,
+      "isoTime": "2026-10-11T17:35:12.739Z"
+    },
+    {
+      "id": "1791740083229-77cw6h",
+      "teamName": "BETA",
+      "memberId": "BETA-M01",
       "event": "FOCUS_LOST",
       "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791433142060,
-      "isoTime": "2026-10-08T04:19:02.060Z"
+      "timestamp": 1791740083229,
+      "isoTime": "2026-10-11T17:34:43.229Z"
     },
     {
-      "id": "1791432812836-oazeb6",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
+      "id": "1791739802950-4f7ptd",
+      "teamName": "ALPHA",
+      "memberId": "ALPHA-M01",
+      "event": "FULLSCREEN_EXIT",
+      "details": "Exited fullscreen examination mode.",
+      "timestamp": 1791739802950,
+      "isoTime": "2026-10-11T17:30:02.950Z"
+    },
+    {
+      "id": "1791739741232-d2cgvm",
+      "teamName": "ALPHA",
+      "memberId": "ALPHA-M01",
       "event": "FOCUS_LOST",
       "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791432812836,
-      "isoTime": "2026-10-08T04:13:32.836Z"
+      "timestamp": 1791739741232,
+      "isoTime": "2026-10-11T17:29:01.232Z"
     },
     {
-      "id": "1791432761588-hoonr9",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
+      "id": "1791739722211-wcpmuu",
+      "teamName": "ALPHA",
+      "memberId": "ALPHA-M01",
       "event": "FOCUS_LOST",
       "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791432761588,
-      "isoTime": "2026-10-08T04:12:41.588Z"
+      "timestamp": 1791739722211,
+      "isoTime": "2026-10-11T17:28:42.211Z"
     },
     {
-      "id": "1791430739455-rhpjo0",
+      "id": "1791739658676-gnpvox",
+      "teamName": "Synora",
+      "memberId": "SYNORA-001-M02",
+      "event": "TAB_SWITCH",
+      "details": "Switched away from browser tab or minimized window.",
+      "timestamp": 1791739658676,
+      "isoTime": "2026-10-11T17:27:38.676Z"
+    },
+    {
+      "id": "1791739656504-9bzhpg",
       "teamName": "Synora",
       "memberId": "SYNORA-001-M02",
       "event": "FULLSCREEN_EXIT",
       "details": "Exited fullscreen examination mode.",
-      "timestamp": 1791430739455,
-      "isoTime": "2026-10-08T03:38:59.455Z"
-    },
-    {
-      "id": "1791430478295-yxtyy0",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FULLSCREEN_EXIT",
-      "details": "Exited fullscreen examination mode.",
-      "timestamp": 1791430478295,
-      "isoTime": "2026-10-08T03:34:38.295Z"
-    },
-    {
-      "id": "1791405865335-0tyk2t",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791405865335,
-      "isoTime": "2026-10-07T20:44:25.335Z"
-    },
-    {
-      "id": "1791405841435-n1fx9p",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791405841435,
-      "isoTime": "2026-10-07T20:44:01.435Z"
-    },
-    {
-      "id": "1791405788032-sfy2cu",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791405788032,
-      "isoTime": "2026-10-07T20:43:08.032Z"
-    },
-    {
-      "id": "1791405707556-5vxvd5",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791405707556,
-      "isoTime": "2026-10-07T20:41:47.556Z"
-    },
-    {
-      "id": "1791405648186-rj5vx8",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FULLSCREEN_EXIT",
-      "details": "Exited fullscreen examination mode.",
-      "timestamp": 1791405648186,
-      "isoTime": "2026-10-07T20:40:48.186Z"
-    },
-    {
-      "id": "1791405624829-85m9fs",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791405624829,
-      "isoTime": "2026-10-07T20:40:24.829Z"
-    },
-    {
-      "id": "1791405555239-gdbps8",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791405555239,
-      "isoTime": "2026-10-07T20:39:15.239Z"
-    },
-    {
-      "id": "1791405498808-fsvx20",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791405498808,
-      "isoTime": "2026-10-07T20:38:18.808Z"
-    },
-    {
-      "id": "1791405418269-rpokt5",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791405418269,
-      "isoTime": "2026-10-07T20:36:58.269Z"
-    },
-    {
-      "id": "1791405336098-s88ymi",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791405336098,
-      "isoTime": "2026-10-07T20:35:36.098Z"
-    },
-    {
-      "id": "1791405256816-crsx1j",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FULLSCREEN_EXIT",
-      "details": "Exited fullscreen examination mode.",
-      "timestamp": 1791405256816,
-      "isoTime": "2026-10-07T20:34:16.816Z"
-    },
-    {
-      "id": "1791405244285-5oiva5",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791405244285,
-      "isoTime": "2026-10-07T20:34:04.285Z"
-    },
-    {
-      "id": "1791405149175-v9fxdu",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791405149175,
-      "isoTime": "2026-10-07T20:32:29.175Z"
-    },
-    {
-      "id": "1791405063628-f4noda",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791405063628,
-      "isoTime": "2026-10-07T20:31:03.628Z"
-    },
-    {
-      "id": "1791404595683-rd1cld",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791404595683,
-      "isoTime": "2026-10-07T20:23:15.683Z"
-    },
-    {
-      "id": "1791404544878-jhk739",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791404544878,
-      "isoTime": "2026-10-07T20:22:24.878Z"
-    },
-    {
-      "id": "1791404434516-wg0f3x",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791404434516,
-      "isoTime": "2026-10-07T20:20:34.516Z"
-    },
-    {
-      "id": "1791404391899-kn1qax",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FULLSCREEN_EXIT",
-      "details": "Exited fullscreen examination mode.",
-      "timestamp": 1791404391899,
-      "isoTime": "2026-10-07T20:19:51.899Z"
-    },
-    {
-      "id": "1791404384358-igacoc",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791404384358,
-      "isoTime": "2026-10-07T20:19:44.358Z"
-    },
-    {
-      "id": "1791404282411-sbg009",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791404282411,
-      "isoTime": "2026-10-07T20:18:02.411Z"
-    },
-    {
-      "id": "1791403813547-452kxo",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FULLSCREEN_EXIT",
-      "details": "Exited fullscreen examination mode.",
-      "timestamp": 1791403813547,
-      "isoTime": "2026-10-07T20:10:13.547Z"
-    },
-    {
-      "id": "1791403774288-lyqr96",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FULLSCREEN_EXIT",
-      "details": "Exited fullscreen examination mode.",
-      "timestamp": 1791403774288,
-      "isoTime": "2026-10-07T20:09:34.288Z"
-    },
-    {
-      "id": "1791403768451-o57fle",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791403768451,
-      "isoTime": "2026-10-07T20:09:28.451Z"
-    },
-    {
-      "id": "1791403699217-7dkafn",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791403699217,
-      "isoTime": "2026-10-07T20:08:19.217Z"
-    },
-    {
-      "id": "1791402777786-vdn5ul",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FULLSCREEN_EXIT",
-      "details": "Exited fullscreen examination mode.",
-      "timestamp": 1791402777786,
-      "isoTime": "2026-10-07T19:52:57.786Z"
-    },
-    {
-      "id": "1791402681070-egvyvk",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791402681070,
-      "isoTime": "2026-10-07T19:51:21.070Z"
-    },
-    {
-      "id": "1791401756888-e13vj6",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "TAB_SWITCH",
-      "details": "Switched away from browser tab or minimized window.",
-      "timestamp": 1791401756888,
-      "isoTime": "2026-10-07T19:35:56.888Z"
-    },
-    {
-      "id": "1791401755369-at1yur",
-      "teamName": "Synora",
-      "memberId": "SYNORA-001-M01",
-      "event": "FOCUS_LOST",
-      "details": "Window lost focus (switched to external application).",
-      "timestamp": 1791401755369,
-      "isoTime": "2026-10-07T19:35:55.369Z"
-    },
-    {
-      "id": "1791401694565-52p4ha",
-      "teamName": "Synora",
-      "memberId": "Synora-001-M01",
-      "event": "FULLSCREEN_EXIT",
-      "details": "Exited fullscreen examination mode.",
-      "timestamp": 1791401694565,
-      "isoTime": "2026-10-07T19:34:54.565Z"
+      "timestamp": 1791739656504,
+      "isoTime": "2026-10-11T17:27:36.504Z"
     }
   ],
   "config": {
     "adminPin": "qubit",
-    "maxFlags": 3,
+    "maxFlags": 999,
     "executionTimeoutMs": 3000,
     "initialTeamBalance": 1000
-  }
+  },
+  "wildCards": [
+    {
+      "id": "HINT",
+      "name": "Hint",
+      "icon": "💡",
+      "kind": "UTILITY",
+      "scope": "PROBLEM",
+      "durationMin": 0,
+      "defaultBid": 40,
+      "description": "Admin releases this problem's official hint to the buyer team only.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "FREEZE",
+      "name": "Team Freeze",
+      "icon": "❄️",
+      "kind": "ATTACK",
+      "durationMin": 10,
+      "defaultBid": 80,
+      "description": "Target editor locks with a countdown; Run and Submit disabled for 10 minutes.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "AI_DEBUG",
+      "name": "AI Debug",
+      "icon": "🤖",
+      "kind": "UTILITY",
+      "scope": "PROBLEM",
+      "durationMin": 0,
+      "defaultBid": 60,
+      "description": "One-time \"Debug with AI\" analysis on one unlocked problem for the buyer.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "BLACKOUT",
+      "name": "Blackout",
+      "icon": "🌑",
+      "kind": "ATTACK",
+      "durationMin": 10,
+      "defaultBid": 80,
+      "description": "Target's page goes dark while their code keeps running.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "NO_BACKSPACE",
+      "name": "No Backspace",
+      "icon": "⌫",
+      "kind": "ATTACK",
+      "durationMin": 10,
+      "defaultBid": 60,
+      "description": "Backspace & Delete blocked in the target editor for 10 minutes.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "SHIELD",
+      "name": "Shield",
+      "icon": "🛡️",
+      "kind": "DEFENSE",
+      "durationMin": 0,
+      "defaultBid": 60,
+      "description": "Declare BEFORE an attack: auto-blocks the next incoming sabotage.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "MIRROR",
+      "name": "Mirror",
+      "icon": "🪞",
+      "kind": "DEFENSE",
+      "durationMin": 0,
+      "defaultBid": 80,
+      "description": "Declare BEFORE an attack: reflects the next sabotage back at the attacker.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "INSURANCE",
+      "name": "Insurance",
+      "icon": "📜",
+      "kind": "DEFENSE",
+      "durationMin": 0,
+      "defaultBid": 40,
+      "description": "Declare BEFORE submitting: waives one −10 wrong-submission penalty.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "DOUBLE_POINTS",
+      "name": "Double Points",
+      "icon": "✌️",
+      "kind": "UTILITY",
+      "scope": "PROBLEM",
+      "durationMin": 0,
+      "defaultBid": 100,
+      "description": "Doubles the points of one problem for the buyer team.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "SKIP_SWAP",
+      "name": "Skip / Swap",
+      "icon": "🔄",
+      "kind": "UTILITY",
+      "scope": "PROBLEM",
+      "durationMin": 0,
+      "defaultBid": 60,
+      "description": "Swap one of the buyer's unlocked problems for another of the same difficulty.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "COIN_HEIST",
+      "name": "Coin Heist",
+      "icon": "🪙",
+      "kind": "ATTACK",
+      "durationMin": 0,
+      "defaultBid": 100,
+      "description": "Instantly steals 100 ByteCoins from the target team.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "TIME_STEAL",
+      "name": "Time Steal",
+      "icon": "⏱️",
+      "kind": "ATTACK",
+      "durationMin": 0,
+      "defaultBid": 80,
+      "description": "+5 min for the buyer, −5 min for the target (requires the event clock).",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "TINY_FONT",
+      "name": "Tiny Font",
+      "icon": "🔬",
+      "kind": "ATTACK",
+      "durationMin": 10,
+      "defaultBid": 40,
+      "description": "Target's editor font shrinks for 10 minutes.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "LANGUAGE_LOCK",
+      "name": "Language Lock",
+      "icon": "🔡",
+      "kind": "ATTACK",
+      "scope": "LANGUAGE",
+      "durationMin": 0,
+      "defaultBid": 60,
+      "description": "Target must solve their next problem in a language the buyer picks.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "PEEK",
+      "name": "Peek",
+      "icon": "👁️",
+      "kind": "UTILITY",
+      "scope": "PROBLEM",
+      "durationMin": 0,
+      "defaultBid": 80,
+      "description": "Reveals one hidden test case for one problem to the buyer team.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    },
+    {
+      "id": "NO_AUTOCOMPLETE",
+      "name": "No Autocomplete",
+      "icon": "🚫",
+      "kind": "ATTACK",
+      "durationMin": 10,
+      "defaultBid": 40,
+      "description": "Editor assistance & syntax highlighting disabled for the target for 10 minutes.",
+      "quantity": 1,
+      "owner": null,
+      "enabled": true,
+      "bidAmount": null,
+      "soldAt": null
+    }
+  ],
+  "cardActivations": [],
+  "eventSettings": {
+    "startAt": null,
+    "endAt": null,
+    "wildCardsOverride": false,
+    "leaderboardFrozen": false,
+    "leaderboardSnapshot": null,
+    "frozenAt": null
+  },
+  "auditLog": [
+    {
+      "id": "AUD-1791769290533-XBI7",
+      "adminId": "ADMIN",
+      "action": "DELETE_PROBLEM",
+      "targetType": "PROBLEM",
+      "targetId": "ZZ9",
+      "details": "Persistence Probe",
+      "timestamp": 1791769290533,
+      "isoTime": "2026-10-12T01:41:30.533Z"
+    },
+    {
+      "id": "AUD-1791769273243-P9TC",
+      "adminId": "ADMIN",
+      "action": "CREATE_PROBLEM",
+      "targetType": "PROBLEM",
+      "targetId": "ZZ9",
+      "details": "Persistence Probe [Easy]",
+      "timestamp": 1791769273243,
+      "isoTime": "2026-10-12T01:41:13.243Z"
+    },
+    {
+      "id": "AUD-1791769131737-R80Z",
+      "adminId": "ADMIN",
+      "action": "RESET_LEADERBOARD",
+      "targetType": "EVENT",
+      "targetId": "leaderboard",
+      "details": "scores, penalties and solves cleared; coins/unlocks kept",
+      "timestamp": 1791769131737,
+      "isoTime": "2026-10-12T01:38:51.737Z"
+    },
+    {
+      "id": "AUD-1791769131623-K7CF",
+      "adminId": "ADMIN",
+      "action": "ADJUST_SCORE",
+      "targetType": "TEAM",
+      "targetId": "ALPHA",
+      "details": "-25 pts · reason: revert debug test",
+      "timestamp": 1791769131623,
+      "isoTime": "2026-10-12T01:38:51.623Z"
+    },
+    {
+      "id": "AUD-1791769131606-LIAR",
+      "adminId": "ADMIN",
+      "action": "UNFREEZE_LEADERBOARD",
+      "targetType": "EVENT",
+      "targetId": "leaderboard",
+      "details": "",
+      "timestamp": 1791769131606,
+      "isoTime": "2026-10-12T01:38:51.606Z"
+    },
+    {
+      "id": "AUD-1791769131582-TCA5",
+      "adminId": "ADMIN",
+      "action": "ADJUST_SCORE",
+      "targetType": "TEAM",
+      "targetId": "ALPHA",
+      "details": "+25 pts · reason: debug freeze test",
+      "timestamp": 1791769131582,
+      "isoTime": "2026-10-12T01:38:51.582Z"
+    },
+    {
+      "id": "AUD-1791769131554-OZ65",
+      "adminId": "ADMIN",
+      "action": "FREEZE_LEADERBOARD",
+      "targetType": "EVENT",
+      "targetId": "leaderboard",
+      "details": "17 teams snapshotted",
+      "timestamp": 1791769131554,
+      "isoTime": "2026-10-12T01:38:51.554Z"
+    },
+    {
+      "id": "AUD-1791769118286-93VH",
+      "adminId": "ADMIN",
+      "action": "SET_EVENT_CLOCK",
+      "targetType": "EVENT",
+      "targetId": "clock",
+      "details": "start=null end=null",
+      "timestamp": 1791769118286,
+      "isoTime": "2026-10-12T01:38:38.286Z"
+    },
+    {
+      "id": "AUD-1791769118279-AORK",
+      "adminId": "ADMIN",
+      "action": "WILDCARD_CUTOFF_OVERRIDE_OFF",
+      "targetType": "EVENT",
+      "targetId": "wildcards",
+      "details": "debug done",
+      "timestamp": 1791769118279,
+      "isoTime": "2026-10-12T01:38:38.279Z"
+    },
+    {
+      "id": "AUD-1791769118271-US56",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_CANCEL",
+      "targetType": "WILD_CARD",
+      "targetId": "BLACKOUT",
+      "details": "Cancelled Blackout on UT2922",
+      "timestamp": 1791769118271,
+      "isoTime": "2026-10-12T01:38:38.271Z"
+    },
+    {
+      "id": "AUD-1791769118252-PWCC",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_ACTIVATE",
+      "targetType": "WILD_CARD",
+      "targetId": "BLACKOUT",
+      "details": "Blackout active on UT2922 for 10 min",
+      "timestamp": 1791769118252,
+      "isoTime": "2026-10-12T01:38:38.252Z"
+    },
+    {
+      "id": "AUD-1791769118237-X97C",
+      "adminId": "ADMIN",
+      "action": "WILDCARD_CUTOFF_OVERRIDE_ON",
+      "targetType": "EVENT",
+      "targetId": "wildcards",
+      "details": "debug test",
+      "timestamp": 1791769118237,
+      "isoTime": "2026-10-12T01:38:38.237Z"
+    },
+    {
+      "id": "AUD-1791769118216-PZXX",
+      "adminId": "ADMIN",
+      "action": "SET_EVENT_CLOCK",
+      "targetType": "EVENT",
+      "targetId": "clock",
+      "details": "start=1791765518215 end=1791769718216",
+      "timestamp": 1791769118216,
+      "isoTime": "2026-10-12T01:38:38.216Z"
+    },
+    {
+      "id": "AUD-1791769118207-WVC9",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_TOGGLE",
+      "targetType": "WILD_CARD",
+      "targetId": "BLACKOUT",
+      "details": "enabled=true",
+      "timestamp": 1791769118207,
+      "isoTime": "2026-10-12T01:38:38.207Z"
+    },
+    {
+      "id": "AUD-1791769118196-X120",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_TOGGLE",
+      "targetType": "WILD_CARD",
+      "targetId": "BLACKOUT",
+      "details": "enabled=false",
+      "timestamp": 1791769118196,
+      "isoTime": "2026-10-12T01:38:38.196Z"
+    },
+    {
+      "id": "AUD-1791769118170-AY4K",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_CANCEL",
+      "targetType": "WILD_CARD",
+      "targetId": "BLACKOUT",
+      "details": "Cancelled Blackout on UT2922",
+      "timestamp": 1791769118170,
+      "isoTime": "2026-10-12T01:38:38.170Z"
+    },
+    {
+      "id": "AUD-1791769118161-FSOG",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_CANCEL",
+      "targetType": "WILD_CARD",
+      "targetId": "NO_BACKSPACE",
+      "details": "Cancelled No Backspace on UT2922",
+      "timestamp": 1791769118161,
+      "isoTime": "2026-10-12T01:38:38.161Z"
+    },
+    {
+      "id": "AUD-1791769118145-XWEX",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_CANCEL",
+      "targetType": "WILD_CARD",
+      "targetId": "TINY_FONT",
+      "details": "Cancelled Tiny Font on UT2922",
+      "timestamp": 1791769118145,
+      "isoTime": "2026-10-12T01:38:38.145Z"
+    },
+    {
+      "id": "AUD-1791769118137-XRR4",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_CANCEL",
+      "targetType": "WILD_CARD",
+      "targetId": "NO_AUTOCOMPLETE",
+      "details": "Cancelled No Autocomplete on UT2922",
+      "timestamp": 1791769118137,
+      "isoTime": "2026-10-12T01:38:38.137Z"
+    },
+    {
+      "id": "AUD-1791769118112-KQ3B",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_ACTIVATE",
+      "targetType": "WILD_CARD",
+      "targetId": "NO_AUTOCOMPLETE",
+      "details": "No Autocomplete active on UT2922 for 10 min",
+      "timestamp": 1791769118112,
+      "isoTime": "2026-10-12T01:38:38.112Z"
+    },
+    {
+      "id": "AUD-1791769118073-MYU4",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_ACTIVATE",
+      "targetType": "WILD_CARD",
+      "targetId": "TINY_FONT",
+      "details": "Tiny Font active on UT2922 for 10 min",
+      "timestamp": 1791769118073,
+      "isoTime": "2026-10-12T01:38:38.073Z"
+    },
+    {
+      "id": "AUD-1791769118030-KP5K",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_ACTIVATE",
+      "targetType": "WILD_CARD",
+      "targetId": "NO_BACKSPACE",
+      "details": "No Backspace active on UT2922 for 10 min",
+      "timestamp": 1791769118030,
+      "isoTime": "2026-10-12T01:38:38.030Z"
+    },
+    {
+      "id": "AUD-1791769117994-IFKP",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_ACTIVATE",
+      "targetType": "WILD_CARD",
+      "targetId": "BLACKOUT",
+      "details": "Blackout active on UT2922 for 10 min",
+      "timestamp": 1791769117994,
+      "isoTime": "2026-10-12T01:38:37.994Z"
+    },
+    {
+      "id": "AUD-1791769107892-OX4V",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_ACTIVATE",
+      "targetType": "WILD_CARD",
+      "targetId": "PEEK",
+      "details": "Hidden test 1 of 2 revealed for E1 to UT1922",
+      "timestamp": 1791769107892,
+      "isoTime": "2026-10-12T01:38:27.892Z"
+    },
+    {
+      "id": "AUD-1791769107850-IJO9",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_ACTIVATE",
+      "targetType": "WILD_CARD",
+      "targetId": "AI_DEBUG",
+      "details": "AI Debug granted on E1 for UT1922",
+      "timestamp": 1791769107850,
+      "isoTime": "2026-10-12T01:38:27.850Z"
+    },
+    {
+      "id": "AUD-1791769107803-WF4P",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_ACTIVATE",
+      "targetType": "WILD_CARD",
+      "targetId": "HINT",
+      "details": "Hint for E1 released to UT1922",
+      "timestamp": 1791769107803,
+      "isoTime": "2026-10-12T01:38:27.803Z"
+    },
+    {
+      "id": "AUD-1791769059542-7HIB",
+      "adminId": "ADMIN",
+      "action": "SET_EVENT_CLOCK",
+      "targetType": "EVENT",
+      "targetId": "clock",
+      "details": "start=1791768999540 end=1791776259541",
+      "timestamp": 1791769059542,
+      "isoTime": "2026-10-12T01:37:39.542Z"
+    },
+    {
+      "id": "AUD-1791769042370-LTLO",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_CANCEL",
+      "targetType": "WILD_CARD",
+      "targetId": "FREEZE",
+      "details": "Cancelled Team Freeze on VIC650",
+      "timestamp": 1791769042370,
+      "isoTime": "2026-10-12T01:37:22.370Z"
+    },
+    {
+      "id": "AUD-1791769042312-2JRL",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_CANCEL",
+      "targetType": "WILD_CARD",
+      "targetId": "FREEZE",
+      "details": "Cancelled Team Freeze on ATK650",
+      "timestamp": 1791769042312,
+      "isoTime": "2026-10-12T01:37:22.312Z"
+    },
+    {
+      "id": "AUD-1791768936840-SFMA",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_ACTIVATE",
+      "targetType": "WILD_CARD",
+      "targetId": "COIN_HEIST",
+      "details": "Stole 100 ByteCoins from VIC650",
+      "timestamp": 1791768936840,
+      "isoTime": "2026-10-12T01:35:36.840Z"
+    },
+    {
+      "id": "AUD-1791768936610-Z6DS",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_ARM",
+      "targetType": "WILD_CARD",
+      "targetId": "MIRROR",
+      "details": "Armed for VIC650 — blocks the next incoming attack",
+      "timestamp": 1791768936610,
+      "isoTime": "2026-10-12T01:35:36.610Z"
+    },
+    {
+      "id": "AUD-1791768936571-EEPM",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_ARM",
+      "targetType": "WILD_CARD",
+      "targetId": "SHIELD",
+      "details": "Armed for VIC650 — blocks the next incoming attack",
+      "timestamp": 1791768936571,
+      "isoTime": "2026-10-12T01:35:36.571Z"
+    },
+    {
+      "id": "AUD-1791768915182-J79D",
+      "adminId": "ADMIN",
+      "action": "WILD_CARD_ACTIVATE",
+      "targetType": "WILD_CARD",
+      "targetId": "DOUBLE_POINTS",
+      "details": "Points for E2 doubled for SCORE544",
+      "timestamp": 1791768915182,
+      "isoTime": "2026-10-12T01:35:15.182Z"
+    },
+    {
+      "id": "AUD-1791768880873-YYUQ",
+      "adminId": "ADMIN",
+      "action": "SET_PROBLEM_PRICE",
+      "targetType": "PROBLEM",
+      "targetId": "E2",
+      "details": "bid price=40",
+      "timestamp": 1791768880873,
+      "isoTime": "2026-10-12T01:34:40.873Z"
+    },
+    {
+      "id": "AUD-1791768788485-CCZ1",
+      "adminId": "ADMIN",
+      "action": "GENERATE_PINS",
+      "targetType": "PINS",
+      "targetId": "all",
+      "details": "Generated 1 missing PINs",
+      "timestamp": 1791768788485,
+      "isoTime": "2026-10-12T01:33:08.485Z"
+    },
+    {
+      "id": "AUD-1791767926692-XTR6",
+      "adminId": "ADMIN",
+      "action": "SET_EVENT_CLOCK",
+      "targetType": "EVENT",
+      "targetId": "clock",
+      "details": "start=null end=null",
+      "timestamp": 1791767926692,
+      "isoTime": "2026-10-12T01:18:46.692Z"
+    },
+    {
+      "id": "AUD-1791767919200-I7CF",
+      "adminId": "ADMIN",
+      "action": "GENERATE_PINS",
+      "targetType": "PINS",
+      "targetId": "all",
+      "details": "Generated 1 missing PINs",
+      "timestamp": 1791767919200,
+      "isoTime": "2026-10-12T01:18:39.200Z"
+    },
+    {
+      "id": "AUD-1791739596290-DL63",
+      "adminId": "ADMIN",
+      "action": "GENERATE_PINS",
+      "targetType": "PINS",
+      "targetId": "all",
+      "details": "Regenerated ALL 93 PINs",
+      "timestamp": 1791739596290,
+      "isoTime": "2026-10-11T17:26:36.290Z"
+    },
+    {
+      "id": "AUD-1791739596129-1I0N",
+      "adminId": "ADMIN",
+      "action": "BATCH_SET_PRICES",
+      "targetType": "PROBLEMS",
+      "targetId": "all",
+      "details": "easy=100 medium=150 hard=200",
+      "timestamp": 1791739596129,
+      "isoTime": "2026-10-11T17:26:36.129Z"
+    },
+    {
+      "id": "AUD-1791739596008-80FX",
+      "adminId": "ADMIN",
+      "action": "SET_EVENT_CLOCK",
+      "targetType": "EVENT",
+      "targetId": "clock",
+      "details": "start=1791739295000 end=1791746795000",
+      "timestamp": 1791739596008,
+      "isoTime": "2026-10-11T17:26:36.008Z"
+    },
+    {
+      "id": "AUD-1791739101133-FZ7S",
+      "adminId": "ADMIN",
+      "action": "GENERATE_PINS",
+      "targetType": "PINS",
+      "targetId": "all",
+      "details": "Generated 93 missing PINs",
+      "timestamp": 1791739101133,
+      "isoTime": "2026-10-11T17:18:21.133Z"
+    },
+    {
+      "id": "AUD-1791739074143-A4QV",
+      "adminId": "ADMIN",
+      "action": "BATCH_SET_PRICES",
+      "targetType": "PROBLEMS",
+      "targetId": "all",
+      "details": "easy=100 medium=150 hard=200",
+      "timestamp": 1791739074143,
+      "isoTime": "2026-10-11T17:17:54.143Z"
+    },
+    {
+      "id": "AUD-1791739060372-JJ0V",
+      "adminId": "ADMIN",
+      "action": "SET_EVENT_CLOCK",
+      "targetType": "EVENT",
+      "targetId": "clock",
+      "details": "start=1791738720000 end=1791746220000",
+      "timestamp": 1791739060372,
+      "isoTime": "2026-10-11T17:17:40.372Z"
+    }
+  ],
+  "pins": {
+    "E1": {
+      "pin": "846807",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E2": {
+      "pin": "741174",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E3": {
+      "pin": "713702",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E4": {
+      "pin": "174177",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E5": {
+      "pin": "367896",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E6": {
+      "pin": "731135",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E7": {
+      "pin": "862853",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E8": {
+      "pin": "106049",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E9": {
+      "pin": "950115",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E10": {
+      "pin": "461039",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E11": {
+      "pin": "269459",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E12": {
+      "pin": "727120",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E13": {
+      "pin": "298891",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E14": {
+      "pin": "486469",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E15": {
+      "pin": "514684",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E16": {
+      "pin": "943734",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E17": {
+      "pin": "493937",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E18": {
+      "pin": "876208",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E19": {
+      "pin": "111476",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E20": {
+      "pin": "274254",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E21": {
+      "pin": "935139",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E22": {
+      "pin": "910948",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E23": {
+      "pin": "134763",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E24": {
+      "pin": "501655",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E25": {
+      "pin": "749417",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E26": {
+      "pin": "910937",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E27": {
+      "pin": "158489",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E28": {
+      "pin": "543963",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E29": {
+      "pin": "345639",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E30": {
+      "pin": "747794",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E31": {
+      "pin": "427977",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E32": {
+      "pin": "564841",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E33": {
+      "pin": "183908",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E34": {
+      "pin": "776028",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E35": {
+      "pin": "729955",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E36": {
+      "pin": "810476",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E37": {
+      "pin": "590590",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E38": {
+      "pin": "305892",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E39": {
+      "pin": "349955",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E40": {
+      "pin": "204774",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E41": {
+      "pin": "403685",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E42": {
+      "pin": "484317",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E43": {
+      "pin": "438677",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E44": {
+      "pin": "454480",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E45": {
+      "pin": "937400",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E46": {
+      "pin": "371362",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E47": {
+      "pin": "342087",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E48": {
+      "pin": "795658",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E49": {
+      "pin": "801092",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E50": {
+      "pin": "966870",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E51": {
+      "pin": "649131",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E52": {
+      "pin": "105597",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E53": {
+      "pin": "155849",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E54": {
+      "pin": "535155",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E55": {
+      "pin": "816822",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E56": {
+      "pin": "730624",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E57": {
+      "pin": "950254",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E58": {
+      "pin": "467985",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E59": {
+      "pin": "471301",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E60": {
+      "pin": "143055",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E61": {
+      "pin": "299386",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E62": {
+      "pin": "249601",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E63": {
+      "pin": "262660",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E64": {
+      "pin": "295823",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E65": {
+      "pin": "269848",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E66": {
+      "pin": "582104",
+      "generatedAt": 1791739596289,
+      "releasedTo": null
+    },
+    "E67": {
+      "pin": "234247",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "E68": {
+      "pin": "626698",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "E69": {
+      "pin": "749930",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "E70": {
+      "pin": "293031",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "E71": {
+      "pin": "491266",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M1": {
+      "pin": "955985",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M2": {
+      "pin": "847547",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M3": {
+      "pin": "612680",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M4": {
+      "pin": "466562",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M5": {
+      "pin": "665226",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M6": {
+      "pin": "106238",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M7": {
+      "pin": "808046",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M8": {
+      "pin": "111623",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M9": {
+      "pin": "678634",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M10": {
+      "pin": "153520",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M11": {
+      "pin": "706209",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M12": {
+      "pin": "637772",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M13": {
+      "pin": "899296",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M14": {
+      "pin": "509041",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M15": {
+      "pin": "124528",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M16": {
+      "pin": "792344",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M17": {
+      "pin": "703239",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M18": {
+      "pin": "826360",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M19": {
+      "pin": "991516",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M20": {
+      "pin": "501377",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "M21": {
+      "pin": "863025",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    },
+    "H1": {
+      "pin": "822086",
+      "generatedAt": 1791739596290,
+      "releasedTo": null
+    }
+  },
+  "problemPoints": {
+    "DBG122": 275
+  },
+  "deletedProblems": [
+    "ZZ9"
+  ]
 }

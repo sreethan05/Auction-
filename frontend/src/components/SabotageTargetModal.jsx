@@ -70,17 +70,17 @@ export function SabotageTargetModal({ team, currentMember, onClose, onSabotageSu
         style={{
           maxWidth: '500px',
           width: '92%',
-          background: '#0d111c',
-          border: '1px solid rgba(248, 81, 73, 0.35)',
-          boxShadow: '0 24px 64px rgba(0, 0, 0, 0.8), 0 0 25px rgba(248, 81, 73, 0.08)',
+          background: '#ffffff',
+          border: '1px solid #e2e8f0',
+          boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04)',
           padding: '24px'
         }}
       >
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Zap size={20} color="#ff7b72" />
-            <h3 style={{ margin: 0, color: '#ffffff', fontSize: '18px', fontWeight: 700 }}>
+            <Zap size={20} color="#e11d48" />
+            <h3 style={{ margin: 0, color: '#0f172a', fontSize: '18px', fontWeight: 700 }}>
               Deploy Sabotage Card
             </h3>
           </div>
@@ -94,9 +94,9 @@ export function SabotageTargetModal({ team, currentMember, onClose, onSabotageSu
           <div style={{
             padding: '10px 14px',
             borderRadius: '8px',
-            background: 'rgba(248, 81, 73, 0.1)',
-            border: '1px solid rgba(248, 81, 73, 0.25)',
-            color: '#ff7b72',
+            background: '#fef2f2',
+            border: '1px solid #fecaca',
+            color: '#b91c1c',
             fontSize: '12px',
             marginBottom: '14px',
             fontWeight: 500
@@ -109,9 +109,9 @@ export function SabotageTargetModal({ team, currentMember, onClose, onSabotageSu
           <div style={{
             padding: '10px 14px',
             borderRadius: '8px',
-            background: 'rgba(63, 185, 80, 0.1)',
-            border: '1px solid rgba(63, 185, 80, 0.25)',
-            color: '#3fb950',
+            background: '#ecfdf5',
+            border: '1px solid #a7f3d0',
+            color: '#047857',
             fontSize: '12px',
             marginBottom: '14px',
             fontWeight: 500
@@ -120,7 +120,7 @@ export function SabotageTargetModal({ team, currentMember, onClose, onSabotageSu
           </div>
         )}
 
-        <p style={{ fontSize: '13px', color: 'var(--txt-muted)', margin: '0 0 14px 0', lineHeight: 1.5 }}>
+        <p style={{ fontSize: '13px', color: '#64748b', margin: '0 0 14px 0', lineHeight: 1.5 }}>
           Select rival team to freeze. Their coding workspace will be locked for exactly 5 minutes.
         </p>
 
@@ -128,18 +128,18 @@ export function SabotageTargetModal({ team, currentMember, onClose, onSabotageSu
         <div style={{
           maxHeight: '260px',
           overflowY: 'auto',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          border: '1px solid #e2e8f0',
           borderRadius: '8px',
-          background: 'rgba(255, 255, 255, 0.02)',
+          background: '#f8fafc',
           marginBottom: '20px'
         }}>
           {loading ? (
-            <div style={{ padding: '24px', textAlign: 'center', color: 'var(--txt-dim)', fontSize: '13px' }}>
+            <div style={{ padding: '24px', textAlign: 'center', color: '#64748b', fontSize: '13px' }}>
               <RefreshCw size={15} className="spin" style={{ display: 'inline', marginRight: '6px' }} />
               Loading rival teams...
             </div>
           ) : targets.length === 0 ? (
-            <div style={{ padding: '24px', textAlign: 'center', color: 'var(--txt-dim)', fontSize: '13px' }}>
+            <div style={{ padding: '24px', textAlign: 'center', color: '#64748b', fontSize: '13px' }}>
               No rival teams found.
             </div>
           ) : (
@@ -154,31 +154,31 @@ export function SabotageTargetModal({ team, currentMember, onClose, onSabotageSu
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     padding: '12px 14px',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.04)',
+                    borderBottom: '1px solid #e2e8f0',
                     cursor: tgt.isFrozen ? 'not-allowed' : 'pointer',
                     background: isSelected
-                      ? 'rgba(248, 81, 73, 0.12)'
+                      ? '#fff1f2'
                       : tgt.isFrozen
-                      ? 'rgba(255, 255, 255, 0.01)'
+                      ? '#f1f5f9'
                       : 'transparent',
                     transition: 'background 0.15s ease'
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div style={{
-                      width: '14px',
-                      height: '14px',
+                      width: '16px',
+                      height: '16px',
                       borderRadius: '50%',
-                      border: isSelected ? '4px solid #ff7b72' : '2px solid var(--txt-dim)',
-                      background: isSelected ? '#0d111c' : 'transparent',
+                      border: isSelected ? '4px solid #e11d48' : '2px solid #cbd5e1',
+                      background: '#ffffff',
                       flexShrink: 0
                     }} />
 
                     <div>
-                      <div style={{ fontSize: '13px', fontWeight: 600, color: '#ffffff' }}>
+                      <div style={{ fontSize: '13px', fontWeight: 600, color: '#0f172a' }}>
                         {tgt.name}
                       </div>
-                      <div style={{ fontSize: '11px', color: 'var(--txt-dim)', marginTop: '1px' }}>
+                      <div style={{ fontSize: '11px', color: '#64748b', marginTop: '1px' }}>
                         ID: {tgt.teamId}
                       </div>
                     </div>
@@ -192,9 +192,9 @@ export function SabotageTargetModal({ team, currentMember, onClose, onSabotageSu
                         gap: '4px',
                         fontSize: '11px',
                         fontWeight: 600,
-                        color: '#58a6ff',
-                        background: 'rgba(56, 139, 253, 0.1)',
-                        border: '1px solid rgba(56, 139, 253, 0.25)',
+                        color: '#2563eb',
+                        background: '#eff6ff',
+                        border: '1px solid #bfdbfe',
                         padding: '2px 8px',
                         borderRadius: '4px'
                       }}>
@@ -204,9 +204,9 @@ export function SabotageTargetModal({ team, currentMember, onClose, onSabotageSu
                       <span style={{
                         fontSize: '11px',
                         fontWeight: 600,
-                        color: '#3fb950',
-                        background: 'rgba(63, 185, 80, 0.1)',
-                        border: '1px solid rgba(63, 185, 80, 0.25)',
+                        color: '#047857',
+                        background: '#ecfdf5',
+                        border: '1px solid #a7f3d0',
                         padding: '2px 8px',
                         borderRadius: '4px'
                       }}>
@@ -232,7 +232,11 @@ export function SabotageTargetModal({ team, currentMember, onClose, onSabotageSu
             disabled={submitting || !selectedTarget || selectedTarget.isFrozen}
             style={{
               padding: '8px 18px',
-              borderRadius: '6px'
+              borderRadius: '6px',
+              background: '#ef4444',
+              color: '#ffffff',
+              border: 'none',
+              fontWeight: 600
             }}
           >
             {submitting ? 'Freezing...' : 'Freeze Workspace (5 min)'}

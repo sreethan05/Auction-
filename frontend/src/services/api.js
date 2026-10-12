@@ -166,15 +166,19 @@ export async function registerTeam({ name, size, captainIdx, members }) {
   return { success: true, team: teamObj };
 }
 
-export async function loginTeam({ teamName, memberId }) {
+export async function loginTeam({ teamName, memberId, password, force = false }) {
   try {
     const res = await fetch(`${API_BASE}/team/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ teamName, memberId })
+      body: JSON.stringify({ teamName, memberId, password, force })
     });
-    if (res.ok) return await res.json();
-  } catch (e) {}
+    const data = await res.json().catch(() => ({}));
+    if (res.ok) return data;
+    if (data.error) throw new Error(data.error);
+  } catch (e) {
+    if (e.message && !e.message.includes('fetch')) throw e;
+  }
 
   const store = getFallbackStore();
   const key = (teamName || '').trim().toUpperCase();
@@ -616,108 +620,79 @@ export async function fetchLeaderboard() {
 }
 
 export async function fetchProctorTeams() {
-  try {
-    const res = await fetch(`${API_BASE}/proctor/teams`);
-    if (res.ok) return await res.json();
-  } catch (e) {}
-
-  const store = getFallbackStore();
-  return { teams: Object.values(store.teams) };
+  const res = await adminFetch(`${API_BASE}/proctor/teams`);
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || 'Failed to load teams.');
+  return data;
 }
 
 export async function proctorUnlockTeam(teamName, pin) {
-  try {
-    const res = await fetch(`${API_BASE}/proctor/unlock`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ teamName, pin })
-    });
-    if (res.ok) return await res.json();
-  } catch (e) {}
-
-  if (pin !== 'qubit') {
-    throw new Error('Invalid Organiser PIN');
-  }
-  const store = getFallbackStore();
-  const key = (teamName || '').trim().toUpperCase();
-  const team = store.teams[key];
-  if (team) {
-    team.isLocked = false;
-    team.lockReason = '';
-    team.violations = [];
-    saveFallbackStore(store);
-    return { success: true, team };
-  }
-  return { success: true };
+  const res = await fetch(`${API_BASE}/proctor/unlock`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ teamName, pin })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Invalid Organiser PIN.');
+  return data;
 }
 
 export async function proctorResetTeam(teamName) {
-  try {
-    const res = await fetch(`${API_BASE}/proctor/reset`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ teamName })
-    });
-    if (res.ok) return await res.json();
-  } catch (e) {}
-  return { success: true };
+  const res = await adminFetch(`${API_BASE}/proctor/reset`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ teamName })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to reset team.');
+  return data;
 }
 
 export async function proctorResetAll(pin) {
-  try {
-    const res = await fetch(`${API_BASE}/proctor/reset-all`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ pin })
-    });
-    if (res.ok) return await res.json();
-  } catch (e) {}
-  return { success: true };
+  const res = await fetch(`${API_BASE}/proctor/reset-all`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ pin })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Invalid Organiser PIN.');
+  return data;
 }
 
 export async function updateProblemPrice({ problemId, price, pin }) {
-  try {
-    const res = await fetch(`${API_BASE}/admin/problems/price`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ problemId, price, pin })
-    });
-    if (res.ok) return await res.json();
-  } catch (e) {}
-  return { success: true };
+  const res = await adminFetch(`${API_BASE}/admin/problems/price`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ problemId, price, pin })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to update price.');
+  return data;
 }
 
 export async function batchSetProblemPrices({ easyPrice, mediumPrice, hardPrice, pin }) {
-  try {
-    const res = await fetch(`${API_BASE}/admin/problems/batch-prices`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ easyPrice, mediumPrice, hardPrice, pin })
-    });
-    if (res.ok) return await res.json();
-  } catch (e) {}
-  return { success: true };
+  const res = await adminFetch(`${API_BASE}/admin/problems/batch-prices`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ easyPrice, mediumPrice, hardPrice, pin })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to update prices.');
+  return data;
 }
 
 export async function fetchProblemPrices() {
-  try {
-    const res = await fetch(`${API_BASE}/admin/problems/prices`);
-    if (res.ok) return await res.json();
-  } catch (e) {}
-  return { prices: {} };
+  const res = await adminFetch(`${API_BASE}/admin/problems/prices`);
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to load prices.');
+  return data;
 }
 
 export async function fetchTransactions() {
-  try {
-    const res = await fetch(`${API_BASE}/admin/transactions`);
-    if (res.ok) return await res.json();
-  } catch (e) {}
-  const store = getFallbackStore();
-  const txns = [];
-  Object.values(store.teams).forEach(t => {
-    if (t.transactions) txns.push(...t.transactions);
-  });
-  return { transactions: txns };
+  const res = await adminFetch(`${API_BASE}/admin/transactions`);
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to load transactions.');
+  return data;
 }
 
 export async function purchaseHintPass({ teamName, memberId, problemId }) {
@@ -893,33 +868,53 @@ export async function fetchSubmissions(teamName = null) {
   return { submissions: [] };
 }
 
-// --- DEDICATED ADMIN DASHBOARD SERVICES ---
+// --- DEDICATED ADMIN DASHBOARD SERVICES (separate, server-verified auth) ---
 const ADMIN_SESSION_KEY = 'qubit_admin_session_auth';
 
-export async function adminLogin(adminId, password) {
+export function getAdminToken() {
   try {
-    const res = await fetch(`${API_BASE}/admin/login`, {
+    return sessionStorage.getItem(ADMIN_SESSION_KEY);
+  } catch (e) {
+    return null;
+  }
+}
+
+// Authenticated fetch for every admin API call. Attaches the session token and
+// forces the browser back to the admin login page if the server rejects it.
+export function adminFetch(url, options = {}) {
+  const token = getAdminToken();
+  const headers = { ...(options.headers || {}) };
+  if (token) headers['Authorization'] = `Bearer ${token}`;
+
+  return fetch(url, { ...options, headers }).then((res) => {
+    if (res.status === 401) {
+      try { sessionStorage.removeItem(ADMIN_SESSION_KEY); } catch (e) {}
+      window.location.assign('/admin');
+      throw new Error('Admin session expired. Please log in again.');
+    }
+    return res;
+  });
+}
+
+export async function adminLogin(adminId, password) {
+  let res;
+  try {
+    res = await fetch(`${API_BASE}/admin/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ adminId, password })
     });
-    if (res.ok) {
-      const data = await res.json();
-      sessionStorage.setItem(ADMIN_SESSION_KEY, data.token || 'admin-auth-valid');
-      return { success: true, admin: data.admin };
-    }
-    const err = await res.json().catch(() => ({}));
-    if (err.error) throw new Error(err.error);
   } catch (e) {
-    if (e.message && e.message.includes('Invalid Admin ID')) throw e;
+    throw new Error('Cannot reach the admin server. Ensure the backend is running.');
   }
 
-  // Fallback local auth for static hosting
-  if (adminId === 'Qubit123' && password === 'Abcd.01@#') {
-    sessionStorage.setItem(ADMIN_SESSION_KEY, 'admin-auth-valid');
-    return { success: true, admin: { id: 'Qubit123', name: 'Administrator' } };
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    throw new Error(data.error || 'Invalid Admin ID or Password. Access denied.');
   }
-  throw new Error('Invalid Admin ID or Password. Access denied.');
+
+  sessionStorage.setItem(ADMIN_SESSION_KEY, data.token);
+  return { success: true, admin: data.admin };
 }
 
 export function isAdminAuthenticated() {
@@ -937,274 +932,491 @@ export function adminLogout() {
 }
 
 export async function adminUnlockProblem({ teamName, problemId, bidPrice }) {
-  try {
-    const res = await fetch(`${API_BASE}/admin/problems/unlock`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ teamName, problemId, bidPrice })
-    });
-    if (res.ok) {
-      return await res.json();
-    }
-    const errData = await res.json().catch(() => null);
-    if (errData?.error) throw new Error(errData.error);
-  } catch (e) {
-    if (e.message && !e.message.toLowerCase().includes('fetch')) throw e;
-  }
-
-  const store = getFallbackStore();
-  const key = (teamName || '').trim().toUpperCase();
-  const team = store.teams[key];
-  if (!team) {
-    throw new Error(`Team "${teamName}" not found.`);
-  }
-
-  const bid = Number(bidPrice);
-  if (isNaN(bid) || bid <= 0) {
-    throw new Error('Bid price must be a valid positive number.');
-  }
-
-  const currentBalance = team.balance ?? 1000;
-  if (bid > currentBalance) {
-    throw new Error('Insufficient ByteCoins');
-  }
-
-  const previousBalance = currentBalance;
-  team.balance = currentBalance - bid;
-  const remainingBalance = team.balance;
-
-  if (!team.unlocked) team.unlocked = [];
-  if (!team.unlocked.includes(problemId)) {
-    team.unlocked.push(problemId);
-  }
-  if (!team.problemStatuses) team.problemStatuses = {};
-  if (!team.problemStatuses[problemId] || team.problemStatuses[problemId].status !== 'SOLVED') {
-    team.problemStatuses[problemId] = {
-      status: 'UNLOCKED',
-      unlockedBy: 'ADMIN',
-      unlockedByName: 'Administrator',
-      unlockedAt: new Date().toISOString(),
-      bidPrice: bid
-    };
-  }
-
-  const prob = (fallbackProblemsData.problems || []).find(p => p.id === problemId);
-  const problemTitle = prob ? prob.title : problemId;
-  const now = new Date();
-
-  const record = {
-    id: `TXN-ADM-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`,
-    type: 'ADMIN_UNLOCK',
-    teamName: team.name,
-    problemId: problemId,
-    problemTitle: problemTitle,
-    bidPrice: bid,
-    bidAmount: bid,
-    price: bid,
-    previousBalance: previousBalance,
-    remainingBalance: remainingBalance,
-    status: 'UNLOCKED',
-    timestamp: now.toISOString(),
-    displayTime: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })
-  };
-
-  if (!team.transactions) team.transactions = [];
-  team.transactions.unshift(record);
-  if (!store.unlockHistory) store.unlockHistory = [];
-  store.unlockHistory.unshift(record);
-
-  saveFallbackStore(store);
-  return { success: true, team, teams: [team], txn: record, unlockRecord: record };
+  const res = await adminFetch(`${API_BASE}/admin/problems/unlock`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ teamName, problemId, bidPrice })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to unlock problem.');
+  return data;
 }
 
 export async function adminLockProblem({ teamName, problemId }) {
-  try {
-    const res = await fetch(`${API_BASE}/admin/problems/lock`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ teamName, problemId })
-    });
-    if (res.ok) return await res.json();
-  } catch (e) {}
-
-  const store = getFallbackStore();
-  const teamsToUpdate = [];
-  if (!teamName || teamName.toUpperCase() === 'ALL') {
-    teamsToUpdate.push(...Object.values(store.teams));
-  } else {
-    const key = (teamName || '').trim().toUpperCase();
-    if (store.teams[key]) teamsToUpdate.push(store.teams[key]);
-  }
-
-  for (const t of teamsToUpdate) {
-    if (t.unlocked) {
-      t.unlocked = t.unlocked.filter(id => id !== problemId);
-    }
-    if (t.problemStatuses && t.problemStatuses[problemId] && t.problemStatuses[problemId].status !== 'SOLVED') {
-      delete t.problemStatuses[problemId];
-    }
-  }
-
-  saveFallbackStore(store);
-  return { success: true, updatedCount: teamsToUpdate.length, teams: teamsToUpdate };
+  const res = await adminFetch(`${API_BASE}/admin/problems/lock`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ teamName, problemId })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to lock problem.');
+  return data;
 }
 
 export async function adminUnlockCard({ teamName, cardType }) {
-  try {
-    const res = await fetch(`${API_BASE}/admin/cards/unlock`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ teamName, cardType })
-    });
-    if (res.ok) return await res.json();
-  } catch (e) {}
-
-  const type = String(cardType || '').trim().toUpperCase();
-  const store = getFallbackStore();
-  const teamsToUpdate = [];
-  if (!teamName || teamName.toUpperCase() === 'ALL') {
-    teamsToUpdate.push(...Object.values(store.teams));
-  } else {
-    const key = (teamName || '').trim().toUpperCase();
-    if (store.teams[key]) teamsToUpdate.push(store.teams[key]);
-  }
-
-  for (const t of teamsToUpdate) {
-    if (!t.unlockedCards) t.unlockedCards = [];
-    if (!t.unlockedCards.includes(type)) t.unlockedCards.push(type);
-    if (type === 'HINT') {
-      t.hintUnlocked = true;
-      if (!t.hintPassesCount || t.hintPassesCount < 1) t.hintPassesCount = 1;
-    } else if (type === 'SABOTAGE') {
-      t.sabotageUnlocked = true;
-      if (!t.sabotageCardsCount || t.sabotageCardsCount < 1) t.sabotageCardsCount = 1;
-    }
-  }
-
-  saveFallbackStore(store);
-  return { success: true, updatedCount: teamsToUpdate.length, teams: teamsToUpdate, cardType: type };
+  const res = await adminFetch(`${API_BASE}/admin/cards/unlock`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ teamName, cardType })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to unlock card.');
+  return data;
 }
 
 export async function adminLockCard({ teamName, cardType }) {
-  try {
-    const res = await fetch(`${API_BASE}/admin/cards/lock`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ teamName, cardType })
-    });
-    if (res.ok) return await res.json();
-  } catch (e) {}
-
-  const type = String(cardType || '').trim().toUpperCase();
-  const store = getFallbackStore();
-  const teamsToUpdate = [];
-  if (!teamName || teamName.toUpperCase() === 'ALL') {
-    teamsToUpdate.push(...Object.values(store.teams));
-  } else {
-    const key = (teamName || '').trim().toUpperCase();
-    if (store.teams[key]) teamsToUpdate.push(store.teams[key]);
-  }
-
-  for (const t of teamsToUpdate) {
-    if (t.unlockedCards) {
-      t.unlockedCards = t.unlockedCards.filter(c => c !== type);
-    }
-    if (type === 'HINT') t.hintUnlocked = false;
-    if (type === 'SABOTAGE') t.sabotageUnlocked = false;
-  }
-
-  saveFallbackStore(store);
-  return { success: true, updatedCount: teamsToUpdate.length, teams: teamsToUpdate, cardType: type };
+  const res = await adminFetch(`${API_BASE}/admin/cards/lock`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ teamName, cardType })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to lock card.');
+  return data;
 }
 
 export async function adminGrantCardPass({ teamName, cardType, amount = 1 }) {
-  try {
-    const res = await fetch(`${API_BASE}/admin/cards/grant`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ teamName, cardType, amount })
-    });
-    if (res.ok) return await res.json();
-  } catch (e) {}
-
-  const type = String(cardType || '').trim().toUpperCase();
-  const store = getFallbackStore();
-  const key = (teamName || '').trim().toUpperCase();
-  const team = store.teams[key] || store.teams['SYNORA'];
-
-  if (!team.unlockedCards) team.unlockedCards = [];
-  if (!team.unlockedCards.includes(type)) team.unlockedCards.push(type);
-
-  if (type === 'HINT') {
-    team.hintUnlocked = true;
-    team.hintPassesCount = (team.hintPassesCount || 0) + amount;
-  } else if (type === 'SABOTAGE') {
-    team.sabotageUnlocked = true;
-    team.sabotageCardsCount = (team.sabotageCardsCount || 0) + amount;
-  }
-
-  saveFallbackStore(store);
-  return { success: true, team };
+  const res = await adminFetch(`${API_BASE}/admin/cards/grant`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ teamName, cardType, amount })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to grant card pass.');
+  return data;
 }
 
 export async function adminRevealProblemHint({ teamName, problemId }) {
-  try {
-    const res = await fetch(`${API_BASE}/admin/hints/reveal`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ teamName, problemId })
-    });
-    if (res.ok) return await res.json();
-  } catch (e) {}
-
-  const store = getFallbackStore();
-  const key = (teamName || '').trim().toUpperCase();
-  const team = store.teams[key] || store.teams['SYNORA'];
-
-  const hint = PREDEFINED_HINTS[problemId] || 'Algorithmic strategy unlocked by Administrator.';
-  if (!team.revealedHints) team.revealedHints = {};
-  team.revealedHints[problemId] = {
-    hint,
-    revealedBy: 'ADMIN',
-    revealedByName: 'Administrator',
-    revealedAt: new Date().toISOString()
-  };
-
-  saveFallbackStore(store);
-  return { success: true, team, hint };
+  const res = await adminFetch(`${API_BASE}/admin/hints/reveal`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ teamName, problemId })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to reveal hint.');
+  return data;
 }
 
 export async function adminClearFreeze({ teamName }) {
-  try {
-    const res = await fetch(`${API_BASE}/admin/sabotage/unfreeze`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ teamName })
-    });
-    if (res.ok) return await res.json();
-  } catch (e) {}
-
-  const store = getFallbackStore();
-  const key = (teamName || '').trim().toUpperCase();
-  const team = store.teams[key] || store.teams['SYNORA'];
-  team.frozenUntil = null;
-  team.frozenBy = null;
-  saveFallbackStore(store);
-  return { success: true, team };
+  const res = await adminFetch(`${API_BASE}/admin/sabotage/unfreeze`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ teamName })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to clear freeze.');
+  return data;
 }
 
 export async function fetchAdminOverview() {
+  const res = await adminFetch(`${API_BASE}/admin/overview`);
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to load admin overview.');
+  return data;
+}
+
+export async function importSheetTeams({ sheetUrl, csvText, rows, usersPerTeam = 2, teamPrefix = 'TEAM' }) {
+  const res = await adminFetch(`${API_BASE}/admin/import-sheet`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ sheetUrl, csvText, rows, usersPerTeam, teamPrefix })
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || 'Failed to import sheet');
+  return data;
+}
+
+export async function fetchAdminTeams() {
+  const res = await adminFetch(`${API_BASE}/admin/teams`);
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to load teams.');
+  return data;
+}
+
+export async function createAdminTeam({ name, members }) {
+  const res = await adminFetch(`${API_BASE}/admin/teams/create`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, members })
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || 'Failed to create team');
+  return data;
+}
+
+export async function deleteAdminTeam(teamName) {
+  const res = await adminFetch(`${API_BASE}/admin/teams/${encodeURIComponent(teamName)}`, {
+    method: 'DELETE'
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || 'Failed to delete team');
+  return data;
+}
+
+export async function getSupabaseStatus() {
   try {
-    const res = await fetch(`${API_BASE}/admin/overview`);
+    const res = await adminFetch(`${API_BASE}/admin/supabase/status`);
     if (res.ok) return await res.json();
   } catch (e) {}
-
-  const store = getFallbackStore();
-  return {
-    teams: Object.values(store.teams),
-    problems: fallbackProblemsData.problems || [],
-    transactions: store.transactions || [],
-    unlockHistory: store.unlockHistory || [],
-    submissions: []
-  };
+  return { configured: false, status: 'LOCAL_STORAGE_ONLY' };
 }
+
+export async function syncSupabaseManual() {
+  const res = await adminFetch(`${API_BASE}/admin/supabase/sync`, {
+    method: 'POST'
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || 'Failed to sync with Supabase');
+  return data;
+}
+
+// =====================================================================
+// WILD CARDS, EVENT CLOCK, PINS & LEDGER (spec modules)
+// =====================================================================
+
+// --- Participant endpoints ---
+export async function fetchEventSettings() {
+  try {
+    const res = await fetch(`${API_BASE}/event`);
+    if (res.ok) return await res.json();
+  } catch (e) {}
+  return { startAt: null, endAt: null, wildCardsClosed: false, leaderboardFrozen: false, serverTime: Date.now() };
+}
+
+export async function pinUnlock({ teamName, memberId, problemId, pin }) {
+  const res = await fetch(`${API_BASE}/problems/pin-unlock`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ teamName, memberId, problemId, pin })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'PIN unlock failed.');
+  return data;
+}
+
+export async function fetchPeekedTest({ teamName, problemId }) {
+  const res = await fetch(`${API_BASE}/problems/peek`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ teamName, problemId })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'No peeked test available.');
+  return data;
+}
+
+export async function useAiDebug({ teamName, memberId, problemId }) {
+  const res = await fetch(`${API_BASE}/cards/ai-debug/use`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ teamName, memberId, problemId })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'AI Debug failed.');
+  return data;
+}
+
+// --- Admin: Wild Card Module ---
+export async function fetchWildcards() {
+  const res = await adminFetch(`${API_BASE}/admin/wildcards`);
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to load wild cards.');
+  return data;
+}
+
+export async function adminBidWildCard({ cardId, teamName, coins }) {
+  const res = await adminFetch(`${API_BASE}/admin/wildcards/bid`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ cardId, teamName, coins })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to record wild card bid.');
+  return data;
+}
+
+export async function adminActivateWildCard(payload) {
+  const res = await adminFetch(`${API_BASE}/admin/wildcards/activate`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to activate wild card.');
+  return data;
+}
+
+export async function adminArmWildCard({ cardId, teamName }) {
+  const res = await adminFetch(`${API_BASE}/admin/wildcards/arm`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ cardId, teamName })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to arm card.');
+  return data;
+}
+
+export async function adminCancelActivation(activationId) {
+  const res = await adminFetch(`${API_BASE}/admin/wildcards/cancel`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ activationId })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to cancel effect.');
+  return data;
+}
+
+export async function adminToggleWildCard(cardId, enabled) {
+  const res = await adminFetch(`${API_BASE}/admin/wildcards/toggle`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ cardId, enabled })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to toggle card.');
+  return data;
+}
+
+// --- Admin: Event clock & leaderboard control ---
+export async function adminSetEventClock({ startAt, endAt }) {
+  const res = await adminFetch(`${API_BASE}/admin/event`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ startAt, endAt })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to set event clock.');
+  return data;
+}
+
+export async function adminOverrideWildCardsClosed(override, reason = '') {
+  const res = await adminFetch(`${API_BASE}/admin/event/wildcard-override`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ override, reason })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to override cutoff.');
+  return data;
+}
+
+export async function adminFreezeLeaderboard(frozen) {
+  const res = await adminFetch(`${API_BASE}/admin/event/freeze-leaderboard`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ frozen })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to change leaderboard freeze.');
+  return data;
+}
+
+// --- Admin: Unlock PINs ---
+export async function fetchAdminPins() {
+  const res = await adminFetch(`${API_BASE}/admin/pins`);
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to load PINs.');
+  return data;
+}
+
+export async function adminGeneratePins(force = false) {
+  const res = await adminFetch(`${API_BASE}/admin/pins/generate`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ force })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to generate PINs.');
+  return data;
+}
+
+export async function adminReleasePin(problemId, teamName) {
+  const res = await adminFetch(`${API_BASE}/admin/pins/release`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ problemId, teamName })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to release PIN.');
+  return data;
+}
+
+export async function adminRegeneratePin(problemId) {
+  const res = await adminFetch(`${API_BASE}/admin/pins/regenerate`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ problemId })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to regenerate PIN.');
+  return data;
+}
+
+// --- Admin: Manual overrides, undo, audit ---
+export async function adminAdjustCoins({ teamName, amount, reason }) {
+  const res = await adminFetch(`${API_BASE}/admin/adjust-coins`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ teamName, amount, reason })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to adjust coins.');
+  return data;
+}
+
+export async function adminAdjustScore({ teamName, delta, reason }) {
+  const res = await adminFetch(`${API_BASE}/admin/adjust-score`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ teamName, delta, reason })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to adjust score.');
+  return data;
+}
+
+export async function adminUndoTransaction(txnId) {
+  const res = await adminFetch(`${API_BASE}/admin/transactions/undo`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ txnId })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to undo transaction.');
+  return data;
+}
+
+export async function adminSetProblemPoints({ problemId, points }) {
+  const res = await adminFetch(`${API_BASE}/admin/problems/points`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ problemId, points })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to set points.');
+  return data;
+}
+
+// Downloads a CSV export with the admin session token attached
+export async function adminDownloadCsv(kind) {
+  const token = getAdminToken();
+  const res = await fetch(`${API_BASE}/admin/export/${kind}.csv`, {
+    headers: token ? { Authorization: `Bearer ${token}` } : {}
+  });
+  if (res.status === 401) {
+    try { sessionStorage.removeItem(ADMIN_SESSION_KEY); } catch (e) {}
+    window.location.assign('/admin');
+    throw new Error('Admin session expired. Please log in again.');
+  }
+  if (!res.ok) throw new Error('Export failed.');
+  const blob = await res.blob();
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${kind}-${new Date().toISOString().slice(0, 10)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  window.URL.revokeObjectURL(url);
+}
+
+// --- Team credentials, editing & sessions (Part A.1 / Part B.1) ---
+export async function updateAdminTeam(teamName, payload) {
+  const res = await adminFetch(`${API_BASE}/admin/teams/${encodeURIComponent(teamName)}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to update team.');
+  return data;
+}
+
+export async function fetchTeamPassword(teamName) {
+  const res = await adminFetch(`${API_BASE}/admin/teams/${encodeURIComponent(teamName)}/password`);
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to load team code.');
+  return data;
+}
+
+export async function regenerateTeamPassword(teamName) {
+  const res = await adminFetch(`${API_BASE}/admin/teams/${encodeURIComponent(teamName)}/password`, {
+    method: 'POST'
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to regenerate team code.');
+  return data;
+}
+
+export async function clearTeamSession(teamName) {
+  const res = await adminFetch(`${API_BASE}/admin/teams/${encodeURIComponent(teamName)}/clear-session`, {
+    method: 'POST'
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to clear session.');
+  return data;
+}
+
+// --- Problem management CRUD (Part A.4) ---
+export async function adminCreateProblem(payload) {
+  const res = await adminFetch(`${API_BASE}/admin/problems/create`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to create problem.');
+  return data;
+}
+
+export async function adminUpdateProblem(problemId, payload) {
+  const res = await adminFetch(`${API_BASE}/admin/problems/${encodeURIComponent(problemId)}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to update problem.');
+  return data;
+}
+
+export async function adminDeleteProblem(problemId) {
+  const res = await adminFetch(`${API_BASE}/admin/problems/${encodeURIComponent(problemId)}`, {
+    method: 'DELETE'
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to delete problem.');
+  return data;
+}
+
+// --- Leaderboard reset (Part A.10) ---
+export async function adminResetLeaderboard() {
+  const res = await adminFetch(`${API_BASE}/admin/event/reset-leaderboard`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ confirm: true })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Failed to reset leaderboard.');
+  return data;
+}
+
+// --- Client-side PDF export (Part A.8: CSV + PDF for faculty) ---
+// Builds a printable report in a new window; the user prints to PDF.
+export function exportRowsToPdf(title, rows, columns) {
+  const win = window.open('', '_blank', 'width=1000,height=700');
+  if (!win) throw new Error('Popup blocked. Allow popups to export PDF.');
+  const esc = (v) => String(v ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const head = columns.map(c => `<th>${esc(c.label)}</th>`).join('');
+  const body = rows.map(r => `<tr>${columns.map(c => `<td>${esc(typeof c.get === 'function' ? c.get(r) : r[c.key])}</td>`).join('')}</tr>`).join('');
+  win.document.write(`<!doctype html><html><head><title>${esc(title)}</title>
+<style>body{font-family:Arial,sans-serif;padding:24px;color:#111}h1{font-size:18px}table{border-collapse:collapse;width:100%;font-size:11px}th,td{border:1px solid #999;padding:4px 6px;text-align:left;vertical-align:top}th{background:#eee}@media print{.noprint{display:none}}</style>
+</head><body><h1>${esc(title)}</h1><p>Generated ${new Date().toLocaleString()} · ${rows.length} rows</p>
+<button class="noprint" onclick="window.print()">Print / Save as PDF</button><br><br>
+<table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></body></html>`);
+  win.document.close();
+  win.focus();
+}
+

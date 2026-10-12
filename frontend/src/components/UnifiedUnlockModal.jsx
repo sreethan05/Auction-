@@ -150,14 +150,16 @@ export function UnifiedUnlockModal({
   };
 
   return (
-    <div className="ov" style={{ zIndex: 1200 }} onClick={(e) => { if (e.target === e.currentTarget && !loading) onClose(); }}>
+    <div className="ov" style={{ zIndex: 1200, background: 'rgba(15, 23, 42, 0.4)', backdropFilter: 'blur(4px)' }} onClick={(e) => { if (e.target === e.currentTarget && !loading) onClose(); }}>
       <div
         className={`box ${shake ? 'lock-shake' : ''}`}
         style={{
           maxWidth: '450px',
           padding: '24px',
-          border: error ? '1px solid rgba(248, 81, 73, 0.4)' : successAnimation ? '1px solid rgba(63, 185, 80, 0.5)' : `1px solid ${accentColor}33`,
-          boxShadow: `0 24px 64px rgba(0, 0, 0, 0.8), 0 0 30px ${accentGlow}`
+          background: '#ffffff',
+          borderRadius: '16px',
+          border: error ? '1px solid #fca5a5' : successAnimation ? '1px solid #a7f3d0' : '1px solid #e2e8f0',
+          boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)'
         }}
       >
         {/* Modal Header */}
@@ -167,19 +169,20 @@ export function UnifiedUnlockModal({
               width: '36px',
               height: '36px',
               borderRadius: '8px',
-              background: accentGlow,
-              border: `1px solid ${accentColor}44`,
+              background: '#f5f3ff',
+              border: '1px solid #ddd6fe',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              color: '#7c3aed'
             }}>
               {getTargetIcon()}
             </div>
             <div>
-              <h3 style={{ margin: 0, fontSize: '17px', fontWeight: 700, color: '#ffffff' }}>
+              <h3 style={{ margin: 0, fontSize: '17px', fontWeight: 800, color: '#0f172a' }}>
                 {successAnimation ? 'Item Unlocked' : `Unlock ${target.title || 'Protected Item'}`}
               </h3>
-              <div style={{ fontSize: '12px', color: 'var(--txt-muted)', marginTop: '1px' }}>
+              <div style={{ fontSize: '12px', color: '#64748b', marginTop: '1px' }}>
                 {successAnimation ? 'Password verified successfully' : 'Password verification required'}
               </div>
             </div>
@@ -189,7 +192,7 @@ export function UnifiedUnlockModal({
             className="btn-ghost"
             onClick={onClose}
             disabled={loading}
-            style={{ padding: '6px' }}
+            style={{ padding: '6px', color: '#64748b' }}
           >
             <X size={16} />
           </button>
@@ -198,31 +201,31 @@ export function UnifiedUnlockModal({
         {/* Target Details Card */}
         <div style={{
           padding: '12px 14px',
-          borderRadius: '8px',
-          background: 'rgba(255, 255, 255, 0.03)',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          borderRadius: '10px',
+          background: '#f8fafc',
+          border: '1px solid #e2e8f0',
           marginBottom: '18px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between'
         }}>
           <div>
-            <div style={{ fontSize: '14px', fontWeight: 600, color: '#ffffff' }}>
+            <div style={{ fontSize: '14px', fontWeight: 700, color: '#0f172a' }}>
               {target.title}
             </div>
-            <div style={{ fontSize: '12px', color: 'var(--txt-muted)', marginTop: '2px' }}>
+            <div style={{ fontSize: '12px', color: '#64748b', marginTop: '2px' }}>
               {target.subtitle || (target.diff ? `${target.diff} · ${target.pts || 200} pts` : 'Power Card')}
             </div>
           </div>
 
           <span style={{
             fontSize: '11px',
-            fontWeight: 600,
+            fontWeight: 700,
             padding: '3px 8px',
             borderRadius: '12px',
-            background: successAnimation ? 'rgba(63, 185, 80, 0.15)' : 'rgba(255, 255, 255, 0.05)',
-            border: `1px solid ${successAnimation ? 'rgba(63, 185, 80, 0.4)' : 'rgba(255, 255, 255, 0.1)'}`,
-            color: successAnimation ? '#3fb950' : 'var(--txt-dim)',
+            background: successAnimation ? '#ecfdf5' : '#f1f5f9',
+            border: `1px solid ${successAnimation ? '#a7f3d0' : '#e2e8f0'}`,
+            color: successAnimation ? '#047857' : '#64748b',
             display: 'inline-flex',
             alignItems: 'center',
             gap: '4px'
@@ -235,14 +238,14 @@ export function UnifiedUnlockModal({
         {/* Target Problem ID input if Quick Unlock mode */}
         {isProblem && target.isQuickUnlock && (
           <div style={{ marginBottom: '14px' }}>
-            <label style={{ display: 'block', fontSize: '12px', color: 'var(--txt-muted)', fontWeight: 600, marginBottom: '6px' }}>
+            <label style={{ display: 'block', fontSize: '12px', color: '#475569', fontWeight: 600, marginBottom: '6px' }}>
               Problem ID
             </label>
             <input
               placeholder="e.g. E3, M1, H2"
               value={customProblemId}
               onChange={(e) => setCustomProblemId(e.target.value)}
-              style={{ width: '100%', padding: '9px 12px', fontSize: '13px' }}
+              style={{ width: '100%', padding: '9px 12px', fontSize: '13px', background: '#f8fafc', border: '1px solid #cbd5e1', borderRadius: '8px', color: '#0f172a', outline: 'none' }}
             />
           </div>
         )}
@@ -250,7 +253,7 @@ export function UnifiedUnlockModal({
         <form onSubmit={handleSubmit}>
           {/* Password Input Field */}
           <div style={{ marginBottom: '16px' }}>
-            <label style={{ display: 'block', fontSize: '12px', color: 'var(--txt-muted)', fontWeight: 600, marginBottom: '6px' }}>
+            <label style={{ display: 'block', fontSize: '12px', color: '#475569', fontWeight: 600, marginBottom: '6px' }}>
               Verification Password / Unlock Key
             </label>
             <div style={{ position: 'relative' }}>
@@ -259,7 +262,7 @@ export function UnifiedUnlockModal({
                 left: '12px',
                 top: '50%',
                 transform: 'translateY(-50%)',
-                color: 'var(--txt-dim)',
+                color: '#94a3b8',
                 display: 'flex'
               }}>
                 <KeyRound size={15} />
@@ -282,7 +285,11 @@ export function UnifiedUnlockModal({
                   paddingBottom: '9px',
                   fontSize: '14px',
                   fontFamily: showPassword ? 'inherit' : 'var(--font-mono)',
-                  borderColor: error ? '#f85149' : undefined
+                  background: '#f8fafc',
+                  border: `1px solid ${error ? '#dc2626' : '#cbd5e1'}`,
+                  borderRadius: '8px',
+                  color: '#0f172a',
+                  outline: 'none'
                 }}
               />
               <button
@@ -296,7 +303,7 @@ export function UnifiedUnlockModal({
                   background: 'transparent',
                   border: 'none',
                   padding: 0,
-                  color: 'var(--txt-muted)',
+                  color: '#64748b',
                   cursor: 'pointer'
                 }}
               >
@@ -304,7 +311,7 @@ export function UnifiedUnlockModal({
               </button>
             </div>
 
-            <div style={{ fontSize: '11px', color: 'var(--txt-dim)', marginTop: '5px' }}>
+            <div style={{ fontSize: '11px', color: '#64748b', marginTop: '5px' }}>
               {isSabotageCard && 'Enter sabotage password or organizer PIN to reveal controls.'}
               {isHintCard && 'Enter hint password or organizer PIN to access hints.'}
               {isProblemHint && 'Enter problem hint key or organizer PIN.'}
@@ -315,11 +322,11 @@ export function UnifiedUnlockModal({
           {/* Winning Bid Input (Only for Problems) */}
           {isProblem && (
             <div style={{ marginBottom: '16px' }}>
-              <label style={{ display: 'block', fontSize: '12px', color: 'var(--txt-muted)', fontWeight: 600, marginBottom: '6px' }}>
+              <label style={{ display: 'block', fontSize: '12px', color: '#475569', fontWeight: 600, marginBottom: '6px' }}>
                 Winning Bid (ByteCoins)
               </label>
               <div style={{ position: 'relative' }}>
-                <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--txt-dim)', fontSize: '14px' }}>
+                <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8', fontSize: '14px', fontWeight: 700 }}>
                   ₹
                 </span>
                 <input
@@ -336,7 +343,12 @@ export function UnifiedUnlockModal({
                     paddingTop: '9px',
                     paddingBottom: '9px',
                     fontSize: '14px',
-                    fontFamily: 'var(--font-mono)'
+                    fontFamily: 'var(--font-mono)',
+                    background: '#f8fafc',
+                    border: '1px solid #cbd5e1',
+                    borderRadius: '8px',
+                    color: '#0f172a',
+                    outline: 'none'
                   }}
                 />
               </div>
@@ -346,17 +358,18 @@ export function UnifiedUnlockModal({
                 display: 'flex',
                 justifyContent: 'space-between',
                 fontSize: '12px',
-                color: 'var(--txt-muted)',
+                color: '#64748b',
                 marginTop: '10px',
-                padding: '8px 12px',
-                borderRadius: '6px',
-                background: 'rgba(255, 255, 255, 0.02)'
+                padding: '10px 14px',
+                borderRadius: '8px',
+                background: '#f8fafc',
+                border: '1px solid #e2e8f0'
               }}>
                 <span>Remaining Team Balance:</span>
                 <span style={{
-                  fontWeight: 600,
+                  fontWeight: 700,
                   fontFamily: 'var(--font-mono)',
-                  color: projectedRemaining < 0 ? '#f85149' : '#ffffff'
+                  color: projectedRemaining < 0 ? '#dc2626' : '#059669'
                 }}>
                   ₹{projectedRemaining} ByteCoins
                 </span>
@@ -371,13 +384,13 @@ export function UnifiedUnlockModal({
               alignItems: 'center',
               gap: '8px',
               padding: '10px 12px',
-              borderRadius: '6px',
-              background: 'rgba(248, 81, 73, 0.1)',
-              border: '1px solid rgba(248, 81, 73, 0.3)',
-              color: '#ff7b72',
+              borderRadius: '8px',
+              background: '#fee2e2',
+              border: '1px solid #fca5a5',
+              color: '#b91c1c',
               fontSize: '12px',
               marginBottom: '16px',
-              fontWeight: 500
+              fontWeight: 600
             }}>
               <AlertCircle size={15} style={{ flexShrink: 0 }} />
               <span>{error}</span>
@@ -391,13 +404,13 @@ export function UnifiedUnlockModal({
               alignItems: 'center',
               gap: '8px',
               padding: '10px 12px',
-              borderRadius: '6px',
-              background: 'rgba(63, 185, 80, 0.1)',
-              border: '1px solid rgba(63, 185, 80, 0.3)',
-              color: '#3fb950',
+              borderRadius: '8px',
+              background: '#ecfdf5',
+              border: '1px solid #a7f3d0',
+              color: '#047857',
               fontSize: '12px',
               marginBottom: '16px',
-              fontWeight: 500
+              fontWeight: 600
             }}>
               <CheckCircle2 size={15} style={{ flexShrink: 0 }} />
               <span>Password verified. Unlocking item...</span>
@@ -411,18 +424,23 @@ export function UnifiedUnlockModal({
               className="btn-ghost"
               onClick={onClose}
               disabled={loading || successAnimation}
+              style={{ padding: '8px 16px', borderRadius: '8px', background: '#f1f5f9', border: '1px solid #cbd5e1', color: '#475569', fontWeight: 600 }}
             >
               Cancel
             </button>
 
             <button
               type="submit"
-              className={isSabotageCard ? 'btn-danger' : isHintCard || isProblemHint ? 'btn-blue' : 'btn-primary'}
               disabled={loading || successAnimation || !password.trim()}
               style={{
-                padding: '8px 18px',
-                borderRadius: '6px',
-                fontWeight: 600
+                padding: '9px 20px',
+                borderRadius: '8px',
+                fontWeight: 700,
+                background: 'linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%)',
+                color: '#ffffff',
+                border: 'none',
+                boxShadow: '0 4px 12px rgba(124, 58, 237, 0.25)',
+                cursor: 'pointer'
               }}
             >
               {loading ? (

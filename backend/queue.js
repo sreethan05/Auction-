@@ -99,14 +99,17 @@ class ExecutionQueue {
           job.result = grade;
           job.status = 'COMPLETED';
 
-          // Process submission result, award difficulty score or deduct 10 penalty, track per-problem wrong counts, and log audit record
+          // Process submission result, award points or deduct 10 penalty, track per-problem wrong counts, and log audit record
           const processResult = db.processSubmissionResult({
             teamName: job.teamName,
             memberId: job.memberId,
             problemId: job.problemId,
             verdict: grade.verdict,
             passed: grade.passed,
-            details: grade.details
+            details: grade.details,
+            lang: job.lang,
+            code: job.code,
+            testResults: { passed: grade.hiddenPassed ?? 0, total: grade.totalHidden ?? 0 }
           });
 
           if (processResult) {

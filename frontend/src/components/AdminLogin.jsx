@@ -40,20 +40,19 @@ export function AdminLogin({ onLoginSuccess, onBackToWorkspace }) {
       justifyContent: 'center',
       alignItems: 'center',
       padding: '24px',
-      background: 'radial-gradient(ellipse at 50% 20%, rgba(30, 42, 80, 0.3) 0%, #060913 75%)',
-      color: '#ffffff',
+      background: 'radial-gradient(1000px 500px at 50% 10%, rgba(124, 58, 237, 0.08), transparent 70%), #f8fafc',
+      color: '#0f172a',
       fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
     }}>
       {/* Container Card */}
       <div style={{
         width: '100%',
         maxWidth: '440px',
-        background: 'rgba(13, 17, 28, 0.85)',
-        border: '1px solid rgba(255, 255, 255, 0.1)',
-        backdropFilter: 'blur(20px)',
+        background: '#ffffff',
+        border: '1px solid #e2e8f0',
         borderRadius: '16px',
         padding: '36px 32px',
-        boxShadow: '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(88, 166, 255, 0.08)'
+        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04)'
       }}>
         {/* Top Header */}
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
@@ -61,15 +60,18 @@ export function AdminLogin({ onLoginSuccess, onBackToWorkspace }) {
             display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',
-            width: '52px',
-            height: '52px',
-            borderRadius: '14px',
-            background: 'linear-gradient(135deg, rgba(88, 166, 255, 0.2) 0%, rgba(188, 140, 255, 0.2) 100%)',
-            border: '1px solid rgba(88, 166, 255, 0.3)',
+            width: '56px',
+            height: '56px',
+            borderRadius: '16px',
+            background: 'linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%)',
+            boxShadow: '0 8px 24px rgba(124, 58, 237, 0.3)',
             marginBottom: '16px',
-            boxShadow: '0 0 25px rgba(88, 166, 255, 0.2)'
+            userSelect: 'none',
+            color: '#ffffff',
+            fontWeight: 800,
+            fontSize: '28px'
           }}>
-            <Shield size={26} color="#58a6ff" />
+            A
           </div>
 
           <div style={{
@@ -79,15 +81,15 @@ export function AdminLogin({ onLoginSuccess, onBackToWorkspace }) {
             gap: '8px',
             marginBottom: '6px'
           }}>
-            <span style={{ fontSize: '18px', fontWeight: 800, letterSpacing: '0.8px', color: '#ffffff' }}>
-              QUBIT
+            <span style={{ fontSize: '20px', fontWeight: 800, letterSpacing: '0.4px', color: '#0f172a' }}>
+              THE AUCTIONEER
             </span>
-            <span style={{ color: '#bc8cff', fontWeight: 600 }}>//</span>
+            <span style={{ color: '#7c3aed', fontWeight: 600 }}>•</span>
             <span style={{
-              fontSize: '12px',
+              fontSize: '11px',
               fontWeight: 700,
-              letterSpacing: '1.2px',
-              color: 'var(--txt-muted)',
+              letterSpacing: '1px',
+              color: '#7c3aed',
               textTransform: 'uppercase'
             }}>
               ADMIN PORTAL
@@ -97,10 +99,10 @@ export function AdminLogin({ onLoginSuccess, onBackToWorkspace }) {
           <p style={{
             margin: 0,
             fontSize: '13px',
-            color: 'var(--txt-muted)',
+            color: '#64748b',
             lineHeight: 1.5
           }}>
-            Competition Control & Unlock Management Console
+            Online DSA Examination & Proctor Console
           </p>
         </div>
 
@@ -112,9 +114,9 @@ export function AdminLogin({ onLoginSuccess, onBackToWorkspace }) {
             gap: '10px',
             padding: '12px 14px',
             borderRadius: '8px',
-            background: 'rgba(248, 81, 73, 0.12)',
-            border: '1px solid rgba(248, 81, 73, 0.35)',
-            color: '#ff7b72',
+            background: '#fef2f2',
+            border: '1px solid #fecaca',
+            color: '#b91c1c',
             fontSize: '13px',
             marginBottom: '20px'
           }}>
@@ -139,7 +141,7 @@ export function AdminLogin({ onLoginSuccess, onBackToWorkspace }) {
             <div style={{ position: 'relative' }}>
               <User
                 size={16}
-                color="var(--txt-dim)"
+                color="#64748b"
                 style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }}
               />
               <input
@@ -156,9 +158,9 @@ export function AdminLogin({ onLoginSuccess, onBackToWorkspace }) {
                   paddingBottom: '10px',
                   fontSize: '14px',
                   borderRadius: '8px',
-                  background: 'rgba(255, 255, 255, 0.04)',
-                  border: '1px solid rgba(255, 255, 255, 0.12)',
-                  color: '#ffffff',
+                  background: '#ffffff',
+                  border: '1px solid #cbd5e1',
+                  color: '#0f172a',
                   boxSizing: 'border-box'
                 }}
               />
@@ -179,7 +181,7 @@ export function AdminLogin({ onLoginSuccess, onBackToWorkspace }) {
             <div style={{ position: 'relative' }}>
               <Lock
                 size={16}
-                color="var(--txt-dim)"
+                color="#64748b"
                 style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }}
               />
               <input
@@ -195,9 +197,9 @@ export function AdminLogin({ onLoginSuccess, onBackToWorkspace }) {
                   paddingBottom: '10px',
                   fontSize: '14px',
                   borderRadius: '8px',
-                  background: 'rgba(255, 255, 255, 0.04)',
-                  border: '1px solid rgba(255, 255, 255, 0.12)',
-                  color: '#ffffff',
+                  background: '#ffffff',
+                  border: '1px solid #cbd5e1',
+                  color: '#0f172a',
                   boxSizing: 'border-box'
                 }}
               />
@@ -216,7 +218,7 @@ export function AdminLogin({ onLoginSuccess, onBackToWorkspace }) {
               fontWeight: 600,
               borderRadius: '8px',
               justifyContent: 'center',
-              boxShadow: '0 4px 16px rgba(88, 166, 255, 0.25)'
+              boxShadow: '0 4px 14px rgba(124, 58, 237, 0.25)'
             }}
           >
             {loading ? (
@@ -248,7 +250,7 @@ export function AdminLogin({ onLoginSuccess, onBackToWorkspace }) {
                 padding: '4px 8px'
               }}
             >
-              <ArrowLeft size={13} /> Return to Team Workspace
+              <ArrowLeft size={13} /> Go to Participant Site
             </button>
           </div>
         )}

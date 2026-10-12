@@ -7,13 +7,15 @@ import { LockOverlay } from './components/LockOverlay';
 import { LeaderboardModal } from './components/LeaderboardModal';
 import { TransactionsModal } from './components/TransactionsModal';
 import { SabotageFreezeOverlay } from './components/SabotageFreezeOverlay';
+import { EffectBanner } from './components/EffectBanner';
+import { BlackoutOverlay } from './components/BlackoutOverlay';
 import { AdminLogin } from './components/AdminLogin';
 import { AdminDashboard } from './components/AdminDashboard';
 import { useAntiCheat } from './hooks/useAntiCheat';
 import {
   fetchProblems,
   getTeamStatus,
-  purchaseProblem,
+  fetchEventSettings,
   notifyMemberWorking,
   runCodeAsync,
   submitCodeAsync,
@@ -40,22 +42,12 @@ export function App() {
   const [codeMap, setCodeMap] = useState({});
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [showTransactions, setShowTransactions] = useState(false);
+  const [eventSettings, setEventSettings] = useState(null);
 
-  const [viewMode, setViewMode] = useState(() => (window.location.hash.includes('admin') ? 'admin' : 'workspace'));
+  const [viewMode, setViewMode] = useState(() =>
+    window.location.pathname.replace(/\/+$/, '') === '/admin' ? 'admin' : 'workspace'
+  );
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => isAdminAuthenticated());
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      if (window.location.hash.includes('admin')) {
-        setViewMode('admin');
-        setIsAdminLoggedIn(isAdminAuthenticated());
-      } else {
-        setViewMode('workspace');
-      }
-    };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
 
   const socketRef = useRef(null);
 
@@ -73,6 +65,15 @@ export function App() {
   useEffect(() => {
     loadProblemsAndPrices();
   }, [loadProblemsAndPrices]);
+
+  // 1b. Event clock (countdown, wild card cutoff, leaderboard freeze)
+  useEffect(() => {
+    fetchEventSettings().then(setEventSettings).catch(() => {});
+    const interval = setInterval(() => {
+      fetchEventSettings().then(setEventSettings).catch(() => {});
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
   // 2. Real-Time WebSocket Connection
   useEffect(() => {
@@ -113,6 +114,10 @@ export function App() {
             }));
           } else if (msg.type === 'PRICES_UPDATED') {
             setProblemPrices(msg.prices || {});
+          } else if (msg.type === 'EVENT_UPDATED') {
+            if (msg.eventSettings) {
+              setEventSettings(msg.eventSettings);
+            }
           } else if (msg.type === 'TEAM_LOCKED') {
             if (msg.team) {
               setTeam(msg.team);
@@ -133,7 +138,7 @@ export function App() {
     };
   }, [team?.name, currentMember?.memberId, isExamStarted]);
 
-  // 3. Periodic fallback polling of team and prices
+  // 3. Periodic fallback polling of team, prices, and event clock
   useEffect(() => {
     if (!team?.name || !isExamStarted) return;
     const interval = setInterval(async () => {
@@ -144,6 +149,9 @@ export function App() {
         ]);
         if (teamData.team) {
           setTeam(teamData.team);
+        }
+        if (teamData.eventSettings) {
+          setEventSettings(teamData.eventSettings);
         }
         if (probData.prices) {
           setProblemPrices(probData.prices);
@@ -256,7 +264,8 @@ export function App() {
   const activeProblem = problems.find(p => p.id === currentProblemId);
   const activeProblemStatus = activeProblem ? (team?.problemStatuses?.[activeProblem.id] || null) : null;
 
-  // Dedicated Admin Dashboard View Route
+  // Dedicated Admin Portal Route (/admin) — fully separate from the participant site.
+  // Participants never link here; organisers navigate to /admin directly.
   if (viewMode === 'admin') {
     if (isAdminLoggedIn) {
       return (
@@ -264,12 +273,9 @@ export function App() {
           onLogout={() => {
             adminLogout();
             setIsAdminLoggedIn(false);
-            window.location.hash = '';
-            setViewMode('workspace');
           }}
           onSwitchToWorkspace={() => {
-            window.location.hash = '';
-            setViewMode('workspace');
+            window.location.assign('/');
           }}
         />
       );
@@ -280,8 +286,7 @@ export function App() {
           setIsAdminLoggedIn(true);
         }}
         onBackToWorkspace={() => {
-          window.location.hash = '';
-          setViewMode('workspace');
+          window.location.assign('/');
         }}
       />
     );
@@ -293,23 +298,24 @@ export function App() {
       <Header
         team={team}
         currentMember={currentMember}
+        eventSettings={eventSettings}
         onOpenLeaderboard={() => setShowLeaderboard(true)}
         onOpenTransactions={() => setShowTransactions(true)}
         onToggleFullscreen={enterFullscreen}
-        onOpenAdmin={() => {
-          window.location.hash = '#admin';
-          setViewMode('admin');
-          setIsAdminLoggedIn(isAdminAuthenticated());
-        }}
       />
+
+      {/* Live strip of active sabotage effects (server-timed, survives refresh) */}
+      {isExamStarted && (team?.effects || []).length > 0 && (
+        <EffectBanner effects={team.effects} serverTime={eventSettings?.serverTime || 0} />
+      )}
 
       {/* Main Workspace Layout */}
       <main style={{ flex: 1, display: 'flex', minHeight: 0 }}>
         {/* Left Sidebar: IDE Project Navigator */}
         <aside style={{
           width: '236px',
-          background: 'rgba(8, 12, 22, 0.95)',
-          borderRight: '1px solid rgba(255, 255, 255, 0.08)',
+          background: '#ffffff',
+          borderRight: '1px solid #e2e8f0',
           display: 'flex',
           flexDirection: 'column',
           flexShrink: 0,
@@ -318,12 +324,12 @@ export function App() {
           {/* Sidebar Header: Team Identity */}
           <div style={{
             padding: '16px 14px 12px',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.06)'
+            borderBottom: '1px solid #e2e8f0'
           }}>
             <div style={{
               fontSize: '14px',
               fontWeight: 800,
-              color: '#ffffff',
+              color: '#0f172a',
               letterSpacing: '0.4px',
               marginBottom: '2px'
             }}>
@@ -334,15 +340,17 @@ export function App() {
               alignItems: 'center',
               justifyContent: 'space-between',
               fontSize: '12px',
-              color: 'var(--txt-muted)'
+              color: '#64748b'
             }}>
               <span>Shared Workspace</span>
               <span style={{
                 fontSize: '11px',
-                color: 'var(--txt-dim)',
-                background: 'rgba(255, 255, 255, 0.04)',
-                padding: '1px 6px',
-                borderRadius: '4px'
+                color: '#475569',
+                background: '#f1f5f9',
+                border: '1px solid #e2e8f0',
+                padding: '2px 7px',
+                borderRadius: '6px',
+                fontWeight: 600
               }}>
                 {(team?.members?.length || team?.size || 1)} Member{(team?.members?.length || team?.size || 1) !== 1 ? 's' : ''}
               </span>
@@ -356,14 +364,14 @@ export function App() {
             padding: '12px 8px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '2px'
+            gap: '3px'
           }}>
             {/* Section: UNLOCKED */}
             <div style={{
               fontSize: '11px',
               fontWeight: 700,
               letterSpacing: '1px',
-              color: 'var(--txt-dim)',
+              color: '#64748b',
               padding: '6px 8px 4px',
               textTransform: 'uppercase',
               display: 'flex',
@@ -371,35 +379,37 @@ export function App() {
               justifyContent: 'space-between'
             }}>
               <span>UNLOCKED</span>
-              <span style={{ fontSize: '10px' }}>{(team?.unlocked || []).length}</span>
+              <span style={{ fontSize: '11px', fontWeight: 700, background: '#f1f5f9', padding: '1px 6px', borderRadius: '4px', color: '#0f172a' }}>
+                {(team?.unlocked || []).length}
+              </span>
             </div>
 
             {(team?.unlocked || []).map((id) => {
               const prob = problems.find(p => p.id === id);
               const isSolved = (team?.solved || []).includes(id);
               const isActive = currentProblemId === id;
-              const statusInfo = team?.problemStatuses?.[id];
 
               return (
                 <div
                   key={id}
                   onClick={() => handleSelectProblem(id)}
                   style={{
-                    padding: '6px 10px',
-                    borderRadius: '5px',
+                    padding: '8px 10px',
+                    borderRadius: '6px',
                     cursor: 'pointer',
                     fontSize: '13px',
-                    color: isActive ? '#58a6ff' : (isSolved ? '#e6edf3' : 'var(--txt)'),
-                    background: isActive ? 'rgba(56, 139, 253, 0.12)' : 'transparent',
-                    borderLeft: isActive ? '2px solid #58a6ff' : '2px solid transparent',
+                    fontWeight: isActive ? 700 : (isSolved ? 600 : 500),
+                    color: isActive ? '#7c3aed' : (isSolved ? '#047857' : '#0f172a'),
+                    background: isActive ? '#f5f3ff' : 'transparent',
+                    borderLeft: isActive ? '3px solid #7c3aed' : '3px solid transparent',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '8px',
-                    transition: 'background 0.12s ease',
+                    transition: 'all 0.12s ease',
                     minWidth: 0
                   }}
                   onMouseEnter={(e) => {
-                    if (!isActive) e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
+                    if (!isActive) e.currentTarget.style.background = '#f8fafc';
                   }}
                   onMouseLeave={(e) => {
                     if (!isActive) e.currentTarget.style.background = 'transparent';
@@ -408,13 +418,13 @@ export function App() {
                 >
                   <span style={{
                     fontSize: '12px',
-                    color: isSolved ? '#3fb950' : '#58a6ff',
+                    color: isSolved ? '#16a34a' : (isActive ? '#7c3aed' : '#94a3b8'),
+                    fontWeight: 700,
                     flexShrink: 0
                   }}>
                     {isSolved ? '✓' : '●'}
                   </span>
                   <span style={{
-                    fontWeight: 500,
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     whiteSpace: 'nowrap',
@@ -429,7 +439,7 @@ export function App() {
             {(!team?.unlocked || team.unlocked.length === 0) && (
               <div style={{
                 fontSize: '12px',
-                color: 'var(--txt-dim)',
+                color: '#94a3b8',
                 padding: '8px 10px',
                 fontStyle: 'italic'
               }}>
@@ -440,21 +450,22 @@ export function App() {
 
           {/* Bottom Catalog Action */}
           <div style={{
-            padding: '10px 12px',
-            borderTop: '1px solid rgba(255, 255, 255, 0.06)'
+            padding: '12px',
+            borderTop: '1px solid #e2e8f0',
+            background: '#ffffff'
           }}>
             <button
               className={!currentProblemId ? "btn-primary" : "btn-ghost"}
               onClick={() => setCurrentProblemId(null)}
               style={{
                 width: '100%',
-                padding: '8px 12px',
+                padding: '9px 12px',
                 fontSize: '12px',
-                fontWeight: 600,
+                fontWeight: 700,
                 justifyContent: 'center'
               }}
             >
-              Problem Catalog ({problems.length})
+              My Problems ({(team?.unlocked || []).length})
             </button>
           </div>
         </aside>
@@ -486,6 +497,7 @@ export function App() {
             teamBalance={team?.balance ?? 1000}
             currentMember={currentMember}
             team={team}
+            eventSettings={eventSettings}
             onTeamUpdated={setTeam}
             onSelectProblem={handleSelectProblem}
             onPurchaseProblem={handlePurchaseProblem}
@@ -497,15 +509,10 @@ export function App() {
       {!isExamStarted && (
         <GateModal
           onTeamSessionReady={handleTeamSessionReady}
-          onOpenAdmin={() => {
-            window.location.hash = '#admin';
-            setViewMode('admin');
-            setIsAdminLoggedIn(isAdminAuthenticated());
-          }}
         />
       )}
 
-      {/* Sabotage Freeze Overlay (5-minute full screen lockout with real-time countdown) */}
+      {/* Sabotage Freeze Overlay (full screen lockout with real-time countdown) */}
       {isExamStarted && team?.frozenUntil && team.frozenUntil > Date.now() && (
         <SabotageFreezeOverlay
           team={team}
@@ -514,6 +521,14 @@ export function App() {
           }}
         />
       )}
+
+      {/* Blackout wild card: screen goes dark while the code keeps running */}
+      {isExamStarted && (() => {
+        const blackout = (team?.effects || []).find(e => e.cardId === 'BLACKOUT');
+        return blackout ? (
+          <BlackoutOverlay endsAt={blackout.endsAt} serverTime={eventSettings?.serverTime || 0} />
+        ) : null;
+      })()}
 
       {/* Lock Overlay (Anti-cheat lockout screen with Organiser PIN) */}
       {isExamStarted && team?.isLocked && (

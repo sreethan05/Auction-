@@ -38,7 +38,7 @@ export function SabotageFreezeOverlay({ team, onFreezeExpired }) {
         position: 'fixed',
         inset: 0,
         zIndex: 10000,
-        background: 'rgba(4, 7, 16, 0.92)',
+        background: 'rgba(15, 23, 42, 0.6)',
         backdropFilter: 'blur(8px)',
         display: 'flex',
         alignItems: 'center',
@@ -52,12 +52,12 @@ export function SabotageFreezeOverlay({ team, onFreezeExpired }) {
         style={{
           maxWidth: '460px',
           width: '100%',
-          background: '#0d111c',
-          border: '1px solid rgba(248, 81, 73, 0.35)',
-          borderRadius: '12px',
+          background: '#ffffff',
+          border: '1px solid #fecdd3',
+          borderRadius: '16px',
           padding: '32px 28px',
           textAlign: 'center',
-          boxShadow: '0 24px 64px rgba(0, 0, 0, 0.8), 0 0 30px rgba(248, 81, 73, 0.08)'
+          boxShadow: '0 24px 48px -12px rgba(225, 29, 72, 0.2), 0 10px 20px -5px rgba(0, 0, 0, 0.04)'
         }}
       >
         {/* Pulsing Lightning Icon */}
@@ -65,10 +65,10 @@ export function SabotageFreezeOverlay({ team, onFreezeExpired }) {
           style={{
             width: '56px',
             height: '56px',
-            borderRadius: '12px',
-            background: 'rgba(248, 81, 73, 0.12)',
-            border: '1px solid rgba(248, 81, 73, 0.3)',
-            color: '#ff7b72',
+            borderRadius: '14px',
+            background: '#ffe4e6',
+            border: '1px solid #fecdd3',
+            color: '#e11d48',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -82,7 +82,7 @@ export function SabotageFreezeOverlay({ team, onFreezeExpired }) {
           fontSize: '11px',
           fontWeight: 700,
           letterSpacing: '1.2px',
-          color: '#ff7b72',
+          color: '#e11d48',
           textTransform: 'uppercase',
           marginBottom: '4px'
         }}>
@@ -93,7 +93,7 @@ export function SabotageFreezeOverlay({ team, onFreezeExpired }) {
           style={{
             fontSize: '26px',
             fontWeight: 800,
-            color: '#ffffff',
+            color: '#0f172a',
             margin: '0 0 4px 0',
             letterSpacing: '0.5px'
           }}
@@ -103,8 +103,9 @@ export function SabotageFreezeOverlay({ team, onFreezeExpired }) {
 
         <p style={{
           fontSize: '14px',
-          color: 'var(--txt-muted)',
-          margin: '0 0 20px 0'
+          color: '#64748b',
+          margin: '0 0 20px 0',
+          fontWeight: 500
         }}>
           Your screen is frozen
         </p>
@@ -112,17 +113,17 @@ export function SabotageFreezeOverlay({ team, onFreezeExpired }) {
         {/* Countdown Timer Display */}
         <div
           style={{
-            background: 'rgba(255, 255, 255, 0.02)',
-            border: '1px solid rgba(248, 81, 73, 0.25)',
-            borderRadius: '10px',
+            background: '#fff1f2',
+            border: '1px solid #fecdd3',
+            borderRadius: '12px',
             padding: '16px 20px',
             marginBottom: '20px'
           }}
         >
           <div style={{
             fontSize: '11px',
-            fontWeight: 600,
-            color: 'var(--txt-dim)',
+            fontWeight: 700,
+            color: '#e11d48',
             textTransform: 'uppercase',
             letterSpacing: '1px',
             marginBottom: '4px'
@@ -135,7 +136,7 @@ export function SabotageFreezeOverlay({ team, onFreezeExpired }) {
               fontFamily: 'var(--font-mono)',
               fontSize: '44px',
               fontWeight: 800,
-              color: '#ffffff',
+              color: '#be123c',
               letterSpacing: '2px'
             }}
           >
@@ -145,7 +146,7 @@ export function SabotageFreezeOverlay({ team, onFreezeExpired }) {
 
         <p style={{
           fontSize: '12px',
-          color: 'var(--txt-dim)',
+          color: '#64748b',
           lineHeight: 1.5,
           margin: 0
         }}>

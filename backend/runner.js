@@ -7,6 +7,12 @@ import { v4 as uuidv4 } from 'uuid';
 const TIMEOUT_MS = 3000;
 const MAX_OUTPUT_BYTES = 64 * 1024; // 64 KB
 
+// Windows ships CPython as 'python' (no python3 shim); Linux/macOS use 'python3'.
+// Override with PYTHON_CMD if the lab image needs something else.
+function pythonCommand() {
+  return process.env.PYTHON_CMD || (process.platform === 'win32' ? 'python' : 'python3');
+}
+
 export function normalizeOutput(str) {
   if (str == null) return '';
   return String(str)
@@ -123,7 +129,7 @@ export async function executeCodeInSandbox(lang, code, stdin = '') {
     if (lang === 'python') {
       const scriptPath = path.join(tempDir, 'solution.py');
       fs.writeFileSync(scriptPath, code, 'utf-8');
-      runCmd = 'python3';
+      runCmd = pythonCommand();
       runArgs = [scriptPath];
     } else if (lang === 'c') {
       const srcPath = path.join(tempDir, 'solution.c');

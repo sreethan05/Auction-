@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Play, Send, RotateCcw, Loader2, CheckCircle, AlertTriangle, XCircle, Terminal, Lightbulb, Zap, Snowflake, Lock, Unlock } from 'lucide-react';
-import { useHintPass } from '../services/api';
+import { Play, Send, RotateCcw, Loader2, CheckCircle, AlertTriangle, XCircle, Terminal, Lightbulb, Zap, Snowflake, Lock, Unlock, Eye, Bot, Ban } from 'lucide-react';
+import { useHintPass, useAiDebug } from '../services/api';
 
 const STARTER_TEMPLATES = {
   python: `import sys\n\ndef main():\n    data = sys.stdin.read().split()\n    # TODO: parse input, solve, print output\n    print()\n\nif __name__ == "__main__":\n    main()\n`,
@@ -44,10 +44,41 @@ export function CodeEditorPane({
   const [allowPaste, setAllowPaste] = useState(false);
   const [hintLoading, setHintLoading] = useState(false);
   const [hintError, setHintError] = useState('');
+  const [aiDebugOutput, setAiDebugOutput] = useState(null);
+  const [aiDebugLoading, setAiDebugLoading] = useState(false);
+  const [effectNotice, setEffectNotice] = useState('');
 
   const isFrozen = Boolean(team?.frozenUntil && team.frozenUntil > Date.now());
   const isHintCardUnlocked = Boolean(team?.unlockedCards?.includes('HINT') || team?.hintUnlocked);
   const hasHintPass = (team?.hintPassesCount || 0) > 0;
+
+  // Wild card effects on this team (server-timed, delivered with team state)
+  const effects = team?.effects || [];
+  const hasEffect = (cardId) => effects.some(e => e.cardId === cardId);
+  const noBackspace = hasEffect('NO_BACKSPACE');
+  const tinyFont = hasEffect('TINY_FONT');
+  const noAutocomplete = hasEffect('NO_AUTOCOMPLETE');
+  const langLock = team?.languageLock?.active ? team.languageLock.lang : null;
+  const aiDebugGrant = team?.aiDebug?.[problem?.id];
+  const peekedTest = team?.peekedTests?.[problem?.id];
+
+  const handleUseAiDebug = async () => {
+    if (!problem?.id || !team?.name) return;
+    if (!window.confirm('Use your one-time AI Debug on this problem? It cannot be used again.')) return;
+    setAiDebugLoading(true);
+    try {
+      const res = await useAiDebug({
+        teamName: team.name,
+        memberId: currentMember?.memberId,
+        problemId: problem.id
+      });
+      setAiDebugOutput(res.analysis);
+    } catch (err) {
+      setAiDebugOutput(`AI Debug failed: ${err.message}`);
+    } finally {
+      setAiDebugLoading(false);
+    }
+  };
 
   const handleUseHintPassDirect = async () => {
     if (!problem?.id || !team?.name) return;
@@ -80,6 +111,7 @@ export function CodeEditorPane({
       setStdin(problem.si);
     }
     setOutputResult(null);
+    setAiDebugOutput(null);
   }, [problem?.id]);
 
   // Sync line number gutter with code textarea
@@ -93,6 +125,13 @@ export function CodeEditorPane({
   };
 
   const handleKeyDown = (e) => {
+    // No Backspace wild card: Backspace & Delete are blocked (server-timed effect)
+    if (noBackspace && (e.key === 'Backspace' || e.key === 'Delete')) {
+      e.preventDefault();
+      setEffectNotice('⌫ No Backspace effect is active — you cannot delete characters right now.');
+      setTimeout(() => setEffectNotice(''), 2500);
+      return;
+    }
     if (e.key === 'Tab') {
       e.preventDefault();
       const target = e.target;
@@ -248,6 +287,14 @@ export function CodeEditorPane({
   };
 
   const handleSubmit = async () => {
+    // Spec B7: exact confirmation before the final submission.
+    const priorAttempts = (team?.problemWrong?.[problem.id] || problemStatus?.wrongSubmissions || 0);
+    const message = priorAttempts > 0
+      ? `This is your final submission. Extra attempts cost -10. (Attempt #${priorAttempts + 1} on ${problem.id} — submit now?)`
+      : `This is your final submission. Extra attempts cost -10. Submit ${problem.id} now?`;
+    if (!window.confirm(message)) {
+      return;
+    }
     setIsSubmitting(true);
     setOutputResult({ status: 'QUEUED', message: 'Submission queued for server-side evaluation...' });
     try {
@@ -285,10 +332,10 @@ export function CodeEditorPane({
       {/* Left Pane: Problem Statement */}
       <div style={{
         width: '420px',
-        borderRight: '1px solid rgba(255, 255, 255, 0.08)',
+        borderRight: '1px solid #e2e8f0',
         overflowY: 'auto',
         padding: '24px',
-        background: 'rgba(8, 12, 22, 0.6)',
+        background: '#ffffff',
         flexShrink: 0
       }}>
         {/* Title & Difficulty Row */}
@@ -297,9 +344,9 @@ export function CodeEditorPane({
             <span style={{
               fontSize: '11px',
               fontWeight: 600,
-              color: 'var(--txt-muted)',
-              background: 'rgba(255, 255, 255, 0.04)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              color: '#64748b',
+              background: '#f1f5f9',
+              border: '1px solid #e2e8f0',
               padding: '2px 8px',
               borderRadius: '4px'
             }}>
@@ -312,9 +359,9 @@ export function CodeEditorPane({
             {/* Wrong submissions counter & penalty */}
             {(team?.problemWrong?.[problem.id] || problemStatus?.wrongSubmissions || 0) > 0 && (
               <span style={{
-                background: 'rgba(248, 81, 73, 0.1)',
-                border: '1px solid rgba(248, 81, 73, 0.25)',
-                color: '#ff7b72',
+                background: '#fef2f2',
+                border: '1px solid #fecaca',
+                color: '#b91c1c',
                 padding: '2px 8px',
                 borderRadius: '4px',
                 fontSize: '11px',
@@ -325,7 +372,7 @@ export function CodeEditorPane({
             )}
           </div>
 
-          <h1 style={{ margin: 0, color: '#ffffff', fontSize: '20px', fontWeight: 700, letterSpacing: '0.2px' }}>
+          <h1 style={{ margin: 0, color: '#0f172a', fontSize: '20px', fontWeight: 700, letterSpacing: '0.2px' }}>
             {problem.id} — {problem.title}
           </h1>
         </div>
@@ -335,22 +382,22 @@ export function CodeEditorPane({
           <div
             className="card-unlocked-reveal"
             style={{
-              background: 'linear-gradient(180deg, rgba(30, 80, 180, 0.12) 0%, rgba(13, 17, 28, 0.8) 100%)',
-              border: '1px solid rgba(56, 139, 253, 0.3)',
+              background: '#eff6ff',
+              border: '1px solid #bfdbfe',
               borderRadius: '10px',
               padding: '14px 16px',
               marginBottom: '18px'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#58a6ff', fontWeight: 700, fontSize: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#2563eb', fontWeight: 700, fontSize: '12px' }}>
                 <Lightbulb size={15} /> Algorithmic Hint
               </div>
-              <span style={{ fontSize: '11px', color: 'var(--txt-dim)' }}>
+              <span style={{ fontSize: '11px', color: '#64748b' }}>
                 Unlocked by {team.revealedHints[problem.id].revealedByName || team.revealedHints[problem.id].revealedBy}
               </span>
             </div>
-            <div style={{ fontSize: '13px', color: '#f0f6fc', lineHeight: 1.55 }}>
+            <div style={{ fontSize: '13px', color: '#1e3a8a', lineHeight: 1.55 }}>
               {team.revealedHints[problem.id].hint}
             </div>
           </div>
@@ -359,17 +406,17 @@ export function CodeEditorPane({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            background: 'rgba(56, 139, 253, 0.04)',
-            border: '1px dashed rgba(56, 139, 253, 0.25)',
+            background: '#f8fafc',
+            border: '1px dashed #cbd5e1',
             borderRadius: '8px',
             padding: '12px 14px',
             marginBottom: '18px'
           }}>
             <div>
-              <div style={{ fontSize: '12px', fontWeight: 600, color: '#58a6ff', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <div style={{ fontSize: '12px', fontWeight: 600, color: '#2563eb', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Lock size={14} /> Locked Algorithmic Hint
               </div>
-              <div style={{ fontSize: '11px', color: 'var(--txt-dim)', marginTop: '2px' }}>
+              <div style={{ fontSize: '11px', color: '#64748b', marginTop: '2px' }}>
                 {isHintCardUnlocked && hasHintPass
                   ? `Your team has ${team.hintPassesCount} Hint Pass available.`
                   : 'Hint is locked by Administrator. Admin unlock or unlocked Hint Pass required.'}
@@ -385,7 +432,10 @@ export function CodeEditorPane({
                   fontSize: '11px',
                   padding: '6px 14px',
                   borderRadius: '6px',
-                  fontWeight: 600
+                  fontWeight: 600,
+                  background: '#2563eb',
+                  color: '#ffffff',
+                  border: 'none'
                 }}
               >
                 {hintLoading ? 'Revealing...' : `💡 Use Hint Pass (${team.hintPassesCount})`}
@@ -393,11 +443,11 @@ export function CodeEditorPane({
             ) : (
               <span style={{
                 fontSize: '11px',
-                color: 'var(--txt-dim)',
+                color: '#64748b',
                 padding: '5px 10px',
                 borderRadius: '6px',
-                background: 'rgba(255, 255, 255, 0.04)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#f1f5f9',
+                border: '1px solid #e2e8f0',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '4px'
@@ -409,7 +459,7 @@ export function CodeEditorPane({
         )}
 
         {hintError && (
-          <div style={{ padding: '8px 12px', background: 'rgba(248, 81, 73, 0.1)', border: '1px solid rgba(248, 81, 73, 0.3)', borderRadius: '6px', color: '#ff7b72', fontSize: '12px', marginBottom: '14px' }}>
+          <div style={{ padding: '8px 12px', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: '6px', color: '#b91c1c', fontSize: '12px', marginBottom: '14px' }}>
             {hintError}
           </div>
         )}
@@ -418,10 +468,10 @@ export function CodeEditorPane({
         {problemStatus?.status === 'SOLVED' && (
           <div style={{
             padding: '10px 14px',
-            background: 'rgba(63, 185, 80, 0.1)',
-            border: '1px solid rgba(63, 185, 80, 0.3)',
+            background: '#ecfdf5',
+            border: '1px solid #a7f3d0',
             borderRadius: '6px',
-            color: '#3fb950',
+            color: '#047857',
             fontSize: '12px',
             fontWeight: 600,
             marginBottom: '14px',
@@ -437,10 +487,10 @@ export function CodeEditorPane({
         {problemStatus?.status === 'IN_PROGRESS' && problemStatus.workingBy !== currentMember?.memberId && (
           <div style={{
             padding: '10px 14px',
-            background: 'rgba(210, 153, 34, 0.1)',
-            border: '1px solid rgba(210, 153, 34, 0.3)',
+            background: '#fffbeb',
+            border: '1px solid #fde68a',
             borderRadius: '6px',
-            color: '#d29922',
+            color: '#b45309',
             fontSize: '12px',
             fontWeight: 600,
             marginBottom: '14px',
@@ -456,7 +506,7 @@ export function CodeEditorPane({
         {/* Problem Specification Content */}
         <div style={specSectionStyle}>
           <div style={labelStyle}>Description</div>
-          <p style={{ margin: '6px 0', whiteSpace: 'pre-line', color: '#c9d1d9', lineHeight: 1.6, fontSize: '13px' }}>
+          <p style={{ margin: '6px 0', whiteSpace: 'pre-line', color: '#334155', lineHeight: 1.6, fontSize: '13px' }}>
             {problem.desc}
           </p>
         </div>
@@ -475,6 +525,24 @@ export function CodeEditorPane({
           <div style={labelStyle}>Sample Output</div>
           <pre style={codeBlockStyle}>{problem.so || '(None)'}</pre>
         </div>
+
+        {/* Peeked hidden test (revealed by the Peek wild card) */}
+        {peekedTest && (
+          <div style={{
+            background: '#fffbeb', border: '1px solid #fde68a', borderRadius: '8px',
+            padding: '12px 14px', marginBottom: '18px'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: 800, color: '#b45309', letterSpacing: '0.6px', marginBottom: '6px' }}>
+              <Eye size={13} /> PEEKED HIDDEN TEST (via Peek wild card)
+            </div>
+            <div style={codeBlockStyle}>
+              <div style={{ color: '#92400e', fontWeight: 700 }}>Hidden Input:</div>
+              <pre style={{ margin: '2px 0 8px', font: '12px var(--font-mono)', whiteSpace: 'pre-wrap' }}>{peekedTest.input || '(empty input)'}</pre>
+              <div style={{ color: '#92400e', fontWeight: 700 }}>Expected Output:</div>
+              <pre style={{ margin: '2px 0 0', font: '12px var(--font-mono)', whiteSpace: 'pre-wrap' }}>{peekedTest.expected || '(none)'}</pre>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Right Pane: Code Editor + Runner & Terminal (Largest Visual Area) */}
@@ -483,32 +551,36 @@ export function CodeEditorPane({
         display: 'flex',
         flexDirection: 'column',
         minWidth: 0,
-        background: '#090d16',
+        background: '#f8fafc',
         padding: '16px 20px',
         gap: '12px'
       }}>
         {/* Editor Toolbar */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
           <select
-            value={lang}
+            value={langLock ? langLock : lang}
             onChange={(e) => onLangChange(e.target.value)}
+            disabled={Boolean(langLock)}
+            title={langLock ? `Language Lock: you must use ${langLock.toUpperCase()} until your next solve` : 'Select language'}
             style={{
               width: 'auto',
               minWidth: '130px',
-              background: 'rgba(255, 255, 255, 0.04)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
+              background: langLock ? '#fffbeb' : '#ffffff',
+              border: langLock ? '1px solid #fde68a' : '1px solid #cbd5e1',
               borderRadius: '6px',
               padding: '6px 10px',
-              fontSize: '13px'
+              fontSize: '13px',
+              color: '#0f172a'
             }}
           >
+            {langLock && <option value={langLock}>{langLock.toUpperCase()} (LOCKED 🔡)</option>}
             <option value="python">Python 3</option>
             <option value="c">C</option>
             <option value="cpp">C++</option>
             <option value="java">Java</option>
           </select>
 
-          <button className="btn-ghost" onClick={handleReset} title="Reset starter code" style={{ fontSize: '12px' }}>
+          <button className="btn-ghost" onClick={handleReset} title="Reset starter code" style={{ fontSize: '12px', background: '#ffffff', border: '1px solid #cbd5e1', color: '#334155' }}>
             <RotateCcw size={13} /> Reset
           </button>
 
@@ -518,8 +590,9 @@ export function CodeEditorPane({
             title="Auto-fill passing solution for testing"
             style={{
               fontSize: '12px',
-              color: '#58a6ff',
-              borderColor: 'rgba(56, 139, 253, 0.3)'
+              color: '#2563eb',
+              background: '#eff6ff',
+              border: '1px solid #bfdbfe'
             }}
           >
             ⚡ Load Solution
@@ -531,11 +604,33 @@ export function CodeEditorPane({
             title={allowPaste ? "Paste is allowed" : "Paste is strict (Exam Mode)"}
             style={{
               fontSize: '11px',
-              color: allowPaste ? '#d29922' : 'var(--txt-dim)'
+              color: allowPaste ? '#d97706' : '#64748b',
+              background: '#ffffff',
+              border: '1px solid #cbd5e1'
             }}
           >
             {allowPaste ? '🔓 Paste: Dev' : '🔒 Paste: Strict'}
           </button>
+
+          {/* AI Debug wild card (one-time use, granted by the organizer) */}
+          {aiDebugGrant && !aiDebugGrant.used && (
+            <button
+              className="btn-ghost"
+              onClick={handleUseAiDebug}
+              disabled={aiDebugLoading}
+              title="One-time AI Debug analysis on this problem"
+              style={{
+                fontSize: '11px',
+                color: '#7c3aed',
+                background: '#f5f3ff',
+                border: '1px solid #ddd6fe',
+                fontWeight: 700
+              }}
+            >
+              {aiDebugLoading ? <Loader2 size={12} className="spin" /> : <Bot size={12} />}
+              AI Debug
+            </button>
+          )}
 
           <div style={{ flex: 1 }} />
 
@@ -549,10 +644,12 @@ export function CodeEditorPane({
               padding: '7px 16px',
               fontSize: '13px',
               borderRadius: '6px',
-              borderColor: 'rgba(255, 255, 255, 0.15)'
+              background: '#ffffff',
+              border: '1px solid #cbd5e1',
+              color: '#0f172a'
             }}
           >
-            {isRunning ? <Loader2 size={14} className="spin" /> : isFrozen ? <Zap size={14} color="#ff7b72" /> : <Play size={14} />}
+            {isRunning ? <Loader2 size={14} className="spin" /> : isFrozen ? <Zap size={14} color="#ef4444" /> : <Play size={14} />}
             {isFrozen ? 'Frozen' : 'Run Code'}
           </button>
 
@@ -577,9 +674,9 @@ export function CodeEditorPane({
           flex: 1,
           minHeight: '260px',
           display: 'flex',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          border: '1px solid #cbd5e1',
           borderRadius: '8px',
-          background: '#0d111c',
+          background: '#ffffff',
           overflow: 'hidden'
         }}>
           <pre
@@ -589,12 +686,12 @@ export function CodeEditorPane({
               textAlign: 'right',
               padding: '12px 10px 12px 0',
               margin: 0,
-              color: '#484f58',
-              background: 'rgba(0, 0, 0, 0.25)',
+              color: '#94a3b8',
+              background: '#f8fafc',
               userSelect: 'none',
               overflow: 'hidden',
-              font: '13px/20px var(--font-mono)',
-              borderRight: '1px solid rgba(255, 255, 255, 0.06)'
+              font: tinyFont ? '10px/14px var(--font-mono)' : '13px/20px var(--font-mono)',
+              borderRight: '1px solid #e2e8f0'
             }}
           >
             {gutterLines}
@@ -616,8 +713,8 @@ export function CodeEditorPane({
               border: 0,
               borderRadius: 0,
               background: 'transparent',
-              color: '#f0f6fc',
-              font: '13px/20px var(--font-mono)',
+              color: '#0f172a',
+              font: tinyFont ? '10px/14px var(--font-mono)' : '13px/20px var(--font-mono)',
               padding: '12px 14px',
               resize: 'none',
               outline: 'none',
@@ -625,6 +722,33 @@ export function CodeEditorPane({
             }}
           />
         </div>
+
+        {/* Wild card effect notices (No Backspace etc.) */}
+        {(effectNotice || noBackspace || noAutocomplete) && (
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: '8px',
+            padding: '8px 14px', borderRadius: '8px', fontSize: '12px', fontWeight: 700,
+            background: '#fff1f2', border: '1px solid #fecdd3', color: '#be123c'
+          }}>
+            <Ban size={13} />
+            {effectNotice || 'Editor restrictions active from a rival wild card (see the banner above).'}
+          </div>
+        )}
+
+        {/* AI Debug output (one-time wild card use) */}
+        {aiDebugOutput && (
+          <div style={{
+            background: '#f5f3ff', border: '1px solid #ddd6fe', borderRadius: '8px',
+            padding: '12px 16px'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: 800, color: '#7c3aed', letterSpacing: '0.6px', marginBottom: '6px' }}>
+              <Bot size={13} /> AI DEBUG ANALYSIS (ONE-TIME USE — CONSUMED)
+            </div>
+            <pre style={{ margin: 0, fontSize: '12.5px', color: '#4c1d95', whiteSpace: 'pre-wrap', fontFamily: 'inherit', lineHeight: 1.6 }}>
+              {aiDebugOutput}
+            </pre>
+          </div>
+        )}
 
         {/* Custom Input */}
         <div>
@@ -639,8 +763,9 @@ export function CodeEditorPane({
               fontFamily: 'var(--font-mono)',
               fontSize: '12px',
               borderRadius: '6px',
-              background: 'rgba(255, 255, 255, 0.025)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              background: '#ffffff',
+              border: '1px solid #cbd5e1',
+              color: '#0f172a',
               resize: 'vertical',
               padding: '8px 12px'
             }}
@@ -649,20 +774,21 @@ export function CodeEditorPane({
 
         {/* Terminal Execution Output Drawer */}
         <div style={{
-          background: '#070a12',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          background: '#ffffff',
+          border: '1px solid #e2e8f0',
           borderRadius: '8px',
           padding: '14px 18px',
           minHeight: '130px',
           maxHeight: '260px',
-          overflowY: 'auto'
+          overflowY: 'auto',
+          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)'
         }}>
           <div style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
             marginBottom: '10px',
-            color: 'var(--txt-muted)',
+            color: '#64748b',
             fontSize: '11px',
             fontWeight: 700,
             textTransform: 'uppercase',
@@ -678,12 +804,12 @@ export function CodeEditorPane({
                 textTransform: 'none',
                 letterSpacing: 'normal',
                 color: outputResult.data.compileError
-                  ? '#ff7b72'
+                  ? '#b91c1c'
                   : outputResult.data.isCorrect === true
-                  ? '#3fb950'
+                  ? '#047857'
                   : outputResult.data.isCorrect === false
-                  ? '#ff7b72'
-                  : '#58a6ff'
+                  ? '#b91c1c'
+                  : '#2563eb'
               }}>
                 {outputResult.data.compileError
                   ? 'Compilation Failed'
@@ -697,13 +823,13 @@ export function CodeEditorPane({
           </div>
 
           {!outputResult && (
-            <div style={{ color: 'var(--txt-dim)', fontSize: '13px' }}>
+            <div style={{ color: '#94a3b8', fontSize: '13px' }}>
               Run or submit your code to view console output and test verdicts…
             </div>
           )}
 
           {outputResult && outputResult.status === 'QUEUED' && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#d29922', fontSize: '13px', padding: '12px 0' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#d97706', fontSize: '13px', padding: '12px 0' }}>
               <Loader2 size={16} className="spin" />
               <span>{outputResult.message || 'Executing code on runner pool...'}</span>
             </div>
@@ -722,27 +848,27 @@ export function CodeEditorPane({
                 fontSize: '13px',
                 fontWeight: 600,
                 background: outputResult.data.compileError
-                  ? 'rgba(248, 81, 73, 0.12)'
+                  ? '#fef2f2'
                   : outputResult.data.isCorrect === true
-                  ? 'rgba(63, 185, 80, 0.12)'
+                  ? '#ecfdf5'
                   : outputResult.data.isCorrect === false
-                  ? 'rgba(248, 81, 73, 0.12)'
-                  : 'rgba(56, 139, 253, 0.12)',
+                  ? '#fef2f2'
+                  : '#eff6ff',
                 color: outputResult.data.compileError
-                  ? '#ff7b72'
+                  ? '#b91c1c'
                   : outputResult.data.isCorrect === true
-                  ? '#3fb950'
+                  ? '#047857'
                   : outputResult.data.isCorrect === false
-                  ? '#ff7b72'
-                  : '#58a6ff',
+                  ? '#b91c1c'
+                  : '#2563eb',
                 border: `1px solid ${
                   outputResult.data.compileError
-                    ? 'rgba(248, 81, 73, 0.3)'
+                    ? '#fecaca'
                     : outputResult.data.isCorrect === true
-                    ? 'rgba(63, 185, 80, 0.3)'
+                    ? '#a7f3d0'
                     : outputResult.data.isCorrect === false
-                    ? 'rgba(248, 81, 73, 0.3)'
-                    : 'rgba(56, 139, 253, 0.3)'
+                    ? '#fecaca'
+                    : '#bfdbfe'
                 }`
               }}>
                 {outputResult.data.compileError ? (
@@ -785,15 +911,15 @@ export function CodeEditorPane({
               }}>
                 {/* Box A: YOUR OUTPUT */}
                 <div style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: `1px solid ${outputResult.data.isCorrect === false ? 'rgba(248, 81, 73, 0.28)' : 'rgba(255, 255, 255, 0.08)'}`,
+                  background: '#f8fafc',
+                  border: `1px solid ${outputResult.data.isCorrect === false ? '#fecaca' : '#e2e8f0'}`,
                   borderRadius: '6px',
                   padding: '10px 12px'
                 }}>
                   <div style={{
                     fontSize: '11px',
                     fontWeight: 700,
-                    color: 'var(--txt-muted)',
+                    color: '#64748b',
                     textTransform: 'uppercase',
                     letterSpacing: '0.6px',
                     marginBottom: '6px'
@@ -804,7 +930,7 @@ export function CodeEditorPane({
                     margin: 0,
                     fontFamily: 'var(--font-mono)',
                     fontSize: '13px',
-                    color: outputResult.data.isCorrect === false ? '#ff7b72' : '#f0f6fc',
+                    color: outputResult.data.isCorrect === false ? '#b91c1c' : '#0f172a',
                     whiteSpace: 'pre-wrap',
                     wordBreak: 'break-all'
                   }}>
@@ -815,15 +941,15 @@ export function CodeEditorPane({
                 {/* Box B: EXPECTED OUTPUT */}
                 {outputResult.data.expected && (
                   <div style={{
-                    background: 'rgba(63, 185, 80, 0.04)',
-                    border: '1px solid rgba(63, 185, 80, 0.25)',
+                    background: '#ecfdf5',
+                    border: '1px solid #a7f3d0',
                     borderRadius: '6px',
                     padding: '10px 12px'
                   }}>
                     <div style={{
                       fontSize: '11px',
                       fontWeight: 700,
-                      color: '#3fb950',
+                      color: '#047857',
                       textTransform: 'uppercase',
                       letterSpacing: '0.6px',
                       marginBottom: '6px'
@@ -834,7 +960,7 @@ export function CodeEditorPane({
                       margin: 0,
                       fontFamily: 'var(--font-mono)',
                       fontSize: '13px',
-                      color: '#a6e3a1',
+                      color: '#065f46',
                       whiteSpace: 'pre-wrap',
                       wordBreak: 'break-all'
                     }}>
@@ -846,7 +972,7 @@ export function CodeEditorPane({
 
               {/* Details explanation if submit failure or diff info */}
               {outputResult.data.details && (
-                <div style={{ fontSize: '12px', color: 'var(--txt-muted)', marginTop: '6px' }}>
+                <div style={{ fontSize: '12px', color: '#64748b', marginTop: '6px' }}>
                   {outputResult.data.details}
                 </div>
               )}
@@ -857,13 +983,13 @@ export function CodeEditorPane({
                   marginTop: '8px',
                   padding: '8px 12px',
                   borderRadius: '6px',
-                  background: 'rgba(248, 81, 73, 0.08)',
-                  border: '1px solid rgba(248, 81, 73, 0.25)'
+                  background: '#fef2f2',
+                  border: '1px solid #fecaca'
                 }}>
-                  <div style={{ fontSize: '11px', fontWeight: 700, color: '#ff7b72', marginBottom: '4px' }}>
+                  <div style={{ fontSize: '11px', fontWeight: 700, color: '#b91c1c', marginBottom: '4px' }}>
                     STDERR / COMPILER DIAGNOSTICS:
                   </div>
-                  <pre style={{ margin: 0, fontSize: '12px', color: '#ff7b72', fontFamily: 'var(--font-mono)', whiteSpace: 'pre-wrap' }}>
+                  <pre style={{ margin: 0, fontSize: '12px', color: '#b91c1c', fontFamily: 'var(--font-mono)', whiteSpace: 'pre-wrap' }}>
                     {outputResult.data.stderr}
                   </pre>
                 </div>
@@ -872,7 +998,7 @@ export function CodeEditorPane({
           )}
 
           {outputResult && outputResult.error && (
-            <div style={{ color: '#ff7b72', fontSize: '13px', marginTop: '6px' }}>
+            <div style={{ color: '#b91c1c', fontSize: '13px', marginTop: '6px' }}>
               ⚠ {outputResult.error}
             </div>
           )}
@@ -888,7 +1014,7 @@ const specSectionStyle = {
 
 const labelStyle = {
   fontSize: '11px',
-  color: 'var(--txt-muted)',
+  color: '#64748b',
   textTransform: 'uppercase',
   letterSpacing: '1px',
   fontWeight: 700,
@@ -896,13 +1022,13 @@ const labelStyle = {
 };
 
 const codeBlockStyle = {
-  background: 'rgba(255, 255, 255, 0.03)',
-  border: '1px solid rgba(255, 255, 255, 0.08)',
+  background: '#f8fafc',
+  border: '1px solid #e2e8f0',
   borderRadius: '6px',
   padding: '8px 12px',
   margin: '4px 0 0',
   font: '12px var(--font-mono)',
   whiteSpace: 'pre-wrap',
   wordBreak: 'break-word',
-  color: '#c9d1d9'
+  color: '#0f172a'
 };
