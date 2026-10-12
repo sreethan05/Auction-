@@ -41,6 +41,10 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          # Auto-enable Pages (source: GitHub Actions) if it is not already on,
+          # so the deploy never fails with "Get Pages site failed ... Not Found".
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
